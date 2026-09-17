@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Vercel
+.vercel/
+
+# Agents & IDE
+.agents/
+skills-lock.json
+.vscode/
+.idea/
+
+# OS generated
+Thumbs.db
+ehthumbs.db
+.DS_Store
+
+# Raw unoptimized media backups
+Videolar/
+MapsGörseller/

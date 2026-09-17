@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Uzmanlık Alanlarımız & Hizmetler | LOCCA Hair Studio • Yunus Soner Manavgat</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  
+  <!-- Google Fonts: Playfair Display + Inter & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Inter"', '"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            creambg: '#faf7f2',
+            cardbg: '#f1ede6',
+            luxedark: '#121212',
+            subtletext: '#6d6860',
+          },
+          letterSpacing: {
+            widestsubtle: '0.2em',
+            ultrawide: '0.28em',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Premium Motion Design CSS -->
+  <link rel="stylesheet" href="css/motion.css" />
+
+  <style>
+    body {
+      background-color: #faf7f2;
+      color: #121212;
+      font-family: 'Inter', sans-serif;
+    }
+    .font-editorial-italic {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-luxedark selection:text-creambg overflow-x-hidden flex flex-col min-h-screen">
+
+  <!-- ================================================================= -->
+  <!-- NAVBAR                                                            -->
+  <!-- ================================================================= -->
+  <header class="sticky top-0 z-50 bg-creambg/95 backdrop-blur-md border-b border-neutral-200/80 transition-all animate-load-nav">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center group py-1">
+        <img src="logo.png" alt="LOCA Hair & Beauty Saloon" class="h-9 md:h-11 w-auto object-contain mix-blend-multiply group-hover:opacity-85 transition-all">
+      </a>
+
+      <!-- Menü Linkleri (Dönüşümler kaldırıldı) -->
+      <nav class="hidden md:flex items-center gap-7 text-[11px] font-medium tracking-widestsubtle uppercase text-luxedark/80">
+        <a href="index.html" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
+        <a href="hizmetler.html" class="nav-link-animated active-link text-luxedark">Hizmetler</a>
+        <a href="hakkimizda.html" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
+        <a href="index.html#yorumlar" class="nav-link-animated hover:text-luxedark transition-colors">Yorumlar</a>
+        <a href="index.html#sss" class="nav-link-animated hover:text-luxedark transition-colors">SSS</a>
+      </nav>
+
+      <!-- Sağ Buton & Mobil Hamburger -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <a href="randevu.html" class="btn-motion inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full border border-luxedark text-[11px] font-semibold uppercase tracking-widestsubtle bg-luxedark text-creambg hover:bg-transparent hover:text-luxedark shadow-sm">
+          Randevu Al
+        </a>
+        <button id="mobileMenuToggle" type="button" aria-label="Menüyü Aç" aria-expanded="false" class="hamburger-btn md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-full border border-neutral-300 hover:border-luxedark transition-colors space-y-1.5 focus:outline-none cursor-pointer">
+          <span class="hamburger-line line-top"></span>
+          <span class="hamburger-line line-middle"></span>
+          <span class="hamburger-line line-bottom"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBİL MENÜ DRAWER -->
+  <div id="mobileMenuDrawer" class="mobile-drawer-overlay fixed inset-0 z-50 hidden bg-luxedark/50 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Mobil Menü">
+    <div class="drawer-backdrop absolute inset-0"></div>
+    <div class="mobile-drawer-content absolute top-0 right-0 h-full w-full max-w-xs bg-creambg p-6 shadow-2xl flex flex-col justify-between z-10 border-l border-neutral-200">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-neutral-200">
+          <img src="logo.png" alt="LOCCA Hair Studio" class="h-8 w-auto mix-blend-multiply">
+          <button type="button" class="drawer-close-btn w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-luxedark hover:bg-luxedark hover:text-creambg transition-colors text-xs cursor-pointer" aria-label="Menüyü Kapat">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 pt-8 text-xs font-semibold tracking-widest uppercase text-luxedark">
+          <a href="index.html" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
+            <span>Ana Sayfa</span>
+            <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
+          </a>
+          <a href="hizmetler.html" class="mobile-nav-item py-2 text-luxedark flex items-center justify-between border-b border-neutral-200/50">
+            <span>Hizmetler</span>
+            <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
+          </a>
+          <a href="hakkimizda.html" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
+            <span>Hakkımızda</span>
+            <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
+          </a>
+          <a href="index.html#yorumlar" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
+            <span>Yorumlar</span>
+            <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
+          </a>
+          <a href="index.html#sss" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
+            <span>SSS</span>
+            <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
+          </a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-neutral-200 flex flex-col gap-3">
+        <a href="randevu.html" class="btn-motion w-full py-3.5 rounded-full bg-luxedark text-creambg text-center text-xs font-semibold uppercase tracking-widest shadow-md">
+          Randevu Al
+        </a>
+        <a href="https://wa.me/905071993424" target="_blank" class="btn-motion-outline w-full py-3 rounded-full border border-neutral-300 text-center text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+          <span>WhatsApp Danışma</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- BAŞLIK BÖLÜMÜ                                                     -->
+  <!-- ================================================================= -->
+  <section class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 pb-8 sm:pb-12 text-center" data-reveal="fade-up">
+    <span class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1.5 sm:mb-2">
+      ustalık ve samimi özenle
+    </span>
+    <h1 class="text-xl sm:text-3xl md:text-5xl font-light uppercase tracking-widest text-luxedark max-w-3xl mx-auto leading-tight">
+      UZMANLIK ALANLARIMIZ VE TEKNİKLERİMİZ
+    </h1>
+    <p class="text-xs sm:text-sm text-subtletext mt-3 sm:mt-4 font-light max-w-xl mx-auto leading-relaxed px-2">
+      Her kadının saç anatomisi, yoğunluğu ve geçmiş boya tecrübesi kendine hastır. LOCCA stüdyosunda standart reçeteler değil, kişiye özel saç mimarisi uygulanır.
+    </p>
+
+    <!-- Fiyatlandırma Politikası Bilgilendirme Rozeti -->
+    <div class="inline-flex items-center gap-2 mt-5 sm:mt-6 px-4 py-2.5 rounded-full bg-cardbg/80 border border-neutral-300 text-[11px] text-subtletext max-w-md text-left sm:text-center leading-snug">
+      <i class="fa-solid fa-circle-info text-luxedark/70 shrink-0"></i>
+      <span>Fiyatlarımız saç yapınız ve kullanılacak gramaja göre salonda yüz yüze belirlenmektedir.</span>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 4 ANA HİZMET REHBERİ (EDİTORYAL DERGİ MİZANPAJI)                  -->
+  <!-- ================================================================= -->
+  <section class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-12 sm:space-y-18 md:space-y-28">
+    
+    <!-- 1. HİZMET: Ultra Görünmez Mikro Saç Kaynak -->
+    <div id="mikro-kaynak" class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-14 items-center" data-reveal="fade-up">
+      <!-- Görsel (6 Kolon) -->
+      <div class="md:col-span-6">
+        <div class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-[4/4.5] rounded-2xl sm:rounded-3xl overflow-hidden relative shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-neutral-200 group bg-cardbg">
+          <img 
+            src="images/locca-gercek-sac-kaynak.jpg" 
+            alt="Ultra Görünmez Mikro Saç Kaynak - Locca Kuaför" 
+            class="img-zoom-target w-full h-full object-cover"
+          />
+          <div class="absolute top-3 sm:top-4 left-3 sm:left-4 bg-creambg/90 backdrop-blur-sm px-3 sm:px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+            İmza Uzmanlık
+          </div>
+        </div>
+      </div>
+
+      <!-- İçerik (6 Kolon) -->
+      <div class="md:col-span-6 flex flex-col justify-center space-y-4 sm:space-y-6">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-subtletext block mb-1">01 / İMZA UZMANLIK</span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-light uppercase tracking-widest text-luxedark">
+            Ultra Görünmez Mikro Saç Kaynak
+          </h2>
+        </div>
+
+        <!-- 1. Bölüm: Nasıl Yapıyoruz? -->
+        <div class="space-y-1 sm:space-y-1.5 border-l-2 border-luxedark/20 pl-3.5 sm:pl-4">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-[11px] text-luxedark/70"></i>
+            Nasıl Yapıyoruz?
+          </h3>
+          <p class="text-xs sm:text-sm text-subtletext font-light leading-relaxed">
+            Saçınızın yapısına, yoğunluğuna ve rengine en uygun %100 doğal saçları seçiyoruz. İtalyan nano keratin kapsüllerle saç diplerinize çok ince tutamlar halinde uyguluyoruz. Bağlantı noktaları hissedilmeyecek kadar küçük olduğu için saçınızı topladığınızda veya atkuyruğu yaptığınızda asla görünmez.
+          </p>
+        </div>
+
+        <!-- 2. Bölüm: Locca Kuaför Yaklaşımı -->
+        <div class="space-y-1 sm:space-y-1.5 border-l-2 border-luxedark/20 pl-3.5 sm:pl-4">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center gap-2">
+            <i class="fa-solid fa-heart text-[11px] text-luxedark/70"></i>
+            Locca Kuaför Yaklaşımı
+          </h3>
+          <p class="text-xs sm:text-sm text-subtletext font-light leading-relaxed">
+            Piyasadaki ağır ve saçı koparan kaynakların aksine, kendi saçınızın nefes almasını ve sağlıklı uzamasını sağlıyoruz. Çıkarma işleminde de saça zarar vermeyen özel solüsyonlar kullanıyoruz.
+          </p>
+        </div>
+
+        <!-- Randevu Butonu (Doğrudan WhatsApp İlgili İşlem Mesajı) -->
+        <div class="pt-2">
+          <a 
+            href="https://wa.me/905071993424?text=Merhaba,%20Ultra%20G%C3%B6r%C3%BCnmez%20Mikro%20Sa%C3%A7%20Kaynak%20i%C5%9Flemi%20i%C3%A7in%20randevu%20bilgisi%20almak%20istiyorum." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-motion w-full sm:w-auto inline-flex items-center justify-between pl-5 sm:pl-6 pr-2 py-2.5 rounded-full border border-luxedark text-xs font-semibold uppercase tracking-widest text-luxedark hover:bg-luxedark hover:text-creambg transition-all duration-300 group shadow-sm"
+          >
+            <span>Bu İşlem İçin Randevu Al</span>
+            <span class="w-8 h-8 rounded-full bg-luxedark text-creambg group-hover:bg-creambg group-hover:text-luxedark flex items-center justify-center ml-3 sm:ml-4 transition-colors shrink-0">
+              <i class="fa-brands fa-whatsapp text-[13px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. HİZMET: Buz Sarısı & Sombre (Özel Renklendirme - Ters Yerleşim) -->
+    <div id="buz-sarisi" class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-14 items-center" data-reveal="fade-up">
+      <!-- İçerik (6 Kolon - Masaüstünde Sol, Mobilde Doğal Okuma Akışı İçin Görsel Üstte veya Altta Dengeli) -->
+      <div class="md:col-span-6 order-2 md:order-1 flex flex-col justify-center space-y-4 sm:space-y-6">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-subtletext block mb-1">02 / ÖZEL RENKLENDİRME</span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-light uppercase tracking-widest text-luxedark">
+            Buz Sarısı & Sombre
+          </h2>
+        </div>
+
+        <!-- 1. Bölüm: Nasıl Yapıyoruz? -->
+        <div class="space-y-1 sm:space-y-1.5 border-l-2 border-luxedark/20 pl-3.5 sm:pl-4">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-[11px] text-luxedark/70"></i>
+            Nasıl Yapıyoruz?
+          </h3>
+          <p class="text-xs sm:text-sm text-subtletext font-light leading-relaxed">
+            Tek seansta saçı yakarak açmak yerine, kademeli açma protokolü uyguluyoruz. Bağ koruyucu (bond builder) bakım açıcılar kullanarak saç telinin elastikiyetini koruyoruz. Dipten uca çizgisiz ve doğal geçişli sarı tonları yakalıyoruz.
+          </p>
+        </div>
+
+        <!-- 2. Bölüm: Locca Kuaför Yaklaşımı -->
+        <div class="space-y-1 sm:space-y-1.5 border-l-2 border-luxedark/20 pl-3.5 sm:pl-4">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center gap-2">
+            <i class="fa-solid fa-heart text-[11px] text-luxedark/70"></i>
+            Locca Kuaför Yaklaşımı
+          </h3>
+          <p class="text-xs sm:text-sm text-subtletext font-light leading-relaxed">
+            Sarı saç yapmak kolaydır, ancak saçı yakmadan ve canlılığını kaybettirmeden açmak ustalık gerektirir. Turunculaşmayan, ipeksi ve kristal soğuk tonlar için her saçın geçmiş işlem durumuna göre özel formül hazırlıyoruz.
+          </p>
+        </div>
+
+        <!-- Randevu Butonu -->
+        <div class="pt-2">
+          <a 
+            href="https://wa.me/905071993424?text=Merhaba,%20Buz%20Sar%C4%B1s%C4%B1%20ve%20Sombre%20i%C5%9Flemi%20i%C3%A7in%20randevu%20bilgisi%20almak%20istiyorum." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-motion w-full sm:w-auto inline-flex items-center justify-between pl-5 sm:pl-6 pr-2 py-2.5 rounded-full border border-luxedark text-xs font-semibold uppercase tracking-widest text-luxedark hover:bg-luxedark hover:text-creambg transition-all duration-300 group shadow-sm"
+          >
+            <span>Bu İşlem İçin Randevu Al</span>
+            <span class="w-8 h-8 rounded-full bg-luxedark text-creambg group-hover:bg-creambg group-hover:text-luxedark flex items-center justify-center ml-3 sm:ml-4 transition-colors shrink-0">
+              <i class="fa-brands fa-whatsapp text-[13px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Görsel (6 Kolon - Masaüstünde Sağ) -->
+      <div class="md:col-span-6 order-1 md:order-2">
+        <div class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-[4/4.5] rounded-2xl sm:rounded-3xl overflow-hidden relative shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-neutral-200 group bg-cardbg">
+          <img 
+            src="images/buz-sarisi-sombre.jpg" 
+            alt="Buz Sarısı ve Sombre - Locca Kuaför" 
+            class="img-zoom-target w-full h-full object-cover"
+          />
+          <div class="absolute top-3 sm:top-4 right-3 sm:right-4 bg-creambg/90 backdrop-blur-sm px-3 sm:px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+            Kristal Soğuk Tonlar
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. HİZMET: Doğal Kahve & Işıltı (Babylights) -->
+    <div id="babylights" class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-14 items-center" data-reveal="fade-up">
+      <!-- Görsel (6 Kolon) -->
+      <div class="md:col-span-6">
+        <div class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-[4/4.5] rounded-2xl sm:rounded-3xl overflow-hidden relative shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-neutral-200 group bg-cardbg">
+          <img 
+            src="images/locca-babylights-kahve.jpg" 
+            alt="Doğal Kahve ve Işıltı Babylights - Locca Kuaför" 
+            class="img-zoom-target w-full h-full object-cover"
+          />
+          <div class="absolute top-3 sm:top-4 left-3 sm:left-4 bg-creambg/90 backdrop-blur-sm px-3 sm:px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+            Zahmetsiz Doğallık
+          </div>
+        </div>
+      </div>
+
+      <!-- İçerik (6 Kolon) -->
+      <div class="md:col-span-6 flex flex-col justify-center space-y-4 sm:space-y-6">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-subtletext block mb-1">03 / DOĞAL AYDINLATMA</span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-light uppercase tracking-widest text-luxedark">
+            Doğal Kahve & Işıltı (Babylights)
+          </h2>
+        </div>
+
+        <!-- 1. Bölüm: Nasıl Yapıyoruz? -->
+        <div class="space-y-1 sm:space-y-1.5 border-l-2 border-luxedark/20 pl-3.5 sm:pl-4">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-[11px] text-luxedark/70"></i>
+            Nasıl Yapıyoruz?
+          </h3>
+          <p class="text-xs sm:text-sm text-subtletext font-light leading-relaxed">
+            Saçın ana zemin rengini bozmadan, güneşten doğal olarak açılmış hissi veren çok ince ışıltı tutamları yerleştiriyoruz. Yüz hatlarınızı aydınlatacak stratejik noktalara hafif tonlamalar uyguluyoruz.
+          </p>
+        </div>
+
+        <!-- 2. Bölüm: Locca Kuaför Yaklaşımı -->
+        <div class="space-y-1 sm:space-y-1.5 border-l-2 border-luxedark/20 pl-3.5 sm:pl-4">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center gap-2">
+            <i class="fa-solid fa-heart text-[11px] text-luxedark/70"></i>
+            Locca Kuaför Yaklaşımı
+          </h3>
+          <p class="text-xs sm:text-sm text-subtletext font-light leading-relaxed">
+            Sürekli dip boyası yaptırmak istemeyen, saçında zahmetsiz ve doğal bir parlaklık arayan kadınlar için en ideal uygulamamızdır. Aylarca ilk günkü doğallığını korur.
+          </p>
+        </div>
+
+        <!-- Randevu Butonu -->
+        <div class="pt-2">
+          <a 
+            href="https://wa.me/905071993424?text=Merhaba,%20Do%C4%9Fal%20Kahve%20ve%20Babylights%20I%C5%9F%C4%B1lt%C4%B1%20i%C5%9Flemi%20i%C3%A7in%20randevu%20bilgisi%20almak%20istiyorum." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-motion w-full sm:w-auto inline-flex items-center justify-between pl-5 sm:pl-6 pr-2 py-2.5 rounded-full border border-luxedark text-xs font-semibold uppercase tracking-widest text-luxedark hover:bg-luxedark hover:text-creambg transition-all duration-300 group shadow-sm"
+          >
+            <span>Bu İşlem İçin Randevu Al</span>
+            <span class="w-8 h-8 rounded-full bg-luxedark text-creambg group-hover:bg-creambg group-hover:text-luxedark flex items-center justify-center ml-3 sm:ml-4 transition-colors shrink-0">
+              <i class="fa-brands fa-whatsapp text-[13px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. HİZMET: Saç Terapisi & Keratin Botoks (Ters Yerleşim) -->
+    <div id="keratin-botoks" class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-14 items-center" data-reveal="fade-up">
+      <!-- İçerik (6 Kolon - Sol) -->
+      <div class="md:col-span-6 order-2 md:order-1 flex flex-col justify-center space-y-4 sm:space-y-6">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-subtletext block mb-1">04 / ONARICI MİMARİ</span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-light uppercase tracking-widest text-luxedark">
+            Saç Terapisi & Keratin Botoks
+          </h2>
+        </div>
+
+        <!-- 1. Bölüm: Nasıl Yapıyoruz? -->
+        <div class="space-y-1 sm:space-y-1.5 border-l-2 border-luxedark/20 pl-3.5 sm:pl-4">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-[11px] text-luxedark/70"></i>
+            Nasıl Yapıyoruz?
+          </h3>
+          <p class="text-xs sm:text-sm text-subtletext font-light leading-relaxed">
+            Yıpranmış, nemini kaybetmiş ve matlaşmış saç tellerine yoğun keratin ve nem yüklemesi yapıyoruz. Isı ile saçın en derin korteks tabakasına hapsedilen bakım sayesinde kırık uçları toparlıyoruz.
+          </p>
+        </div>
+
+        <!-- 2. Bölüm: Locca Kuaför Yaklaşımı -->
+        <div class="space-y-1 sm:space-y-1.5 border-l-2 border-luxedark/20 pl-3.5 sm:pl-4">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center gap-2">
+            <i class="fa-solid fa-heart text-[11px] text-luxedark/70"></i>
+            Locca Kuaför Yaklaşımı
+          </h3>
+          <p class="text-xs sm:text-sm text-subtletext font-light leading-relaxed">
+            Dışarıdan sürülen geçici yağlar yerine saçın iç yapısını onarıyoruz. Fönün günlerce bozulmadan kalmasını ve saçın tararken ipek gibi akmasını sağlıyoruz.
+          </p>
+        </div>
+
+        <!-- Randevu Butonu -->
+        <div class="pt-2">
+          <a 
+            href="https://wa.me/905071993424?text=Merhaba,%20Sa%C3%A7%20Terapisi%20ve%20Keratin%20Botoks%20bak%C4%B1m%C4%B1%20i%C3%A7in%20randevu%20bilgisi%20almak%20istiyorum." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-motion w-full sm:w-auto inline-flex items-center justify-between pl-5 sm:pl-6 pr-2 py-2.5 rounded-full border border-luxedark text-xs font-semibold uppercase tracking-widest text-luxedark hover:bg-luxedark hover:text-creambg transition-all duration-300 group shadow-sm"
+          >
+            <span>Bu İşlem İçin Randevu Al</span>
+            <span class="w-8 h-8 rounded-full bg-luxedark text-creambg group-hover:bg-creambg group-hover:text-luxedark flex items-center justify-center ml-3 sm:ml-4 transition-colors shrink-0">
+              <i class="fa-brands fa-whatsapp text-[13px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Görsel (6 Kolon - Sağ) -->
+      <div class="md:col-span-6 order-1 md:order-2">
+        <div class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-[4/4.5] rounded-2xl sm:rounded-3xl overflow-hidden relative shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-neutral-200 group bg-cardbg">
+          <img 
+            src="images/locca-botoks-bakim-parlaklik.jpg" 
+            alt="Saç Terapisi ve Keratin Botoks - Locca Kuaför" 
+            class="img-zoom-target w-full h-full object-cover"
+          />
+          <div class="absolute top-3 sm:top-4 right-3 sm:right-4 bg-creambg/90 backdrop-blur-sm px-3 sm:px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+            İpeksi Onarım
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- ÇAĞRI BANDI                                                       -->
+  <!-- ================================================================= -->
+  <section class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+    <div class="card-motion w-full max-w-5xl mx-auto rounded-3xl border border-neutral-300 bg-[#ebe7e0] p-6 sm:p-12 text-center flex flex-col items-center justify-center" data-reveal="fade-up">
+      <span class="block font-editorial-italic text-2xl sm:text-4xl text-luxedark/90 mb-2">
+        saçınızın hikayesi burada başlar
+      </span>
+      <h3 class="text-lg sm:text-2xl font-light uppercase tracking-widest text-luxedark max-w-xl">
+        HAYALİNİZDEKİ SAÇ İÇİN BİZE DANIŞIN
+      </h3>
+      <p class="text-xs text-subtletext mt-3 max-w-md font-light leading-relaxed px-2">
+        Size en uygun seansı belirlemek için salon sahibimiz Yunus Soner ile yüz yüze veya telefonla görüşebilirsiniz.
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+        <a href="randevu.html" class="btn-motion w-full sm:w-auto px-8 py-3.5 bg-luxedark text-creambg rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-colors shadow-sm text-center">
+          Online Randevu Talebi
+        </a>
+        <a href="https://wa.me/905071993424?text=Merhaba,%20hizmetleriniz%20hakk%C4%B1nda%20dan%C4%B1%C5%9Fmak%20ve%20bilgi%20almak%20istiyorum." target="_blank" class="btn-motion-outline w-full sm:w-auto px-8 py-3.5 bg-creambg text-luxedark border border-neutral-300 rounded-full text-xs font-semibold uppercase tracking-wider hover:border-luxedark transition-colors text-center flex items-center justify-center">
+          <i class="fa-brands fa-whatsapp mr-2 text-emerald-600"></i> WhatsApp İle Danışın
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- FOOTER                                                            -->
+  <!-- ================================================================= -->
+  <footer data-reveal="fade-up" class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 pb-16 mt-auto">
+    <div class="max-w-5xl mx-auto border-t border-neutral-300/80 pt-8 sm:pt-10">
+      <div class="mb-6 sm:mb-8">
+        <a href="index.html" class="inline-block group">
+          <img src="logo.png" alt="LOCA Hair & Beauty Saloon" class="h-10 sm:h-11 md:h-14 lg:h-16 w-auto object-contain mix-blend-multiply group-hover:opacity-85 transition-all">
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-xs text-subtletext font-light mb-8 sm:mb-12">
+        <div>
+          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Adres & İletişim</span>
+          <p class="leading-relaxed">
+            Karagül Apartmanı, Aşağı Hisar Mah. Mithat Paşa Cd. No: 9Z2, Manavgat / Antalya
+          </p>
+          <div class="mt-3 flex flex-col gap-1.5">
+            <a href="tel:+905071993424" class="inline-flex items-center gap-2 text-luxedark font-medium hover:underline">
+              <i class="fa-solid fa-phone text-[10px]"></i>
+              <span>0507 199 34 24</span>
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Karag%C3%Bcl+Apartman%C4%B1+A%C5%9Fa%C4%9F%C4%B1+Hisar+Mahallesi+Mithat+Pa%C5%9Fa+Caddesi+No+9Z2+Manavgat&destination_place_id=ChIJSTDhm-FZwxQR2NChWbM1h9s" target="_blank" class="inline-flex items-center gap-1.5 text-[11px] text-luxedark/80 hover:text-luxedark underline mt-0.5">
+              <i class="fa-solid fa-location-arrow text-[10px]"></i>
+              <span>Yol Tarifi Al</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Çalışma Saatleri</span>
+          <p class="leading-relaxed">
+            Salı - Pazar (Pazartesi Kapalı)<br>
+            Sabit seans başlangıç saatleri: 10:00 / 13:30 / 16:30
+          </p>
+        </div>
+
+        <div>
+          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Müşteri Memnuniyeti</span>
+          <div class="inline-flex items-center gap-2 bg-creambg px-3 py-1.5 rounded-lg border border-neutral-200">
+            <span class="font-bold text-luxedark">5.0</span>
+            <span class="text-amber-500 tracking-wider">★★★★★</span>
+            <span class="text-[10px] text-subtletext">(374 Google Yorumu)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-subtletext gap-4">
+        <div>
+          © LOCCA Hair Studio. Tüm hakları saklıdır.
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 uppercase tracking-widest text-[10px]">
+          <a href="index.html" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
+          <a href="hizmetler.html" class="nav-link-animated hover:text-luxedark transition-colors">Hizmetler</a>
+          <a href="hakkimizda.html" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
+          <a href="randevu.html" class="nav-link-animated hover:text-luxedark transition-colors">Randevu</a>
+          <a href="https://www.instagram.com/yunus_soner_loca_hairdesing/" target="_blank" class="nav-link-animated hover:text-luxedark transition-colors">@yunus_soner_loca_hairdesing</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ZARİF YÜZEN WHATSAPP BUTONU -->
+  <a 
+    href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Kuaf%C3%B6r%20i%C3%A7in%20randevu%20bilgisi%20almak%20istiyorum." 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    aria-label="WhatsApp ile İletişime Geçin"
+    class="btn-motion wa-floating-btn fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 bg-[#1e2922] text-[#fbf9f5] rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.18)] border border-white/10 hover:bg-[#151e18] transition-all group"
+  >
+    <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm group-hover:rotate-12 transition-transform wa-pulse-dot">
+      <i class="fa-brands fa-whatsapp text-base"></i>
+    </div>
+    <span class="text-xs font-medium tracking-wide pr-1">WhatsApp Randevu</span>
+  </a>
+
+  <!-- Premium Motion Controller -->
+  <script src="js/motion.js"></script>
+
+</body>
+</html>
