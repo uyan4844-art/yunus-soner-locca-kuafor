@@ -316,52 +316,39 @@
   <!-- ================================================================= -->
   <!-- 1. HERO BÖLÜMÜ                                                    -->
   <!-- ================================================================= -->
-  <section class="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-14 sm:pb-24 md:pb-28 overflow-hidden md:overflow-visible">
+  <section class="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-14 sm:pb-24 md:pb-28">
     
-    <!-- Mobil Arka Plan Görseli (Mobilde Net ve Belirgin Görünüm) -->
-    <div class="block md:hidden absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-      <img 
-        src="images/hero-kusursuz-donusum.jpg" 
-        alt="LOCCA Kusursuz Dönüşüm Arka Plan" 
-        class="w-full h-full object-cover object-[center_15%] opacity-85 scale-100"
-        fetchpriority="high"
-        decoding="async"
-      />
-      <!-- Karartma & Yumuşak Alt Geçiş: Görsel net görünürken yazılar mükemmel okunur -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-[#faf7f2]"></div>
-    </div>
-
     <!-- Lüks Ambiyans Arka Plan Parıltısı -->
     <div class="luxury-ambient-aura top-10 left-1/2 -translate-x-1/2 w-[320px] sm:w-[550px] h-[220px] sm:h-[350px] bg-gradient-to-tr from-amber-100/25 via-rose-100/20 to-neutral-200/30 -z-10"></div>
 
     <div class="text-center relative z-10 max-w-4xl mx-auto">
-      <span class="animate-load-hero-subtitle block font-editorial-italic text-2xl sm:text-5xl md:text-6xl font-normal text-amber-100 md:text-luxedark/90 mb-1 drop-shadow-md">
+      <span class="animate-load-hero-subtitle block font-editorial-italic text-2xl sm:text-5xl md:text-6xl font-normal text-luxedark/90 mb-1">
         imzanız olacak
       </span>
-      <h1 class="animate-load-hero-title hero-title-fluid font-light uppercase tracking-widest text-white md:text-luxedark leading-tight text-center drop-shadow-md">
+      <h1 class="animate-load-hero-title hero-title-fluid font-light uppercase tracking-widest text-luxedark leading-tight text-center">
         KUSURSUZ DÖNÜŞÜM
       </h1>
 
       <div class="animate-load-hero-quote w-full flex justify-center sm:justify-end mt-3 sm:mt-6 px-2 sm:px-4">
-        <p class="text-center sm:text-right text-[11px] sm:text-[12px] leading-relaxed text-white/90 md:text-subtletext max-w-sm font-light drop-shadow-sm">
+        <p class="text-center sm:text-right text-[11px] sm:text-[12px] leading-relaxed text-subtletext max-w-sm font-light">
           "Saç sağlığından ödün vermeden, yüz anatominize özel tasarlanan mikro kaynak ve renklendirme sanatı."
         </p>
       </div>
 
       <!-- Mobilde Öne Çıkan Hızlı Aksiyon Barı (Desktop'ta Gizli) -->
       <div class="flex sm:hidden items-center justify-center gap-2.5 mt-5 px-1 w-full max-w-sm mx-auto">
-        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion flex-1 py-3 px-4 bg-creambg text-luxedark font-bold rounded-full text-[11px] uppercase tracking-wider text-center shadow-lg flex items-center justify-center gap-1.5 border border-white/40">
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion flex-1 py-3 px-4 bg-luxedark text-creambg rounded-full text-[11px] font-semibold uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-1.5">
           <i class="fa-regular fa-calendar-check text-xs"></i>
           <span>Randevu Al</span>
         </a>
-        <a href="hizmetler.html" class="btn-motion-outline flex-1 py-3 px-4 bg-black/40 backdrop-blur-md text-white border border-white/30 rounded-full text-[11px] font-semibold uppercase tracking-wider text-center flex items-center justify-center gap-1.5 shadow-md">
+        <a href="hizmetler.html" class="btn-motion-outline flex-1 py-3 px-4 bg-creambg text-luxedark border border-neutral-300 rounded-full text-[11px] font-semibold uppercase tracking-wider text-center flex items-center justify-center gap-1.5 shadow-2xs">
           <span>Hizmetler</span>
           <i class="fa-solid fa-arrow-right text-[10px]"></i>
         </a>
       </div>
     </div>
 
-    <!-- Asimetrik Görsel Düzeni -->
+    <!-- Görsel Düzeni -->
     <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 items-center mt-6 max-w-5xl mx-auto">
       
       <!-- Sol Asimetrik Kutu: Mikro Kaynak (Desktop) -->
@@ -385,8 +372,8 @@
         </div>
       </div>
 
-      <!-- Merkez Görsel (Mobilde gizlenir veya arka plan olarak çalışır, Masaüstünde asimetrik merkezi kart olarak kalır) -->
-      <div class="hidden md:flex animate-load-hero-visual col-span-1 md:col-span-6 flex-col items-center justify-center z-10">
+      <!-- Merkez Büyük Görsel (Hem mobilde hem desktop'ta kusursuz çerçeveli lüks kart) -->
+      <div class="animate-load-hero-visual col-span-1 md:col-span-6 flex flex-col items-center justify-center z-10">
         <div class="card-motion w-full max-w-md aspect-[4/4.5] sm:aspect-[3/4] rounded-3xl overflow-hidden relative shadow-md md:shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-neutral-200 img-zoom-container group">
           <img 
             src="images/hero-kusursuz-donusum.jpg" 
@@ -399,24 +386,24 @@
             <div class="h-1.5 w-24 bg-creambg/60 rounded-full"></div>
           </div>
         </div>
-      </div>
 
-      <!-- Mobil Hızlı Dönüşüm Çipleri (Mobilde merkezi kart gizlenince hero altında hafif ve kompakt butonlar olarak kalır) -->
-      <div class="flex md:hidden items-center justify-center gap-2 mt-4 px-1 w-full max-w-md mx-auto z-10">
-        <button type="button" onclick="openTransformationModal('mikro')" class="flex-1 py-2.5 px-3 rounded-2xl bg-creambg/85 backdrop-blur-sm border border-neutral-300/80 flex items-center gap-2 text-left active:scale-95 transition-transform shadow-xs">
-          <img src="images/mikro-kaynak.jpg" alt="Mikro Kaynak" class="w-8 h-8 rounded-xl object-cover shrink-0" loading="lazy" decoding="async">
-          <div class="overflow-hidden">
-            <span class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Mikro Kaynak</span>
-            <span class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
-          </div>
-        </button>
-        <button type="button" onclick="openTransformationModal('sombre')" class="flex-1 py-2.5 px-3 rounded-2xl bg-creambg/85 backdrop-blur-sm border border-neutral-300/80 flex items-center gap-2 text-left active:scale-95 transition-transform shadow-xs">
-          <img src="images/buz-sarisi-sombre.jpg" alt="Buz Sarısı" class="w-8 h-8 rounded-xl object-cover shrink-0" loading="lazy" decoding="async">
-          <div class="overflow-hidden">
-            <span class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Buz Sarısı</span>
-            <span class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
-          </div>
-        </button>
+        <!-- Mobil Hızlı Dönüşüm Çipleri -->
+        <div class="flex md:hidden items-center justify-center gap-2 mt-4 px-1 w-full max-w-md">
+          <button type="button" onclick="openTransformationModal('mikro')" class="flex-1 py-2.5 px-3 rounded-2xl bg-cardbg/90 border border-neutral-300/80 flex items-center gap-2 text-left active:scale-95 transition-transform shadow-2xs">
+            <img src="images/mikro-kaynak.jpg" alt="Mikro Kaynak" class="w-8 h-8 rounded-xl object-cover shrink-0" loading="lazy" decoding="async">
+            <div class="overflow-hidden">
+              <span class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Mikro Kaynak</span>
+              <span class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
+            </div>
+          </button>
+          <button type="button" onclick="openTransformationModal('sombre')" class="flex-1 py-2.5 px-3 rounded-2xl bg-cardbg/90 border border-neutral-300/80 flex items-center gap-2 text-left active:scale-95 transition-transform shadow-2xs">
+            <img src="images/buz-sarisi-sombre.jpg" alt="Buz Sarısı" class="w-8 h-8 rounded-xl object-cover shrink-0" loading="lazy" decoding="async">
+            <div class="overflow-hidden">
+              <span class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Buz Sarısı</span>
+              <span class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
+            </div>
+          </button>
+        </div>
       </div>
 
       <!-- Sağ Asimetrik Kutu: Ombre & Sombre (Desktop) -->
