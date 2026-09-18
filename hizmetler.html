@@ -81,16 +81,29 @@
 
       <!-- Menü Linkleri (Dönüşümler kaldırıldı) -->
       <nav class="hidden md:flex items-center gap-7 text-[11px] font-medium tracking-widestsubtle uppercase text-luxedark/80">
-        <a href="index.html" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
-        <a href="hizmetler.html" class="nav-link-animated active-link text-luxedark">Hizmetler</a>
-        <a href="hakkimizda.html" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
-        <a href="index.html#yorumlar" class="nav-link-animated hover:text-luxedark transition-colors">Yorumlar</a>
-        <a href="index.html#sss" class="nav-link-animated hover:text-luxedark transition-colors">SSS</a>
+        <a href="index.html" data-i18n="nav_home" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
+        <a href="hizmetler.html" data-i18n="nav_services" class="nav-link-animated active-link text-luxedark">Hizmetler</a>
+        <a href="hakkimizda.html" data-i18n="nav_about" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
+        <a href="index.html#yorumlar" data-i18n="nav_reviews" class="nav-link-animated hover:text-luxedark transition-colors">Yorumlar</a>
+        <a href="index.html#sss" data-i18n="nav_faq" class="nav-link-animated hover:text-luxedark transition-colors">SSS</a>
       </nav>
 
       <!-- Sağ Buton & Mobil Hamburger -->
-      <div class="flex items-center gap-3 sm:gap-4">
-        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full border border-luxedark text-[11px] font-semibold uppercase tracking-widestsubtle bg-luxedark text-creambg hover:bg-transparent hover:text-luxedark shadow-sm">
+      <div class="flex items-center gap-2.5 sm:gap-3.5">
+        <!-- Masaüstü Minimalist Dil Seçici (TR | EN | DE | RU | FR) -->
+        <div class="hidden lg:flex items-center gap-1.5 text-[10px] font-medium tracking-widest uppercase border-r border-neutral-300 pr-3 mr-1 text-luxedark" aria-label="Language Selector">
+          <button type="button" data-lang-btn="tr" onclick="setLanguage('tr')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">TR</button>
+          <span class="text-neutral-300 text-[9px]">|</span>
+          <button type="button" data-lang-btn="en" onclick="setLanguage('en')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">EN</button>
+          <span class="text-neutral-300 text-[9px]">|</span>
+          <button type="button" data-lang-btn="de" onclick="setLanguage('de')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">DE</button>
+          <span class="text-neutral-300 text-[9px]">|</span>
+          <button type="button" data-lang-btn="ru" onclick="setLanguage('ru')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">RU</button>
+          <span class="text-neutral-300 text-[9px]">|</span>
+          <button type="button" data-lang-btn="fr" onclick="setLanguage('fr')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">FR</button>
+        </div>
+
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" data-i18n="btn_book" class="btn-motion inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full border border-luxedark text-[11px] font-semibold uppercase tracking-widestsubtle bg-luxedark text-creambg hover:bg-transparent hover:text-luxedark shadow-sm">
           Randevu Al
         </a>
         <button id="mobileMenuToggle" type="button" aria-label="Menüyü Aç" aria-expanded="false" class="hamburger-btn md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-full border border-neutral-300 hover:border-luxedark transition-colors space-y-1.5 focus:outline-none cursor-pointer">
@@ -108,42 +121,56 @@
     <div class="drawer-backdrop absolute inset-0"></div>
     <div class="mobile-drawer-content absolute top-0 right-0 h-full w-full max-w-xs bg-creambg p-6 shadow-lg md:shadow-2xl flex flex-col justify-between z-10 border-l border-neutral-200">
       <div>
-        <div class="flex items-center justify-between pb-6 border-b border-neutral-200">
+        <div class="flex items-center justify-between pb-5 border-b border-neutral-200">
           <img src="logo.png" alt="LOCCA Hair Studio" class="h-8 w-auto mix-blend-multiply" loading="lazy" decoding="async">
           <button type="button" class="drawer-close-btn w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-luxedark hover:bg-luxedark hover:text-creambg transition-colors text-xs cursor-pointer" aria-label="Menüyü Kapat">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
-        <nav class="flex flex-col gap-4 pt-8 text-xs font-semibold tracking-widest uppercase text-luxedark">
+
+        <!-- Mobil Menü İçi Dil Seçici (TR | EN | DE | RU | FR) -->
+        <div class="flex items-center justify-center gap-2.5 py-3 border-b border-neutral-200/80 text-[11px] font-medium tracking-wider uppercase text-luxedark" aria-label="Language Selector Mobile">
+          <button type="button" data-lang-btn="tr" onclick="setLanguage('tr')" class="cursor-pointer transition-all px-1">TR</button>
+          <span class="text-neutral-300 text-[10px]">|</span>
+          <button type="button" data-lang-btn="en" onclick="setLanguage('en')" class="cursor-pointer transition-all px-1">EN</button>
+          <span class="text-neutral-300 text-[10px]">|</span>
+          <button type="button" data-lang-btn="de" onclick="setLanguage('de')" class="cursor-pointer transition-all px-1">DE</button>
+          <span class="text-neutral-300 text-[10px]">|</span>
+          <button type="button" data-lang-btn="ru" onclick="setLanguage('ru')" class="cursor-pointer transition-all px-1">RU</button>
+          <span class="text-neutral-300 text-[10px]">|</span>
+          <button type="button" data-lang-btn="fr" onclick="setLanguage('fr')" class="cursor-pointer transition-all px-1">FR</button>
+        </div>
+
+        <nav class="flex flex-col gap-4 pt-6 text-xs font-semibold tracking-widest uppercase text-luxedark">
           <a href="index.html" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
-            <span>Ana Sayfa</span>
+            <span data-i18n="nav_home">Ana Sayfa</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
           <a href="hizmetler.html" class="mobile-nav-item py-2 text-luxedark flex items-center justify-between border-b border-neutral-200/50">
-            <span>Hizmetler</span>
+            <span data-i18n="nav_services">Hizmetler</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
           <a href="hakkimizda.html" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
-            <span>Hakkımızda</span>
+            <span data-i18n="nav_about">Hakkımızda</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
           <a href="index.html#yorumlar" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
-            <span>Yorumlar</span>
+            <span data-i18n="nav_reviews">Yorumlar</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
           <a href="index.html#sss" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
-            <span>SSS</span>
+            <span data-i18n="nav_faq">SSS</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
         </nav>
       </div>
       <div class="pt-6 border-t border-neutral-200 flex flex-col gap-3">
-        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion w-full py-3.5 rounded-full bg-luxedark text-creambg text-center text-xs font-semibold uppercase tracking-widest shadow-md">
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" data-i18n="btn_book" class="btn-motion w-full py-3.5 rounded-full bg-luxedark text-creambg text-center text-xs font-semibold uppercase tracking-widest shadow-md">
           Randevu Al
         </a>
         <a href="https://wa.me/905071993424" target="_blank" class="btn-motion-outline w-full py-3 rounded-full border border-neutral-300 text-center text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center justify-center gap-2">
           <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
-          <span>WhatsApp Danışma</span>
+          <span data-i18n="btn_whatsapp_consult">WhatsApp Danışma</span>
         </a>
       </div>
     </div>
@@ -469,7 +496,7 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-xs text-subtletext font-light mb-8 sm:mb-12">
         <div>
-          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Adres & İletişim</span>
+          <span data-i18n="footer_address_title" class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Adres & İletişim</span>
           <p class="leading-relaxed">
             Karagül Apartmanı, Aşağı Hisar Mah. Mithat Paşa Cd. No: 9Z2, Manavgat / Antalya
           </p>
@@ -480,38 +507,38 @@
             </a>
             <a href="https://www.google.com/maps/dir/?api=1&destination=Karag%C3%Bcl+Apartman%C4%B1+A%C5%9Fa%C4%9F%C4%B1+Hisar+Mahallesi+Mithat+Pa%C5%9Fa+Caddesi+No+9Z2+Manavgat&destination_place_id=ChIJSTDhm-FZwxQR2NChWbM1h9s" target="_blank" class="inline-flex items-center gap-1.5 text-[11px] text-luxedark/80 hover:text-luxedark underline mt-0.5">
               <i class="fa-solid fa-location-arrow text-[10px]"></i>
-              <span>Yol Tarifi Al</span>
+              <span data-i18n="footer_directions">Yol Tarifi Al</span>
             </a>
           </div>
         </div>
 
         <div>
-          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Çalışma Saatleri</span>
-          <p class="leading-relaxed">
+          <span data-i18n="footer_hours_title" class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Çalışma Saatleri</span>
+          <p data-i18n="footer_hours_desc" class="leading-relaxed">
             Salı - Pazar (Pazartesi Kapalı)<br>
             10:00 - 19:30 (Randevu İle)
           </p>
         </div>
 
         <div>
-          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Müşteri Memnuniyeti</span>
+          <span data-i18n="footer_satisfaction_title" class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Müşteri Memnuniyeti</span>
           <div class="inline-flex items-center gap-2 bg-creambg px-3 py-1.5 rounded-lg border border-neutral-200">
             <span class="font-bold text-luxedark">5.0</span>
             <span class="text-amber-500 tracking-wider">★★★★★</span>
-            <span class="text-[10px] text-subtletext">(374 Google Yorumu)</span>
+            <span data-i18n="footer_reviews_count" class="text-[10px] text-subtletext">(374 Google Yorumu)</span>
           </div>
         </div>
       </div>
 
       <div class="pt-6 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-subtletext gap-4">
-        <div>
+        <div data-i18n="footer_rights">
           © LOCCA Hair Studio. Tüm hakları saklıdır.
         </div>
         <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 uppercase tracking-widest text-[10px]">
-          <a href="index.html" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
-          <a href="hizmetler.html" class="nav-link-animated hover:text-luxedark transition-colors">Hizmetler</a>
-          <a href="hakkimizda.html" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
-          <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="nav-link-animated hover:text-luxedark transition-colors">Randevu</a>
+          <a href="index.html" data-i18n="nav_home" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
+          <a href="hizmetler.html" data-i18n="nav_services" class="nav-link-animated hover:text-luxedark transition-colors">Hizmetler</a>
+          <a href="hakkimizda.html" data-i18n="nav_about" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
+          <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" data-i18n="btn_book" class="nav-link-animated hover:text-luxedark transition-colors">Randevu</a>
           <a href="https://www.instagram.com/yunus_soner_loca_hairdesing/" target="_blank" class="nav-link-animated hover:text-luxedark transition-colors">@yunus_soner_loca_hairdesing</a>
         </div>
       </div>
@@ -529,8 +556,11 @@
     <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm group-hover:rotate-12 transition-transform wa-pulse-dot">
       <i class="fa-brands fa-whatsapp text-base"></i>
     </div>
-    <span class="text-xs font-medium tracking-wide pr-1">WhatsApp Randevu</span>
+    <span data-i18n="floating_wa" class="text-xs font-medium tracking-wide pr-1">WhatsApp Randevu</span>
   </a>
+
+  <!-- Multi-Language i18n Controller -->
+  <script src="js/i18n.js"></script>
 
   <!-- Premium Motion Controller -->
   <script src="js/motion.js"></script>

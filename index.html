@@ -244,16 +244,29 @@
 
       <!-- Menü Linkleri -->
       <nav class="hidden md:flex items-center gap-7 text-[11px] font-medium tracking-widestsubtle uppercase text-luxedark/80">
-        <a href="index.html" class="nav-link-animated active-link text-luxedark">Ana Sayfa</a>
-        <a href="hizmetler.html" class="nav-link-animated hover:text-luxedark">Hizmetler</a>
-        <a href="hakkimizda.html" class="nav-link-animated hover:text-luxedark">Hakkımızda</a>
-        <a href="#yorumlar" class="nav-link-animated hover:text-luxedark">Yorumlar</a>
-        <a href="#sss" class="nav-link-animated hover:text-luxedark">SSS</a>
+        <a href="index.html" data-i18n="nav_home" class="nav-link-animated active-link text-luxedark">Ana Sayfa</a>
+        <a href="hizmetler.html" data-i18n="nav_services" class="nav-link-animated hover:text-luxedark">Hizmetler</a>
+        <a href="hakkimizda.html" data-i18n="nav_about" class="nav-link-animated hover:text-luxedark">Hakkımızda</a>
+        <a href="#yorumlar" data-i18n="nav_reviews" class="nav-link-animated hover:text-luxedark">Yorumlar</a>
+        <a href="#sss" data-i18n="nav_faq" class="nav-link-animated hover:text-luxedark">SSS</a>
       </nav>
 
-      <!-- Sağ Aksiyon Butonu & Mobil Menü Butonu -->
-      <div class="flex items-center gap-3 sm:gap-4">
-        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full border border-luxedark text-[11px] font-semibold uppercase tracking-widestsubtle bg-luxedark text-creambg hover:bg-transparent hover:text-luxedark shadow-sm">
+      <!-- Sağ Aksiyon Butonu, Dil Seçici & Mobil Menü Butonu -->
+      <div class="flex items-center gap-2.5 sm:gap-3.5">
+        <!-- Masaüstü Minimalist Dil Seçici (TR | EN | DE | RU | FR) -->
+        <div class="hidden lg:flex items-center gap-1.5 text-[10px] font-medium tracking-widest uppercase border-r border-neutral-300 pr-3 mr-1 text-luxedark" aria-label="Language Selector">
+          <button type="button" data-lang-btn="tr" onclick="setLanguage('tr')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">TR</button>
+          <span class="text-neutral-300 text-[9px]">|</span>
+          <button type="button" data-lang-btn="en" onclick="setLanguage('en')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">EN</button>
+          <span class="text-neutral-300 text-[9px]">|</span>
+          <button type="button" data-lang-btn="de" onclick="setLanguage('de')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">DE</button>
+          <span class="text-neutral-300 text-[9px]">|</span>
+          <button type="button" data-lang-btn="ru" onclick="setLanguage('ru')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">RU</button>
+          <span class="text-neutral-300 text-[9px]">|</span>
+          <button type="button" data-lang-btn="fr" onclick="setLanguage('fr')" class="cursor-pointer transition-all hover:text-luxedark px-0.5">FR</button>
+        </div>
+
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" data-i18n="btn_book" class="btn-motion inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full border border-luxedark text-[11px] font-semibold uppercase tracking-widestsubtle bg-luxedark text-creambg hover:bg-transparent hover:text-luxedark shadow-sm">
           Randevu Al
         </a>
         <!-- Mobil Hamburger Butonu -->
@@ -272,42 +285,56 @@
     <div class="drawer-backdrop absolute inset-0"></div>
     <div class="mobile-drawer-content absolute top-0 right-0 h-full w-full max-w-xs bg-creambg p-6 shadow-lg md:shadow-2xl flex flex-col justify-between z-10 border-l border-neutral-200">
       <div>
-        <div class="flex items-center justify-between pb-6 border-b border-neutral-200">
+        <div class="flex items-center justify-between pb-5 border-b border-neutral-200">
           <img src="logo.png" alt="LOCCA Hair Studio" class="h-8 w-auto mix-blend-multiply" loading="lazy" decoding="async">
           <button type="button" class="drawer-close-btn w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-luxedark hover:bg-luxedark hover:text-creambg transition-colors text-xs cursor-pointer" aria-label="Menüyü Kapat">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
-        <nav class="flex flex-col gap-4 pt-8 text-xs font-semibold tracking-widest uppercase text-luxedark">
+
+        <!-- Mobil Menü İçi Dil Seçici (TR | EN | DE | RU | FR) -->
+        <div class="flex items-center justify-center gap-2.5 py-3 border-b border-neutral-200/80 text-[11px] font-medium tracking-wider uppercase text-luxedark" aria-label="Language Selector Mobile">
+          <button type="button" data-lang-btn="tr" onclick="setLanguage('tr')" class="cursor-pointer transition-all px-1">TR</button>
+          <span class="text-neutral-300 text-[10px]">|</span>
+          <button type="button" data-lang-btn="en" onclick="setLanguage('en')" class="cursor-pointer transition-all px-1">EN</button>
+          <span class="text-neutral-300 text-[10px]">|</span>
+          <button type="button" data-lang-btn="de" onclick="setLanguage('de')" class="cursor-pointer transition-all px-1">DE</button>
+          <span class="text-neutral-300 text-[10px]">|</span>
+          <button type="button" data-lang-btn="ru" onclick="setLanguage('ru')" class="cursor-pointer transition-all px-1">RU</button>
+          <span class="text-neutral-300 text-[10px]">|</span>
+          <button type="button" data-lang-btn="fr" onclick="setLanguage('fr')" class="cursor-pointer transition-all px-1">FR</button>
+        </div>
+
+        <nav class="flex flex-col gap-4 pt-6 text-xs font-semibold tracking-widest uppercase text-luxedark">
           <a href="index.html" class="mobile-nav-item py-2 text-luxedark flex items-center justify-between border-b border-neutral-200/50">
-            <span>Ana Sayfa</span>
+            <span data-i18n="nav_home">Ana Sayfa</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
           <a href="hizmetler.html" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
-            <span>Hizmetler</span>
+            <span data-i18n="nav_services">Hizmetler</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
           <a href="hakkimizda.html" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
-            <span>Hakkımızda</span>
+            <span data-i18n="nav_about">Hakkımızda</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
           <a href="#yorumlar" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
-            <span>Yorumlar</span>
+            <span data-i18n="nav_reviews">Yorumlar</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
           <a href="#sss" class="mobile-nav-item py-2 hover:text-neutral-600 flex items-center justify-between border-b border-neutral-200/50">
-            <span>SSS</span>
+            <span data-i18n="nav_faq">SSS</span>
             <i class="fa-solid fa-chevron-right text-[10px] text-subtletext"></i>
           </a>
         </nav>
       </div>
       <div class="pt-6 border-t border-neutral-200 flex flex-col gap-3">
-        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion w-full py-3.5 rounded-full bg-luxedark text-creambg text-center text-xs font-semibold uppercase tracking-widest shadow-md">
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" data-i18n="btn_book" class="btn-motion w-full py-3.5 rounded-full bg-luxedark text-creambg text-center text-xs font-semibold uppercase tracking-widest shadow-md">
           Randevu Al
         </a>
         <a href="https://wa.me/905071993424" target="_blank" class="btn-motion-outline w-full py-3 rounded-full border border-neutral-300 text-center text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center justify-center gap-2">
           <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
-          <span>WhatsApp Danışma</span>
+          <span data-i18n="btn_whatsapp_consult">WhatsApp Danışma</span>
         </a>
       </div>
     </div>
@@ -322,15 +349,15 @@
     <div class="luxury-ambient-aura top-10 left-1/2 -translate-x-1/2 w-[320px] sm:w-[550px] h-[220px] sm:h-[350px] bg-gradient-to-tr from-amber-100/25 via-rose-100/20 to-neutral-200/30 -z-10"></div>
 
     <div class="text-center relative z-10 max-w-4xl mx-auto">
-      <span class="animate-load-hero-subtitle block font-editorial-italic text-2xl sm:text-5xl md:text-6xl font-normal text-luxedark/90 mb-1">
+      <span data-i18n="hero_subtitle" class="animate-load-hero-subtitle block font-editorial-italic text-2xl sm:text-5xl md:text-6xl font-normal text-luxedark/90 mb-1">
         imzanız olacak
       </span>
-      <h1 class="animate-load-hero-title hero-title-fluid font-light uppercase tracking-widest text-luxedark leading-tight text-center">
+      <h1 data-i18n="hero_title" class="animate-load-hero-title hero-title-fluid font-light uppercase tracking-widest text-luxedark leading-tight text-center">
         KUSURSUZ DÖNÜŞÜM
       </h1>
 
       <div class="animate-load-hero-quote w-full flex justify-center sm:justify-end mt-3 sm:mt-6 px-2 sm:px-4">
-        <p class="text-center sm:text-right text-[11px] sm:text-[12px] leading-relaxed text-subtletext max-w-sm font-light">
+        <p data-i18n="hero_quote" class="text-center sm:text-right text-[11px] sm:text-[12px] leading-relaxed text-subtletext max-w-sm font-light">
           "Saç sağlığından ödün vermeden, yüz anatominize özel tasarlanan mikro kaynak ve renklendirme sanatı."
         </p>
       </div>
@@ -339,10 +366,10 @@
       <div class="flex sm:hidden items-center justify-center gap-2.5 mt-5 px-1 w-full max-w-sm mx-auto">
         <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion flex-1 py-3 px-4 bg-luxedark text-creambg rounded-full text-[11px] font-semibold uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-1.5">
           <i class="fa-regular fa-calendar-check text-xs"></i>
-          <span>Randevu Al</span>
+          <span data-i18n="btn_book">Randevu Al</span>
         </a>
         <a href="hizmetler.html" class="btn-motion-outline flex-1 py-3 px-4 bg-creambg text-luxedark border border-neutral-300 rounded-full text-[11px] font-semibold uppercase tracking-wider text-center flex items-center justify-center gap-1.5 shadow-2xs">
-          <span>Hizmetler</span>
+          <span data-i18n="hero_btn_services">Hizmetler</span>
           <i class="fa-solid fa-arrow-right text-[10px]"></i>
         </a>
       </div>
@@ -364,8 +391,8 @@
             />
           </div>
           <div class="pt-3 pb-1 px-1">
-            <span class="block text-[11px] font-semibold uppercase tracking-widest text-luxedark">MİKRO KAYNAK</span>
-            <p class="text-[10px] text-subtletext mt-1 leading-snug font-light">
+            <span data-i18n="hero_card_mikro_title" class="block text-[11px] font-semibold uppercase tracking-widest text-luxedark">MİKRO KAYNAK</span>
+            <p data-i18n="hero_card_mikro_desc" class="text-[10px] text-subtletext mt-1 leading-snug font-light">
               Ağırlık yapmayan, doğal saçla uyumlu kaynak uygulaması.
             </p>
           </div>
@@ -392,15 +419,15 @@
           <button type="button" onclick="openTransformationModal('mikro')" class="flex-1 py-2.5 px-3 rounded-2xl bg-cardbg/90 border border-neutral-300/80 flex items-center gap-2 text-left active:scale-95 transition-transform shadow-2xs">
             <img src="images/mikro-kaynak.jpg" alt="Mikro Kaynak" class="w-8 h-8 rounded-xl object-cover shrink-0" loading="lazy" decoding="async">
             <div class="overflow-hidden">
-              <span class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Mikro Kaynak</span>
-              <span class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
+              <span data-i18n="chip_mikro" class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Mikro Kaynak</span>
+              <span data-i18n="chip_info" class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
             </div>
           </button>
           <button type="button" onclick="openTransformationModal('sombre')" class="flex-1 py-2.5 px-3 rounded-2xl bg-cardbg/90 border border-neutral-300/80 flex items-center gap-2 text-left active:scale-95 transition-transform shadow-2xs">
             <img src="images/buz-sarisi-sombre.jpg" alt="Buz Sarısı" class="w-8 h-8 rounded-xl object-cover shrink-0" loading="lazy" decoding="async">
             <div class="overflow-hidden">
-              <span class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Buz Sarısı</span>
-              <span class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
+              <span data-i18n="chip_sombre" class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Buz Sarısı</span>
+              <span data-i18n="chip_info" class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
             </div>
           </button>
         </div>
@@ -419,8 +446,8 @@
             />
           </div>
           <div class="pt-3 pb-1 px-1 text-left">
-            <span class="block text-[11px] font-semibold uppercase tracking-widest text-luxedark">OMBRE & SOMBRE</span>
-            <p class="text-[10px] text-subtletext mt-1 leading-snug font-light">
+            <span data-i18n="hero_card_sombre_title" class="block text-[11px] font-semibold uppercase tracking-widest text-luxedark">OMBRE & SOMBRE</span>
+            <p data-i18n="hero_card_sombre_desc" class="text-[10px] text-subtletext mt-1 leading-snug font-light">
               Saç sağlığını koruyarak yapılan doğal sarı ton geçişleri.
             </p>
           </div>
@@ -437,10 +464,10 @@
   <section class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 border-t border-neutral-200/80">
     
     <div class="text-center pb-8 sm:pb-12 md:pb-14" data-reveal="fade-up">
-      <span class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1">
+      <span data-i18n="sec_signature_sub" class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1">
         ustalıkla seçilmiş
       </span>
-      <h2 class="text-xl sm:text-4xl md:text-5xl font-light uppercase tracking-widest text-luxedark">
+      <h2 data-i18n="sec_signature_title" class="text-xl sm:text-4xl md:text-5xl font-light uppercase tracking-widest text-luxedark">
         İMZA DÖNÜŞÜMLER
       </h2>
     </div>
@@ -462,7 +489,7 @@
             decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-luxedark/85 via-luxedark/20 to-transparent flex items-end justify-between p-5 sm:p-6">
-            <span class="text-creambg text-xs font-medium tracking-widest uppercase">
+            <span data-i18n="bento_1_title" class="text-creambg text-xs font-medium tracking-widest uppercase">
               Ultra Görünmez Mikro Kaynak
             </span>
             <span class="w-7 h-7 rounded-full bg-creambg/35 md:bg-creambg/25 md:backdrop-blur-sm text-creambg flex items-center justify-center text-xs opacity-90 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-0 transition-all shrink-0 ml-2">
@@ -486,7 +513,7 @@
             decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-luxedark/80 via-transparent to-transparent flex items-end justify-between p-4 sm:p-5">
-            <span class="text-creambg text-[11px] font-medium tracking-widest uppercase">
+            <span data-i18n="bento_2_title" class="text-creambg text-[11px] font-medium tracking-widest uppercase">
               Buz Sarısı & Sombre
             </span>
             <span class="w-6 h-6 rounded-full bg-creambg/35 md:bg-creambg/25 md:backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
@@ -507,7 +534,7 @@
             decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-luxedark/80 via-transparent to-transparent flex items-end justify-between p-4 sm:p-5">
-            <span class="text-creambg text-[11px] font-medium tracking-widest uppercase">
+            <span data-i18n="bento_4_title" class="text-creambg text-[11px] font-medium tracking-widest uppercase">
               Doğal Kahve & Işıltı (Babylights)
             </span>
             <span class="w-6 h-6 rounded-full bg-creambg/35 md:bg-creambg/25 md:backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
@@ -531,7 +558,7 @@
             decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-luxedark/80 via-transparent to-transparent flex items-end justify-between p-4 sm:p-5">
-            <span class="text-creambg text-[11px] font-medium tracking-widest uppercase">
+            <span data-i18n="bento_3_title" class="text-creambg text-[11px] font-medium tracking-widest uppercase">
               Gelin Başı & Özel Tasarım
             </span>
             <span class="w-6 h-6 rounded-full bg-creambg/35 md:bg-creambg/25 md:backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
@@ -543,7 +570,7 @@
         <!-- Buton: hizmetler.html Bağlantısı -->
         <div class="w-full flex justify-center sm:justify-start pt-1">
           <a href="hizmetler.html" class="btn-motion w-full sm:w-auto inline-flex items-center justify-between pl-6 pr-2 py-2.5 rounded-full border border-luxedark text-xs font-medium uppercase tracking-widest text-luxedark hover:bg-luxedark hover:text-creambg transition-all duration-300 group">
-            <span>Hizmetler Hakkında</span>
+            <span data-i18n="nav_services">Hizmetler</span>
             <span class="w-8 h-8 rounded-full bg-luxedark text-creambg group-hover:bg-creambg group-hover:text-luxedark flex items-center justify-center ml-4 transition-colors">
               <i class="btn-arrow fa-solid fa-arrow-right text-[11px]"></i>
             </span>
@@ -575,21 +602,21 @@
 
       <div class="md:col-span-6 flex flex-col justify-center space-y-5 sm:space-y-6" data-reveal="fade-up">
         <div>
-          <span class="block font-editorial-italic text-2xl sm:text-4xl text-luxedark/90 mb-1">
+          <span data-i18n="sec_philosophy_sub" class="block font-editorial-italic text-2xl sm:text-4xl text-luxedark/90 mb-1">
             manavgat'ta bir saç durağı
           </span>
-          <h3 class="text-lg sm:text-2xl font-light uppercase tracking-widest text-luxedark">
+          <h3 data-i18n="sec_philosophy_title" class="text-lg sm:text-2xl font-light uppercase tracking-widest text-luxedark">
             LOCCA HAIR STUDIO
           </h3>
         </div>
 
-        <p class="text-xs sm:text-sm text-subtletext leading-relaxed font-light">
+        <p data-i18n="sec_philosophy_desc" class="text-xs sm:text-sm text-subtletext leading-relaxed font-light">
           "Aşağı Hisar Mahallesi'nde, kendi yerimizde samimi ve profesyonel bir ortamda hizmet veriyoruz. Saçınızı yıpratmadan uzatmak, doğal tonlarda renklendirmek ve hak ettiğiniz özeni göstermek için buradayız."
         </p>
 
         <div class="pt-1">
           <a href="hakkimizda.html" class="btn-motion w-full sm:w-auto inline-flex items-center justify-between pl-6 pr-2 py-2.5 rounded-full border border-luxedark text-xs font-medium uppercase tracking-widest text-luxedark hover:bg-luxedark hover:text-creambg transition-all duration-300 group">
-            <span>LOCCA KUAFÖR HAKKINDA</span>
+            <span data-i18n="btn_about_locca">LOCCA KUAFÖR HAKKINDA</span>
             <span class="w-8 h-8 rounded-full bg-luxedark text-creambg group-hover:bg-creambg group-hover:text-luxedark flex items-center justify-center ml-4 transition-colors">
               <i class="btn-arrow fa-solid fa-arrow-right text-[11px]"></i>
             </span>
@@ -605,10 +632,10 @@
   <!-- ================================================================= -->
   <section class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 border-t border-neutral-200/80">
     <div class="text-center pb-8 sm:pb-12 md:pb-16" data-reveal="fade-up">
-      <span class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1">
+      <span data-i18n="sec_services_sub" class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1">
         ayrıcalıklı dokunuşlar
       </span>
-      <h2 class="text-xl sm:text-4xl md:text-5xl font-light uppercase tracking-widest text-luxedark">
+      <h2 data-i18n="sec_services_title" class="text-xl sm:text-4xl md:text-5xl font-light uppercase tracking-widest text-luxedark">
         UZMANLIK ALANLARIMIZ
       </h2>
     </div>
@@ -621,10 +648,10 @@
         <div class="img-zoom-container w-full aspect-square sm:aspect-[3/3.8] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70 bg-cardbg">
           <img src="images/ultra-gorunmez-mikro-kaynak.png" alt="Mikro Saç Kaynak" class="img-zoom-target w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
-        <span class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
+        <span data-i18n="srv_1_title" class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
           MİKRO KAYNAK
         </span>
-        <p class="text-[10px] sm:text-[11px] text-subtletext mt-1 font-light leading-snug line-clamp-2 sm:line-clamp-none">
+        <p data-i18n="srv_1_desc" class="text-[10px] sm:text-[11px] text-subtletext mt-1 font-light leading-snug line-clamp-2 sm:line-clamp-none">
           Hissedilmeyen nano kapsül ve doğal yoğun hacim
         </p>
       </a>
@@ -634,10 +661,10 @@
         <div class="img-zoom-container w-full aspect-square sm:aspect-[3/3.8] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70 bg-cardbg">
           <img src="images/buz-sarisi-sombre.jpg" alt="Buz Sarısı & Sombre" class="img-zoom-target w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
-        <span class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
+        <span data-i18n="srv_2_title" class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
           BUZ SARISI
         </span>
-        <p class="text-[10px] sm:text-[11px] text-subtletext mt-1 font-light leading-snug line-clamp-2 sm:line-clamp-none">
+        <p data-i18n="srv_2_desc" class="text-[10px] sm:text-[11px] text-subtletext mt-1 font-light leading-snug line-clamp-2 sm:line-clamp-none">
           Kademeli açma ve yıpranmayan soğuk sarı tonlar
         </p>
       </a>
@@ -647,10 +674,10 @@
         <div class="img-zoom-container w-full aspect-square sm:aspect-[3/3.8] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70 bg-cardbg">
           <img src="images/baby-highlights.png" alt="Doğal Kahve & Işıltı (Babylights)" class="img-zoom-target w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
-        <span class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
+        <span data-i18n="srv_3_title" class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
           DOĞAL IŞILTI
         </span>
-        <p class="text-[10px] sm:text-[11px] text-subtletext mt-1 font-light leading-snug line-clamp-2 sm:line-clamp-none">
+        <p data-i18n="srv_3_desc" class="text-[10px] sm:text-[11px] text-subtletext mt-1 font-light leading-snug line-clamp-2 sm:line-clamp-none">
           Güneşten açılmış gibi incecik babylights geçişleri
         </p>
       </a>
@@ -660,10 +687,10 @@
         <div class="img-zoom-container w-full aspect-square sm:aspect-[3/3.8] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70 bg-cardbg">
           <img src="images/locca-botoks-bakim-parlaklik.jpg" alt="Saç Terapisi & Botoks Bakım" class="img-zoom-target w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
-        <span class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
+        <span data-i18n="srv_4_title" class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
           KERATİN TERAPİ
         </span>
-        <p class="text-[10px] sm:text-[11px] text-subtletext mt-1 font-light leading-snug line-clamp-2 sm:line-clamp-none">
+        <p data-i18n="srv_4_desc" class="text-[10px] sm:text-[11px] text-subtletext mt-1 font-light leading-snug line-clamp-2 sm:line-clamp-none">
           Keratin botoks ve aynamsı parlaklık veren nem kürü
         </p>
       </a>
@@ -676,11 +703,11 @@
   <!-- ================================================================= -->
   <section id="yorumlar" class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 border-t border-neutral-200/80 overflow-hidden">
     <div class="text-center pb-8 sm:pb-10" data-reveal="fade-up">
-      <span class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1">
+      <span data-i18n="sec_reviews_sub" class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1">
         gerçek deneyimler
       </span>
-      <h2 class="text-xl sm:text-4xl md:text-5xl font-light uppercase tracking-widest text-luxedark">
-        MÜŞTERİLERİMİZİN GÖZÜNDEN
+      <h2 data-i18n="sec_reviews_title" class="text-xl sm:text-4xl md:text-5xl font-light uppercase tracking-widest text-luxedark">
+        MÜŞTERİ YORUMLARI
       </h2>
       
       <div class="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-4 px-4 sm:px-5 py-2 rounded-full bg-cardbg/90 border border-neutral-200 shadow-sm">
@@ -691,7 +718,7 @@
         <span class="text-amber-500 text-xs tracking-wider">
           <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
         </span>
-        <span class="text-[11px] text-subtletext">(374 Doğrulanmış Google Yorumu)</span>
+        <span data-i18n="reviews_rating_note" class="text-[11px] text-subtletext">(374 Doğrulanmış Google Yorumu)</span>
       </div>
     </div>
 
@@ -1618,10 +1645,10 @@
   <!-- ================================================================= -->
   <section id="sss" class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 border-t border-neutral-200/80">
     <div class="text-center pb-8 sm:pb-12 md:pb-14" data-reveal="fade-up">
-      <span class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1">
+      <span data-i18n="sec_faq_sub" class="block font-editorial-italic text-2xl sm:text-4xl md:text-5xl font-normal text-luxedark/90 mb-1">
         merak edilenler
       </span>
-      <h2 class="text-xl sm:text-4xl md:text-5xl font-light uppercase tracking-widest text-luxedark">
+      <h2 data-i18n="sec_faq_title" class="text-xl sm:text-4xl md:text-5xl font-light uppercase tracking-widest text-luxedark">
         SIKÇA SORULAN SORULAR
       </h2>
     </div>
@@ -1685,18 +1712,18 @@
     <!-- Hızlı Çağrı Kartı -->
     <div class="card-motion w-full max-w-5xl mx-auto rounded-3xl border border-neutral-800 bg-[#ebe7e0] p-6 sm:p-10 shadow-md md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center justify-between gap-6" data-reveal="fade-up">
       <div>
-        <h4 class="text-base sm:text-lg font-medium tracking-wide text-luxedark">
-          Değişimi ertelemeyin, koltuğunuzu ayırtın.
+        <h4 data-i18n="cta_title" class="text-base sm:text-lg font-medium tracking-wide text-luxedark">
+          HAYALİNİZDEKİ SAÇA İLK ADIMI ATIN
         </h4>
-        <p class="text-[11px] text-subtletext mt-1 font-light max-w-md">
-          Saç yapınıza en uygun seansı belirlemek ve kusursuz dönüşümü başlatmak için online randevu oluşturun.
+        <p data-i18n="cta_desc" class="text-[11px] text-subtletext mt-1 font-light max-w-md">
+          Yunus Soner ve uzman ekibimizle yüz anatominize en uygun tasarımı belirlemek için hemen WhatsApp üzerinden iletişime geçin.
         </p>
       </div>
 
       <div class="flex items-center gap-3 shrink-0 w-full sm:w-auto">
         <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion w-full sm:w-auto px-7 py-3.5 bg-luxedark text-creambg rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-colors shadow-sm inline-flex items-center justify-center gap-2 group">
           <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
-          <span>Randevu Al</span>
+          <span data-i18n="btn_book">Randevu Al</span>
           <i class="btn-arrow fa-solid fa-arrow-right text-[10px]"></i>
         </a>
       </div>
@@ -1711,7 +1738,7 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-xs text-subtletext font-light mb-12">
         <div>
-          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Adres & İletişim</span>
+          <span data-i18n="footer_address_title" class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Adres & İletişim</span>
           <p class="leading-relaxed">
             Karagül Apartmanı, Aşağı Hisar Mah. Mithat Paşa Cd. No: 9Z2, Manavgat / Antalya
           </p>
@@ -1722,38 +1749,38 @@
             </a>
             <a href="https://www.google.com/maps/dir/?api=1&destination=Karag%C3%Bcl+Apartman%C4%B1+A%C5%9Fa%C4%9F%C4%B1+Hisar+Mahallesi+Mithat+Pa%C5%9Fa+Caddesi+No+9Z2+Manavgat&destination_place_id=ChIJSTDhm-FZwxQR2NChWbM1h9s" target="_blank" class="inline-flex items-center gap-1.5 text-[11px] text-luxedark/80 hover:text-luxedark underline mt-0.5">
               <i class="fa-solid fa-location-arrow text-[10px]"></i>
-              <span>Yol Tarifi Al</span>
+              <span data-i18n="footer_directions">Yol Tarifi Al</span>
             </a>
           </div>
         </div>
 
         <div>
-          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Çalışma Saatleri</span>
-          <p class="leading-relaxed">
+          <span data-i18n="footer_hours_title" class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Çalışma Saatleri</span>
+          <p data-i18n="footer_hours_desc" class="leading-relaxed">
             Salı - Pazar (Pazartesi Kapalı)<br>
             10:00 - 19:30 (Randevu İle)
           </p>
         </div>
 
         <div>
-          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Müşteri Memnuniyeti</span>
+          <span data-i18n="footer_satisfaction_title" class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Müşteri Memnuniyeti</span>
           <div class="inline-flex items-center gap-2 bg-creambg px-3 py-1.5 rounded-lg border border-neutral-200">
             <span class="font-bold text-luxedark">5.0</span>
             <span class="text-amber-500 tracking-wider">★★★★★</span>
-            <span class="text-[10px] text-subtletext">(374 Google Yorumu)</span>
+            <span data-i18n="footer_reviews_count" class="text-[10px] text-subtletext">(374 Google Yorumu)</span>
           </div>
         </div>
       </div>
 
       <div class="pt-6 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-subtletext gap-4">
-        <div>
+        <div data-i18n="footer_rights">
           © LOCCA Hair Studio. Tüm hakları saklıdır.
         </div>
         <div class="flex flex-wrap items-center justify-center sm:justify-end gap-x-5 gap-y-2 uppercase tracking-widest text-[10px]">
-          <a href="index.html" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
-          <a href="hizmetler.html" class="nav-link-animated hover:text-luxedark transition-colors">Hizmetler</a>
-          <a href="hakkimizda.html" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
-          <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="nav-link-animated hover:text-luxedark transition-colors">Randevu</a>
+          <a href="index.html" data-i18n="nav_home" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
+          <a href="hizmetler.html" data-i18n="nav_services" class="nav-link-animated hover:text-luxedark transition-colors">Hizmetler</a>
+          <a href="hakkimizda.html" data-i18n="nav_about" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
+          <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" data-i18n="btn_book" class="nav-link-animated hover:text-luxedark transition-colors">Randevu Al</a>
           <a href="https://www.instagram.com/yunus_soner_loca_hairdesing/" target="_blank" class="nav-link-animated hover:text-luxedark transition-colors">@yunus_soner_loca_hairdesing</a>
         </div>
       </div>
@@ -1772,7 +1799,7 @@
     <div class="wa-pulse-dot w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm group-hover:rotate-12 transition-transform">
       <i class="fa-brands fa-whatsapp text-base"></i>
     </div>
-    <span class="text-xs font-medium tracking-wide pr-1">WhatsApp Randevu</span>
+    <span data-i18n="floating_wa" class="text-xs font-medium tracking-wide pr-1">WhatsApp Randevu</span>
   </a>
 
   <!-- ================================================================= -->
@@ -1792,7 +1819,7 @@
     >
       <!-- Üst Şerit & Kapat Butonu -->
       <div class="px-6 sm:px-8 pt-6 pb-4 border-b border-neutral-200/80 flex items-center justify-between">
-        <span class="text-[10px] font-semibold uppercase tracking-widest text-subtletext">
+        <span data-i18n="modal_expertise_label" class="text-[10px] font-semibold uppercase tracking-widest text-subtletext">
           LOCCA Hair Studio • İmza Uzmanlık
         </span>
         <button 
@@ -1824,7 +1851,7 @@
 
         <!-- 3 Maddelik Öne Çıkan Avantajlar -->
         <div class="bg-cardbg/70 p-5 rounded-2xl border border-neutral-200/80 space-y-3">
-          <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark">
+          <span data-i18n="modal_advantages" class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark">
             Öne Çıkan Ayrıcalıklar
           </span>
           <ul id="modalFeatures" class="space-y-2.5 text-xs text-luxedark/90 font-light">
@@ -1842,10 +1869,10 @@
             class="w-full py-4 rounded-full bg-luxedark text-creambg text-xs font-semibold uppercase tracking-widest hover:bg-neutral-800 transition-all duration-300 shadow-md flex items-center justify-center gap-2 group"
           >
             <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i>
-            <span>Bu İşlem İçin Randevu Al</span>
+            <span data-i18n="modal_btn_book">Bu İşlem İçin Randevu Al</span>
             <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
           </a>
-          <p class="text-[10px] text-subtletext text-center mt-2.5 font-light">
+          <p data-i18n="modal_notice" class="text-[10px] text-subtletext text-center mt-2.5 font-light">
             * 0507 199 34 24 WhatsApp hattımıza doğrudan randevu talebiniz iletilir.
           </p>
         </div>
@@ -1859,46 +1886,46 @@
       mikro: {
         category: "Nano Teknoloji",
         title: "Ultra Görünmez Mikro Saç Kaynak",
+        serviceName: "Mikro Kaynak",
         description: "Yunus Soner Kuaför olarak uyguladığımız mikro kaynak teknolojisi, saç teline ağırlık yapmayan ve dışarıdan asla fark edilmeyen nano kapsül sistemine dayanır. Kendi saç yapınız ve dalganızla %100 uyumlu doğal saçlar kullanıyoruz. Saçlarınızı topladığınızda veya atkuyruğu yaptığınızda bağlantı noktaları görünmez; dökülme ve çekme yapmaz.",
         features: [
           "Hissedilmeyen nano keratin bağlantı noktaları",
           "%100 doğal, boyanabilir ve fönlenebilir birinci sınıf saç",
           "Saç diplerine ve saç köklerine sıfır zarar"
-        ],
-        waLink: "https://wa.me/905071993424?text=Merhaba,%20Mikro%20Kaynak%20işlemi%20hakkında%20randevu%20almak%20istiyorum."
+        ]
       },
       sombre: {
         category: "Kademeli Açma & Tonlama",
         title: "Buz Sarısı & Sombre Renklendirme",
+        serviceName: "Buz Sarısı & Sombre",
         description: "Platin ve kristal buz sarısı tonlarına ulaşırken saçın sağlığını korumak Yunus Soner Kuaför'ün en büyük uzmanlık alanıdır. Kademeli açma protokolü ve bağ koruyucu özel ürünlerle saç tellerinin elastikiyetini koruyoruz. Turunculaşmayan, dipten uca pürüzsüz ve kadife yumuşaklığında sarı tonlar sunuyoruz.",
         features: [
           "Bağ güçlendirici koruyucu açıcı formüller",
           "Turunculaşmayı önleyen kalıcı soğuk tonlama",
           "Yıpranma ve yanma riskini sıfırlayan uzman kontrolü"
-        ],
-        waLink: "https://wa.me/905071993424?text=Merhaba,%20Buz%20Sarısı%20ve%20Sombre%20işlemi%20için%20randevu%20almak%20istiyorum."
+        ]
       },
       babylights: {
         category: "Doğal Mikro Işıltı",
         title: "Doğal Kahve & Işıltılı Geçişler (Babylights)",
+        serviceName: "Babylights Işıltı",
         description: "Saçınızın ana rengini ve doğallığını bozmadan, güneşten açılmış gibi incecik ışıltılar kazandırıyoruz. Yunus Soner Kuaför'de yüz anatomisine uygun stratejik tutamlarla ışık yerleştirilir. Dip boyası mecburiyeti olmadan aylarca ilk günkü ışıltısını ve hacimli duruşunu korur.",
         features: [
           "Çizgi ve leke bırakmayan mikro tutam tekniği",
           "Düşük bakım gereksinimi (Dip boyası derdi yok)",
           "Saça derinlik ve doğal parlaklık katan geçişler"
-        ],
-        waLink: "https://wa.me/905071993424?text=Merhaba,%20Babylights%20Işıltı%20işlemi%20için%20randevu%20almak%20istiyorum."
+        ]
       },
       gelin: {
         category: "Özel Gün & Tasarım",
         title: "Gelin Başı & Özel Gün Saç Tasarımı",
+        serviceName: "Gelin Başı & Özel Gün",
         description: "En özel gününüzde gelinliğinizin yaka kesimine, düğün konseptine ve yüz yapınıza en uygun tasarımı Yunus Soner Kuaför'de kişiye özel planlıyoruz. Sertleşmiş ve yapay sprey görüntüsünden uzak; doğal, zarif ve gece boyu dans ederken bile formunu asla kaybetmeyen saç tasarımları uyguluyoruz.",
         features: [
           "Düğün öncesi saç provası ve aksesuar uyumu",
           "Gece boyu bozulmayan profesyonel sabitleme",
           "Duvak, taç ve canlı çiçeklerle estetik yerleşim"
-        ],
-        waLink: "https://wa.me/905071993424?text=Merhaba,%20Gelin%20Başı%20ve%20Özel%20Gün%20tasarımı%20için%20randevu%20planlamak%20istiyorum."
+        ]
       }
     };
 
@@ -1920,7 +1947,14 @@
         </li>
       `).join('');
 
-      document.getElementById('modalActionBtn').href = data.waLink;
+      // Localized WhatsApp Link with requested service name
+      if (typeof generateWhatsAppUrl === 'function') {
+        document.getElementById('modalActionBtn').href = generateWhatsAppUrl({
+          request: data.serviceName || data.title
+        });
+      } else {
+        document.getElementById('modalActionBtn').href = `https://wa.me/905071993424?text=${encodeURIComponent('Merhaba, ' + data.title + ' için randevu almak istiyorum.')}`;
+      }
 
       const modal = document.getElementById('transformationModal');
       const container = document.getElementById('modalContainer');
@@ -2209,6 +2243,9 @@
       }
     });
   </script>
+
+  <!-- Multi-Language i18n Controller -->
+  <script src="js/i18n.js"></script>
 
   <!-- Premium Motion Design Controller -->
   <script src="js/motion.js"></script>
