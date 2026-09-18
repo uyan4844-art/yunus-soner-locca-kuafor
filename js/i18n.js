@@ -155,8 +155,9 @@ const translations = {
     "reels_mute_on": "Ses Açık",
 
     // FAQ Section
-    "sec_faq_sub": "merak edilenler",
-    "sec_faq_title": "SIKÇA SORULAN SORULAR",
+    "sec_faq_sub": "MERAK EDİLENLER",
+    "sec_faq_title": "Sıkça Sorulan Sorular",
+    "sec_faq_desc": "LOCCA salonumuzdaki hizmetler, saç analizi ve randevu süreci hakkında en çok sorulan sorular.",
     "faq_q1": "Mikro kaynak saçlarıma zarar verir mi ve ne kadar süre kullanılır?",
     "faq_a1": "\"Hayır, kesinlikle zarar vermez. İtalyan nano keratin kapsüllerimiz saç teline ağırlık yapmaz ve hava almasını engellemez. Düzenli kullanımla saçınızın uzama hızına bağlı olarak 3-4 ay boyunca konforla kullanabilirsiniz.\"",
     "faq_q2": "Açma ve sarışınlık işlemlerinde saçım yıpranır mı?",
@@ -401,8 +402,9 @@ const translations = {
     "reels_mute_on": "Sound On",
 
     // FAQ Section
-    "sec_faq_sub": "frequently asked",
-    "sec_faq_title": "FREQUENTLY ASKED QUESTIONS",
+    "sec_faq_sub": "FREQUENTLY ASKED",
+    "sec_faq_title": "Frequently Asked Questions",
+    "sec_faq_desc": "Frequently asked questions about services, hair analysis, and appointment booking at LOCCA salon.",
     "faq_q1": "Will micro extensions damage my natural hair and how long do they last?",
     "faq_a1": "\"No, absolutely not. Our Italian nano-keratin capsules add no excessive weight and allow your hair to breathe naturally. Depending on your hair growth rate, they can be worn comfortably for 3 to 4 months.\"",
     "faq_q2": "Will my hair experience damage during lightening and blonde transformations?",
@@ -639,8 +641,9 @@ const translations = {
     "reels_mute_on": "Ton an",
 
     // FAQ
-    "sec_faq_sub": "oft gefragt",
-    "sec_faq_title": "HÄUFIG GESTELLTE FRAGEN",
+    "sec_faq_sub": "OFT GEFRAGT",
+    "sec_faq_title": "Häufig Gestellte Fragen",
+    "sec_faq_desc": "Häufig gestellte Fragen zu Services, Haaranalyse und Terminvereinbarung im LOCCA Salon.",
     "faq_q1": "Schaden Mikro-Extensions meinem Eigenhaar und wie lange halten sie?",
     "faq_a1": "\"Nein, keineswegs. Unsere italienischen Nano-Keratin-Kapseln belasten das Haar nicht und lassen es natürlich atmen. Je nach individuellem Haarwachstum können sie 3 bis 4 Monate lang vollkommen beschwerdefrei getragen werden.\"",
     "faq_q2": "Wird mein Haar durch Aufhellung und Blondierung strapaziert?",
@@ -874,8 +877,9 @@ const translations = {
     "reels_mute_on": "Звук вкл",
 
     // FAQ
-    "sec_faq_sub": "частые вопросы",
-    "sec_faq_title": "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ",
+    "sec_faq_sub": "ЧАСТЫЕ ВОПРОСЫ",
+    "sec_faq_title": "Часто Задаваемые Вопросы",
+    "sec_faq_desc": "Часто задаваемые вопросы об услугах, диагностике волос и записи на визит в салон LOCCA.",
     "faq_q1": "Вредно ли микронаращивание для волос и сколько оно держится?",
     "faq_a1": "\"Нет, абсолютно безопасно. Итальянские нанокератиновые капсулы невесомы и не препятствуют дыханию волос. В зависимости от скорости роста ваших волос коррекция требуется через 3–4 месяца комфортной носки.\"",
     "faq_q2": "Повредятся ли волосы при осветлении и окрашивании в блонд?",
@@ -1109,8 +1113,9 @@ const translations = {
     "reels_mute_on": "Son activé",
 
     // FAQ
-    "sec_faq_sub": "questions fréquentes",
-    "sec_faq_title": "FOIRE AUX QUESTIONS",
+    "sec_faq_sub": "QUESTIONS FRÉQUENTES",
+    "sec_faq_title": "Foire Aux Questions",
+    "sec_faq_desc": "Questions fréquemment posées sur nos prestations, le diagnostic capillaire et les rendez-vous au salon LOCCA.",
     "faq_q1": "Les micro-extensions abîment-elles mes cheveux et combien de temps durent-elles ?",
     "faq_a1": "\"Non, absolument aucun dommage. Nos nano-capsules de kératine italienne sont ultra-légères et laissent respirer vos cheveux. Selon votre repousse naturelle, elles se portent confortablement pendant 3 à 4 mois.\"",
     "faq_q2": "Mes cheveux seront-ils fragilisés lors de l'éclaircissement et du blond ?",
