@@ -85,8 +85,8 @@ const translations = {
     "floating_wa": "WhatsApp Randevu",
 
     // Hero Section
-    "hero_subtitle": "imzanız olacak",
-    "hero_title": "KUSURSUZ DÖNÜŞÜM",
+    "hero_subtitle": "İMZANIZ OLACAK",
+    "hero_title": "Kusursuz Dönüşüm",
     "hero_quote": "\"Saç sağlığından ödün vermeden, yüz anatominize özel tasarlanan mikro kaynak ve renklendirme sanatı.\"",
     "hero_btn_services": "Hizmetler",
     "chip_mikro": "Mikro Kaynak",
@@ -98,8 +98,8 @@ const translations = {
     "hero_card_sombre_desc": "Saç sağlığını koruyarak yapılan doğal sarı ton geçişleri.",
 
     // Bento / Signature Transformations
-    "sec_signature_sub": "ustalıkla seçilmiş",
-    "sec_signature_title": "İMZA DÖNÜŞÜMLER",
+    "sec_signature_sub": "USTALIKLA SEÇİLMİŞ",
+    "sec_signature_title": "İmza Dönüşümler",
     "bento_1_title": "Ultra Görünmez Mikro Kaynak",
     "bento_1_badge": "Nano Teknoloji",
     "bento_2_title": "Buz Sarısı & Kristal Soğuk Sombre",
@@ -111,14 +111,14 @@ const translations = {
     "bento_examine": "Detayları Gör",
 
     // Philosophy / Studio Section
-    "sec_philosophy_sub": "manavgat'ta bir saç durağı",
-    "sec_philosophy_title": "LOCCA HAIR STUDIO",
+    "sec_philosophy_sub": "MANAVGAT'TA BİR SAÇ DURAĞI",
+    "sec_philosophy_title": "LOCCA Hair Studio",
     "sec_philosophy_desc": "\"Aşağı Hisar Mahallesi'nde, kendi yerimizde samimi ve profesyonel bir ortamda hizmet veriyoruz. Saçınızı yıpratmadan uzatmak, doğal tonlarda renklendirmek ve hak ettiğiniz özeni göstermek için buradayız.\"",
     "btn_about_locca": "LOCCA KUAFÖR HAKKINDA",
 
     // 4 Main Services Grid
-    "sec_services_sub": "ayrıcalıklı dokunuşlar",
-    "sec_services_title": "UZMANLIK ALANLARIMIZ",
+    "sec_services_sub": "AYRICALIKLI DOKUNUŞLAR",
+    "sec_services_title": "Uzmanlık Alanlarımız",
     "srv_1_title": "MİKRO KAYNAK",
     "srv_1_desc": "Hissedilmeyen nano kapsül ve doğal yoğun hacim",
     "srv_2_title": "BUZ SARISI",
@@ -129,15 +129,15 @@ const translations = {
     "srv_4_desc": "Keratin botoks ve aynamsı parlaklık veren nem kürü",
 
     // Reviews Section
-    "sec_reviews_sub": "gerçek deneyimler",
-    "sec_reviews_title": "MÜŞTERİ YORUMLARI",
+    "sec_reviews_sub": "GERÇEK DENEYİMLER",
+    "sec_reviews_title": "Müşteri Yorumları",
     "reviews_rating_note": "Google'da doğrulanmış 370+ misafir deneyimi",
     "review_verified": "Doğrulandı",
     "review_owner_reply": "İşletme Sahibinin Yanıtı",
 
     // LOCCA Ritüeli (3 Steps)
-    "ritual_sub": "nasıl çalışıyoruz",
-    "ritual_title": "KUSURSUZLUĞA GİDEN 3 ADIM",
+    "ritual_sub": "NASIL ÇALIŞIYORUZ",
+    "ritual_title": "Kusursuzluğa Giden 3 Adım",
     "ritual_1_title": "SAÇ ANALİZİ & KONSÜLTASYON",
     "ritual_1_desc": "\"Yüz anatominize, saç yoğunluğunuza ve geçmiş boya geçmişinize özel planlama.\"",
     "ritual_2_title": "KORUYUCU VE ÖZENLİ UYGULAMA",
@@ -147,8 +147,8 @@ const translations = {
 
     // Instagram Reels Section
     "reels_live_badge": "Canlı Stüdyo Çekimleri",
-    "reels_sub": "canlı dönüşümler & reels",
-    "reels_title": "INSTAGRAM'DA LOCCA",
+    "reels_sub": "CANLI DÖNÜŞÜMLER & REELS",
+    "reels_title": "Instagram'da LOCCA",
     "reels_desc": "@yunus_soner_loca_hairdesing • Canlı stüdyo seanslarımızı, mikro kaynak montajlarını ve kristal sarı dönüşüm anlarını kaydırarak keşfedin.",
     "reels_more_btn": "Daha Fazla Reels İçin Instagram",
     "reels_mute_off": "Ses Kapalı",
@@ -186,8 +186,8 @@ const translations = {
     "modal_notice": "* 0507 199 34 24 WhatsApp hattımıza doğrudan randevu talebiniz iletilir.",
 
     // ===== HIZMETLER PAGE =====
-    "hp_sub": "ustalık ve samimi özenle",
-    "hp_title": "UZMANLIK ALANLARIMIZ VE TEKNİKLERİMİZ",
+    "hp_sub": "USTALIK VE SAMİMİ ÖZENLE",
+    "hp_title": "Uzmanlık Alanlarımız ve Tekniklerimiz",
     "hp_desc": "Her kadının saç anatomisi, yoğunluğu ve geçmiş boya tecrübesi kendine hastır. LOCCA stüdyosunda standart reçeteler değil, kişiye özel saç mimarisi uygulanır.",
     "hp_price_note": "Fiyatlarımız saç yapınız ve kullanılacak gramaja göre salonda yüz yüze belirlenmektedir.",
     // Service 1
@@ -218,15 +218,15 @@ const translations = {
     "hp_s4_how_desc": "Isı ve kimyasallardan yıpranmış, nemini kaybetmiş saç tellerine keratin ve amino asit yüklemesi yapıyoruz. Saç pulcuklarını kapatarak pürüzsüz, elektriklenmeyen ve ışığı yansıtan ipeksi bir doku elde ediyoruz.",
     "hp_s4_approach_desc": "Kalıcı düzleştiriciler gibi saçı yapaylaştırmadan, saçın kendi doğal hareketini ve dalgasını koruyarak sağlıklı, dolgun ve parlak bir görünüm kazandırıyoruz.",
     // Hizmetler CTA
-    "hp_cta_sub": "saçınızın hikayesi burada başlar",
-    "hp_cta_title": "HAYALİNİZDEKİ SAÇ İÇİN BİZE DANIŞIN",
+    "hp_cta_sub": "SAÇINIZIN HİKAYESİ BURADA BAŞLAR",
+    "hp_cta_title": "Hayalinizdeki Saç İçin Bize Danışın",
     "hp_cta_desc": "Size en uygun seansı belirlemek için salon sahibimiz Yunus Soner ile yüz yüze veya telefonla görüşebilirsiniz.",
     "hp_cta_book": "Hemen Randevu Al",
     "hp_cta_consult": "WhatsApp İle Danışın",
 
     // ===== HAKKIMIZDA PAGE =====
-    "ap_sub": "hikayemiz ve felsefemiz",
-    "ap_title": "YUNUS SONER & LOCCA KUAFÖR",
+    "ap_sub": "HİKAYEMİZ VE FELSEFEMİZ",
+    "ap_title": "Yunus Soner & LOCCA Kuaför",
     "ap_location_label": "MANAVGAT AŞAĞI HİSAR",
     "ap_who_title": "Biz Kimiz & Ne Zamandır Buradayız?",
     "ap_who_p1": "\"Manavgat Aşağı Hisar'da uzun yıllara dayanan kuaförlük tecrübemizle, kadınların saç sağlığını merkeze alan bir anlayışla çalışıyoruz. Locca Kuaför, her müşterinin koltuktan mutlu ve kendine güvenerek kalkmasını amaçlayan bir saç stüdyosudur.\"",
@@ -248,8 +248,8 @@ const translations = {
     "ap_personal_session": "Kişiye Özel Seans Düzeni",
     "ap_single_client": "Tek Müşteri Odaklı",
     // Hakkımızda CTA
-    "ap_cta_sub": "sizi dinlemek için buradayız",
-    "ap_cta_title": "SAÇINIZI BİRLİKTE PLANLAYALIM",
+    "ap_cta_sub": "SİZİ DİNLEMEK İÇİN BURADAYIZ",
+    "ap_cta_title": "Saçınızı Birlikte Planlayalım",
     "ap_cta_desc": "Saç durumunuzu değerlendirmek, uygun seansı seçmek ve merak ettiklerinizi sormak için hemen bizimle iletişime geçin.",
     "ap_cta_consult": "WhatsApp Danışma",
 
@@ -332,8 +332,8 @@ const translations = {
     "floating_wa": "WhatsApp Booking",
 
     // Hero Section
-    "hero_subtitle": "your signature",
-    "hero_title": "NATURAL HAIR DESIGN & EXTENSIONS",
+    "hero_subtitle": "YOUR SIGNATURE",
+    "hero_title": "Natural Hair Design & Extensions",
     "hero_quote": "\"Micro hair extensions and bespoke coloring artistry, tailored to your facial anatomy without compromising hair health.\"",
     "hero_btn_services": "Services",
     "chip_mikro": "Micro Extensions",
@@ -345,8 +345,8 @@ const translations = {
     "hero_card_sombre_desc": "Gentle transitions to radiant blonde tones while preserving hair vitality.",
 
     // Bento / Signature Transformations
-    "sec_signature_sub": "masterfully curated",
-    "sec_signature_title": "SIGNATURE TRANSFORMATIONS",
+    "sec_signature_sub": "MASTERFULLY CURATED",
+    "sec_signature_title": "Signature Transformations",
     "bento_1_title": "Ultra Invisible Micro Hair Extensions",
     "bento_1_badge": "Nano Technology",
     "bento_2_title": "Ice Blonde & Crystal Cool Sombre",
@@ -358,14 +358,14 @@ const translations = {
     "bento_examine": "View Details",
 
     // Philosophy / Studio Section
-    "sec_philosophy_sub": "a premier hair destination in manavgat",
-    "sec_philosophy_title": "LOCCA HAIR STUDIO",
+    "sec_philosophy_sub": "PREMIER HAIR STUDIO IN MANAVGAT",
+    "sec_philosophy_title": "LOCCA Hair Studio",
     "sec_philosophy_desc": "\"Located in Aşağı Hisar, we offer warm and professional bespoke care in our dedicated studio. We are here to extend your hair gently, color in natural tones, and give your hair the luxury care it deserves.\"",
     "btn_about_locca": "ABOUT LOCCA SALON",
 
     // 4 Main Services Grid
-    "sec_services_sub": "exclusive touches",
-    "sec_services_title": "OUR SPECIALTIES",
+    "sec_services_sub": "EXCLUSIVE TOUCHES",
+    "sec_services_title": "Our Specialties",
     "srv_1_title": "MICRO EXTENSIONS",
     "srv_1_desc": "Undetectable nano-capsules and natural, voluminous density",
     "srv_2_title": "ICE BLONDE & SOMBRE",
@@ -376,15 +376,15 @@ const translations = {
     "srv_4_desc": "Keratin botox and mirror-shine deep conditioning treatment",
 
     // Reviews Section
-    "sec_reviews_sub": "authentic experiences",
-    "sec_reviews_title": "CLIENT REVIEWS",
+    "sec_reviews_sub": "AUTHENTIC EXPERIENCES",
+    "sec_reviews_title": "Client Reviews",
     "reviews_rating_note": "370+ verified guest reviews on Google",
     "review_verified": "Verified",
     "review_owner_reply": "Owner's Response",
 
     // LOCCA Ritüeli (3 Steps)
-    "ritual_sub": "how we work",
-    "ritual_title": "3 STEPS TO PERFECTION",
+    "ritual_sub": "HOW WE WORK",
+    "ritual_title": "3 Steps to Perfection",
     "ritual_1_title": "HAIR ANALYSIS & CONSULTATION",
     "ritual_1_desc": "\"Custom planning based on your facial anatomy, hair density, and previous color history.\"",
     "ritual_2_title": "PROTECTIVE & METICULOUS APPLICATION",
@@ -394,8 +394,8 @@ const translations = {
 
     // Instagram Reels Section
     "reels_live_badge": "Live Studio Sessions",
-    "reels_sub": "live transformations & reels",
-    "reels_title": "LOCCA ON INSTAGRAM",
+    "reels_sub": "LIVE TRANSFORMATIONS & REELS",
+    "reels_title": "LOCCA on Instagram",
     "reels_desc": "@yunus_soner_loca_hairdesing • Swipe to explore our live studio sessions, micro extension applications and crystal blonde transformations.",
     "reels_more_btn": "More Reels on Instagram",
     "reels_mute_off": "Sound Off",
@@ -415,8 +415,8 @@ const translations = {
     "faq_a4": "\"For coloring and lightening services, we recommend not washing your hair on the appointment day so the natural scalp oils protect the skin. For extensions and styling, professional purifying washes are performed in our salon.\"",
 
     // CTA / Footer
-    "cta_sub": "plan your visit",
-    "cta_title": "TAKE THE FIRST STEP TOWARDS YOUR DREAM HAIR",
+    "cta_sub": "PLAN YOUR VISIT",
+    "cta_title": "Take the First Step Towards Your Dream Hair",
     "cta_desc": "Contact Yunus Soner and our specialist team directly via WhatsApp to design your bespoke hair transformation.",
     "footer_address_title": "Address & Contact",
     "footer_directions": "Get Directions",
@@ -433,8 +433,8 @@ const translations = {
     "modal_notice": "* Your booking inquiry will be sent directly to our +90 507 199 34 24 WhatsApp line.",
 
     // ===== HIZMETLER PAGE =====
-    "hp_sub": "with expertise and genuine care",
-    "hp_title": "OUR SPECIALTIES & TECHNIQUES",
+    "hp_sub": "WITH EXPERTISE AND GENUINE CARE",
+    "hp_title": "Our Specialties & Techniques",
     "hp_desc": "Every woman's hair anatomy, density, and color history is unique. At LOCCA studio, we provide bespoke hair architecture instead of standard formulas.",
     "hp_price_note": "Our prices are determined in person at the salon based on your hair type and the required volume.",
     "hp_s1_label": "01 / SIGNATURE SPECIALTY",
@@ -453,22 +453,22 @@ const translations = {
     "hp_s3_label": "03 / NATURAL ILLUMINATION",
     "hp_s3_badge": "Effortless Naturalness",
     "hp_s3_title": "Natural Brunette & Babylights",
-    "hp_s3_how_desc": "Without disturbing your hair's natural base and color, we add delicate, sun-kissed highlights. Instead of harsh foils with visible lines, we apply micro-strands (babylights) that blend seamlessly with your hair's natural flow.",
-    "hp_s3_approach_desc": "We design low-maintenance colorings that don't require root touch-ups and maintain their natural look as your hair grows out.",
+    "hp_s3_how_desc": "Without disrupting the hair's own base color and natural essence, we introduce delicate, sun-kissed micro-highlights (babylights). Rather than rigid streaks, our subtle strands blend harmoniously with your natural movement.",
+    "hp_s3_approach_desc": "We design low-maintenance color palettes that require no urgent root touch-ups and look exceptionally organic as your hair grows.",
     "hp_s4_label": "04 / DEEP REPAIR & CARE",
-    "hp_s4_badge": "Silky Repair",
+    "hp_s4_badge": "Silky Restoration",
     "hp_s4_title": "Hair Therapy & Keratin Botox",
-    "hp_s4_how_desc": "We infuse keratin and amino acids into hair strands damaged by heat and chemicals that have lost their moisture. By sealing the cuticle, we achieve a smooth, frizz-free, light-reflecting silky texture.",
-    "hp_s4_approach_desc": "Without artificially straightening hair like permanent treatments, we restore a healthy, full, and glossy look while preserving your hair's natural movement and wave.",
-    "hp_cta_sub": "your hair story begins here",
-    "hp_cta_title": "CONSULT US FOR YOUR DREAM HAIR",
-    "hp_cta_desc": "To determine the best session for you, you can meet with our salon owner Yunus Soner in person or by phone.",
-    "hp_cta_book": "Book Now",
-    "hp_cta_consult": "Consult via WhatsApp",
+    "hp_s4_how_desc": "We infuse hair damaged by heat or chemicals with concentrated keratin and essential amino acids. By sealing the cuticles, we achieve a smooth, anti-frizz, mirror-reflective silky texture.",
+    "hp_s4_approach_desc": "Without artificially flattening hair like permanent straighteners, we preserve natural wave movement while imparting lush health, body, and radiant gloss.",
+    "hp_cta_sub": "YOUR HAIR STORY BEGINS HERE",
+    "hp_cta_title": "Consult Us for Your Dream Hair",
+    "hp_cta_desc": "Schedule a personalized consultation with salon owner Yunus Soner in person or over the phone to define your ideal session.",
+    "hp_cta_book": "Book Appointment Now",
+    "hp_cta_consult": "Inquire via WhatsApp",
 
     // ===== HAKKIMIZDA PAGE =====
-    "ap_sub": "our story and philosophy",
-    "ap_title": "YUNUS SONER & LOCCA SALON",
+    "ap_sub": "OUR STORY AND PHILOSOPHY",
+    "ap_title": "Yunus Soner & LOCCA Salon",
     "ap_location_label": "MANAVGAT AŞAĞI HİSAR",
     "ap_who_title": "Who We Are & How Long We've Been Here",
     "ap_who_p1": "\"With years of hairdressing experience in Manavgat Aşağı Hisar, we work with a philosophy that places women's hair health at the center. Locca Salon is a hair studio dedicated to ensuring every client leaves the chair happy and confident.\"",
@@ -487,8 +487,8 @@ const translations = {
     "ap_trust_desc": "\"We never apply any chemical or low-quality extension to our clients that we wouldn't use on our own hair. Instead of quoting prices by rote over the phone, we assess your hair in the salon and provide the most honest and accurate plan. Our 370+ five-star Google reviews are a testament to this dedication.\"",
     "ap_personal_session": "Personalized Session Plan",
     "ap_single_client": "Single Client Focus",
-    "ap_cta_sub": "we are here to listen",
-    "ap_cta_title": "LET'S PLAN YOUR HAIR TOGETHER",
+    "ap_cta_sub": "WE ARE HERE TO LISTEN",
+    "ap_cta_title": "Let's Plan Your Hair Together",
     "ap_cta_desc": "Contact us now to evaluate your hair condition, choose the right session, and ask any questions you may have.",
     "ap_cta_consult": "WhatsApp Consultation",
 
@@ -571,8 +571,8 @@ const translations = {
     "floating_wa": "WhatsApp Termin",
 
     // Hero Section
-    "hero_subtitle": "Ihre Signatur",
-    "hero_title": "NATÜRLICHES HAARDESIGN & EXTENSIONS",
+    "hero_subtitle": "IHRE SIGNATUR",
+    "hero_title": "Natürliches Haardesign & Extensions",
     "hero_quote": "\"Haarschonende Mikroring-Extensions und Farbkunst, perfekt abgestimmt auf Ihre Gesichtsanatomie.\"",
     "hero_btn_services": "Leistungen",
     "chip_mikro": "Mikro Extensions",
@@ -584,8 +584,8 @@ const translations = {
     "hero_card_sombre_desc": "Sanfte Farbverläufe zu strahlenden Blondtönen unter Erhalt der Haargesundheit.",
 
     // Bento
-    "sec_signature_sub": "meisterhaft kreiert",
-    "sec_signature_title": "SIGNATUR VERWANDLUNGEN",
+    "sec_signature_sub": "MEISTERHAFT KREIERT",
+    "sec_signature_title": "Signatur Verwandlungen",
     "bento_1_title": "Ultra-unsichtbare Mikro Haar-Extensions",
     "bento_1_badge": "Nano Technologie",
     "bento_2_title": "Eisblond & Kristallkühles Sombre",
@@ -597,14 +597,14 @@ const translations = {
     "bento_examine": "Details ansehen",
 
     // Philosophy
-    "sec_philosophy_sub": "eine erstklassige haaroase in manavgat",
-    "sec_philosophy_title": "LOCCA HAIR STUDIO",
+    "sec_philosophy_sub": "ERSTKLASSIGE HAAROASE IN MANAVGAT",
+    "sec_philosophy_title": "LOCCA Hair Studio",
     "sec_philosophy_desc": "\"In Aşağı Hisar bieten wir Ihnen in unserem Salon eine herzliche und professionelle Betreuung. Wir verlängern Ihr Haar schonend, färben in natürlichen Tönen und schenken Ihnen die Aufmerksamkeit, die Sie verdienen.\"",
     "btn_about_locca": "ÜBER LOCCA KUAFÖR",
 
     // Services Grid
-    "sec_services_sub": "exklusive akzente",
-    "sec_services_title": "UNSERE SPEZIALGEBIETE",
+    "sec_services_sub": "EXKLUSIVE AKZENTE",
+    "sec_services_title": "Unsere Spezialgebiete",
     "srv_1_title": "MIKRO EXTENSIONS",
     "srv_1_desc": "Kaum spürbare Nano-Kapseln und natürliches, volles Volumen",
     "srv_2_title": "EISBLOND & SOMBRE",
@@ -615,15 +615,15 @@ const translations = {
     "srv_4_desc": "Keratin Botox und spiegelglänzende Tiefenpflege",
 
     // Reviews
-    "sec_reviews_sub": "echte erfahrungen",
-    "sec_reviews_title": "KUNDENBEWERTUNGEN",
+    "sec_reviews_sub": "ECHTE ERFAHRUNGEN",
+    "sec_reviews_title": "Kundenbewertungen",
     "reviews_rating_note": "Über 370 verifizierte Kundenstimmen auf Google",
     "review_verified": "Verifiziert",
     "review_owner_reply": "Antwort des Inhabers",
 
     // Ritual
-    "ritual_sub": "wie wir arbeiten",
-    "ritual_title": "3 SCHRITTE ZUR PERFEKTION",
+    "ritual_sub": "WIE WIR ARBEITEN",
+    "ritual_title": "3 Schritte zur Perfektion",
     "ritual_1_title": "HAARANALYSE & BERATUNG",
     "ritual_1_desc": "\"Individuelle Planung basierend auf Ihrer Gesichtsform, Haardichte und Farbhistorie.\"",
     "ritual_2_title": "SCHONENDE & SORGFÄLTIGE ANWENDUNG",
@@ -633,8 +633,8 @@ const translations = {
 
     // Reels
     "reels_live_badge": "Live Studio-Aufnahmen",
-    "reels_sub": "live verwandlungen & reels",
-    "reels_title": "LOCCA AUF INSTAGRAM",
+    "reels_sub": "LIVE VERWANDLUNGEN & REELS",
+    "reels_title": "LOCCA auf Instagram",
     "reels_desc": "@yunus_soner_loca_hairdesing • Entdecken Sie unsere Live-Studio-Sitzungen, Mikro-Extensions-Anwendungen und kristallblonde Verwandlungen.",
     "reels_more_btn": "Mehr Reels auf Instagram",
     "reels_mute_off": "Ton aus",
@@ -697,15 +697,15 @@ const translations = {
     "hp_s4_title": "Haartherapie & Keratin Botox",
     "hp_s4_how_desc": "Wir laden durch Hitze und Chemikalien geschädigtes, feuchtigkeitsarmes Haar mit Keratin und Aminosäuren auf. Durch Versiegelung der Schuppenschicht erzielen wir eine glatte, frizzfreie, lichtreflektierende seidige Textur.",
     "hp_s4_approach_desc": "Ohne das Haar künstlich zu glätten wie bei Dauerbehandlungen, stellen wir ein gesundes, volles und glänzendes Aussehen wieder her und bewahren die natürliche Bewegung und Welle Ihres Haares.",
-    "hp_cta_sub": "Ihre Haargeschichte beginnt hier",
-    "hp_cta_title": "BERATEN SIE SICH MIT UNS FÜR IHR TRAUMHAAR",
+    "hp_cta_sub": "IHRE HAARGESCHICHTE BEGINNT HIER",
+    "hp_cta_title": "Beraten Sie sich mit uns für Ihr Traumhaar",
     "hp_cta_desc": "Um die beste Sitzung für Sie zu bestimmen, können Sie unseren Saloninhaber Yunus Soner persönlich oder telefonisch treffen.",
     "hp_cta_book": "Jetzt buchen",
     "hp_cta_consult": "Per WhatsApp beraten",
 
     // Hakkımızda Page
-    "ap_sub": "unsere Geschichte und Philosophie",
-    "ap_title": "YUNUS SONER & LOCCA SALON",
+    "ap_sub": "UNSERE GESCHICHTE UND PHILOSOPHIE",
+    "ap_title": "Yunus Soner & LOCCA Salon",
     "ap_location_label": "MANAVGAT AŞAĞI HİSAR",
     "ap_who_title": "Wer wir sind & wie lange wir hier sind",
     "ap_who_p1": "\"Mit langjähriger Friseur-Erfahrung in Manavgat Aşağı Hisar arbeiten wir mit einer Philosophie, die die Haargesundheit der Frau in den Mittelpunkt stellt. Locca Salon ist ein Haarstudio, das darauf abzielt, dass jede Kundin glücklich und selbstbewusst den Stuhl verlässt.\"",
@@ -724,8 +724,8 @@ const translations = {
     "ap_trust_desc": "\"Wir verwenden keine Chemikalien oder minderwertige Extensions an unseren Kundinnen, die wir nicht auch an unserem eigenen Haar verwenden würden. Statt Preise am Telefon auswendig zu nennen, beurteilen wir Ihr Haar im Salon und erstellen den ehrlichsten und genauesten Plan. Unsere über 370 Fünf-Sterne-Google-Bewertungen sind ein Beweis dafür.\"",
     "ap_personal_session": "Personalisierter Sitzungsplan",
     "ap_single_client": "Ein-Kunden-Fokus",
-    "ap_cta_sub": "wir sind hier, um zuzuhören",
-    "ap_cta_title": "LASSEN SIE UNS IHR HAAR GEMEINSAM PLANEN",
+    "ap_cta_sub": "WIR SIND HIER, UM ZUZUHÖREN",
+    "ap_cta_title": "Lassen Sie uns Ihr Haar gemeinsam planen",
     "ap_cta_desc": "Kontaktieren Sie uns jetzt, um Ihren Haarzustand zu beurteilen, die richtige Sitzung zu wählen und alle Fragen zu stellen.",
     "ap_cta_consult": "WhatsApp Beratung",
 
@@ -807,8 +807,8 @@ const translations = {
     "floating_wa": "WhatsApp Запись",
 
     // Hero
-    "hero_subtitle": "ваш стиль",
-    "hero_title": "НАТУРАЛЬНЫЙ ДИЗАЙН И НАРАЩИВАНИЕ ВОЛОС",
+    "hero_subtitle": "ВАШ СТИЛЬ",
+    "hero_title": "Натуральный дизайн и наращивание волос",
     "hero_quote": "\"Искусство микронаращивания и бережного окрашивания, индивидуально подобранное под анатомию вашего лица без вреда для волос.\"",
     "hero_btn_services": "Услуги",
     "chip_mikro": "Микронаращивание",
@@ -820,8 +820,8 @@ const translations = {
     "hero_card_sombre_desc": "Плавные естественные переходы в сияющий блонд с сохранением здоровья волос.",
 
     // Bento
-    "sec_signature_sub": "мастерство и стиль",
-    "sec_signature_title": "ФИРМЕННЫЕ ПРЕОБРАЖЕНИЯ",
+    "sec_signature_sub": "МАСТЕРСТВО И СТИЛЬ",
+    "sec_signature_title": "Фирменные Преображения",
     "bento_1_title": "Ультра-невидимое микронаращивание волос",
     "bento_1_badge": "Нанотехнологии",
     "bento_2_title": "Ледяной блонд и холодное сомбре",
@@ -833,14 +833,14 @@ const translations = {
     "bento_examine": "Подробнее",
 
     // Philosophy
-    "sec_philosophy_sub": "лучшее место для ваших волос в манавгате",
-    "sec_philosophy_title": "LOCCA HAIR STUDIO",
+    "sec_philosophy_sub": "ЛУЧШЕЕ МЕСТО ДЛЯ ВОЛОС В МАНАВГАТЕ",
+    "sec_philosophy_title": "LOCCA Hair Studio",
     "sec_philosophy_desc": "\"В районе Aşağı Hisar мы создаем стильные образы в уютной и профессиональной обстановке. Мы бережно удлиняем волосы, красим в натуральные оттенки и окружаем вас заботой.\"",
     "btn_about_locca": "О САЛОНЕ LOCCA",
 
     // Services Grid
-    "sec_services_sub": "премиальный уход",
-    "sec_services_title": "НАШИ НАПРАВЛЕНИЯ",
+    "sec_services_sub": "ПРЕМИАЛЬНЫЙ УХОД",
+    "sec_services_title": "Наши Направления",
     "srv_1_title": "МИКРОНАРАЩИВАНИЕ",
     "srv_1_desc": "Неощутимые нанокапсулы и естественный густой объем",
     "srv_2_title": "ЛЕДЯНОЙ БЛОНД",
@@ -851,15 +851,15 @@ const translations = {
     "srv_4_desc": "Глубокое восстановление, питание и зеркальный блеск",
 
     // Reviews
-    "sec_reviews_sub": "реальные впечатления",
-    "sec_reviews_title": "ОТЗЫВЫ КЛИЕНТОВ",
+    "sec_reviews_sub": "РЕАЛЬНЫЕ ВПЕЧАТЛЕНИЯ",
+    "sec_reviews_title": "Отзывы Клиентов",
     "reviews_rating_note": "Более 370 подтвержденных отзывов на Google",
     "review_verified": "Проверено",
     "review_owner_reply": "Ответ владельца",
 
     // Ritual
-    "ritual_sub": "как мы работаем",
-    "ritual_title": "3 ШАГА К СОВЕРШЕНСТВУ",
+    "ritual_sub": "КАК МЫ РАБОТАЕМ",
+    "ritual_title": "3 Шага к Совершенству",
     "ritual_1_title": "АНАЛИЗ ВОЛОС И КОНСУЛЬТАЦИЯ",
     "ritual_1_desc": "\"Индивидуальное планирование с учётом анатомии лица, густоты волос и истории окрашивания.\"",
     "ritual_2_title": "БЕРЕЖНОЕ И ТЩАТЕЛЬНОЕ НАНЕСЕНИЕ",
@@ -869,8 +869,8 @@ const translations = {
 
     // Reels
     "reels_live_badge": "Живые съёмки в студии",
-    "reels_sub": "живые преображения и reels",
-    "reels_title": "LOCCA В INSTAGRAM",
+    "reels_sub": "ЖИВЫЕ ПРЕОБРАЖЕНИЯ И REELS",
+    "reels_title": "LOCCA в Instagram",
     "reels_desc": "@yunus_soner_loca_hairdesing • Листайте, чтобы увидеть наши живые сеансы, наращивание и трансформации в кристальный блонд.",
     "reels_more_btn": "Больше Reels в Instagram",
     "reels_mute_off": "Звук выкл",
@@ -933,15 +933,15 @@ const translations = {
     "hp_s4_title": "Терапия волос и Кератиновый ботокс",
     "hp_s4_how_desc": "Мы насыщаем кератином и аминокислотами волосы, повреждённые теплом и химией. Запечатывая кутикулу, мы получаем гладкую, без пушистости, шелковистую текстуру, отражающую свет.",
     "hp_s4_approach_desc": "Не выпрямляя волосы искусственно, мы восстанавливаем здоровый, объёмный и блестящий вид, сохраняя естественное движение и волну.",
-    "hp_cta_sub": "история ваших волос начинается здесь",
-    "hp_cta_title": "ПРОКОНСУЛЬТИРУЙТЕСЬ С НАМИ",
+    "hp_cta_sub": "ИСТОРИЯ ВАШИХ ВОЛОС НАЧИНАЕТСЯ ЗДЕСЬ",
+    "hp_cta_title": "Проконсультируйтесь с нами для идеального образа",
     "hp_cta_desc": "Чтобы подобрать оптимальный сеанс, вы можете встретиться с владельцем салона Юнусом Сонером лично или по телефону.",
     "hp_cta_book": "Записаться сейчас",
     "hp_cta_consult": "Консультация в WhatsApp",
 
     // Hakkımızda Page
-    "ap_sub": "наша история и философия",
-    "ap_title": "ЮНУС СОНЕР И САЛОН LOCCA",
+    "ap_sub": "НАША ИСТОРИЯ И ФИЛОСОФИЯ",
+    "ap_title": "Юнус Сонер и салон LOCCA",
     "ap_location_label": "MANAVGAT AŞAĞI HİSAR",
     "ap_who_title": "Кто мы и как давно мы здесь",
     "ap_who_p1": "\"С многолетним опытом парикмахерского искусства в Манавгате мы работаем с философией, ставящей здоровье волос женщин в центр внимания. Locca — это студия, где каждая клиентка уходит счастливой и уверенной в себе.\"",
@@ -960,8 +960,8 @@ const translations = {
     "ap_trust_desc": "\"Мы никогда не применяем к клиентам химикаты или некачественные наращивания, которые не стали бы использовать на своих волосах. Вместо шаблонных цен по телефону мы оцениваем ваши волосы в салоне и составляем максимально честный план. Наши 370+ пятизвёздочных отзывов Google — подтверждение этой заботы.\"",
     "ap_personal_session": "Индивидуальный план сеанса",
     "ap_single_client": "Один клиент — полное внимание",
-    "ap_cta_sub": "мы здесь, чтобы выслушать вас",
-    "ap_cta_title": "СПЛАНИРУЕМ ВАШИ ВОЛОСЫ ВМЕСТЕ",
+    "ap_cta_sub": "МЫ ЗДЕСЬ, ЧТОБЫ ВЫСЛУШАТЬ ВАС",
+    "ap_cta_title": "Спланируем преображение ваших волос вместе",
     "ap_cta_desc": "Свяжитесь с нами сейчас, чтобы оценить состояние волос, выбрать подходящий сеанс и задать любые вопросы.",
     "ap_cta_consult": "Консультация в WhatsApp",
 
@@ -1043,8 +1043,8 @@ const translations = {
     "floating_wa": "Réservation WhatsApp",
 
     // Hero
-    "hero_subtitle": "votre signature",
-    "hero_title": "DESIGN CAPILLAIRE NATUREL & EXTENSIONS",
+    "hero_subtitle": "VOTRE SIGNATURE",
+    "hero_title": "Design Capillaire Naturel & Extensions",
     "hero_quote": "\"L'art des micro-extensions et de la coloration sur-mesure, adapté à la morphologie de votre visage dans le respect absolu du cheveu.\"",
     "hero_btn_services": "Services",
     "chip_mikro": "Micro Extensions",
@@ -1056,8 +1056,8 @@ const translations = {
     "hero_card_sombre_desc": "Dégradés subtils vers des nuances blondes éclatantes sans abîmer les cheveux.",
 
     // Bento
-    "sec_signature_sub": "sélection d'excellence",
-    "sec_signature_title": "TRANSFORMATIONS SIGNATURE",
+    "sec_signature_sub": "SÉLECTION D'EXCELLENCE",
+    "sec_signature_title": "Transformations Signature",
     "bento_1_title": "Micro Extensions Invisibles Haute Précision",
     "bento_1_badge": "Nanotechnologie",
     "bento_2_title": "Blond Polaire & Sombre Froid Cristallin",
@@ -1069,14 +1069,14 @@ const translations = {
     "bento_examine": "Voir Détails",
 
     // Philosophy
-    "sec_philosophy_sub": "une adresse d'exception à manavgat",
-    "sec_philosophy_title": "LOCCA HAIR STUDIO",
+    "sec_philosophy_sub": "ADRESSE D'EXCEPTION À MANAVGAT",
+    "sec_philosophy_title": "LOCCA Hair Studio",
     "sec_philosophy_desc": "\"Dans le quartier d'Aşağı Hisar, nous vous accueillons dans une ambiance chaleureuse et raffinée. Nous sublimons votre chevelure avec soin, dans des tons naturels et avec l'exigence que vous méritez.\"",
     "btn_about_locca": "À PROPOS DE LOCCA",
 
     // Services Grid
-    "sec_services_sub": "touches exclusives",
-    "sec_services_title": "NOS EXPERTISES",
+    "sec_services_sub": "TOUCHES EXCLUSIVES",
+    "sec_services_title": "Nos Expertises",
     "srv_1_title": "MICRO EXTENSIONS",
     "srv_1_desc": "Nano-capsules imperceptibles et volume dense naturel",
     "srv_2_title": "BLOND POLAIRE & SOMBRE",
@@ -1087,15 +1087,15 @@ const translations = {
     "srv_4_desc": "Botox capillaire et soin profond brillance miroir",
 
     // Reviews
-    "sec_reviews_sub": "expériences vécues",
-    "sec_reviews_title": "AVIS CLIENTS",
+    "sec_reviews_sub": "EXPÉRIENCES VÉCUES",
+    "sec_reviews_title": "Avis Clients",
     "reviews_rating_note": "Plus de 370 avis vérifiés sur Google",
     "review_verified": "Vérifié",
     "review_owner_reply": "Réponse du propriétaire",
 
     // Ritual
-    "ritual_sub": "notre méthode de travail",
-    "ritual_title": "3 ÉTAPES VERS LA PERFECTION",
+    "ritual_sub": "NOTRE MÉTHODE DE TRAVAIL",
+    "ritual_title": "3 Étapes Vers la Perfection",
     "ritual_1_title": "ANALYSE CAPILLAIRE & CONSULTATION",
     "ritual_1_desc": "\"Planification personnalisée selon votre morphologie, densité capillaire et historique colorimétrique.\"",
     "ritual_2_title": "APPLICATION PROTECTRICE & MINUTIEUSE",
@@ -1105,8 +1105,8 @@ const translations = {
 
     // Reels
     "reels_live_badge": "Tournages en Direct du Studio",
-    "reels_sub": "transformations en direct & reels",
-    "reels_title": "LOCCA SUR INSTAGRAM",
+    "reels_sub": "TRANSFORMATIONS EN DIRECT & REELS",
+    "reels_title": "LOCCA sur Instagram",
     "reels_desc": "@yunus_soner_loca_hairdesing • Faites défiler pour découvrir nos séances en direct, applications micro-extensions et transformations blond cristallin.",
     "reels_more_btn": "Plus de Reels sur Instagram",
     "reels_mute_off": "Son coupé",
@@ -1169,15 +1169,15 @@ const translations = {
     "hp_s4_title": "Thérapie Capillaire & Botox Kératine",
     "hp_s4_how_desc": "Nous infusons kératine et acides aminés dans les fibres capillaires endommagées par la chaleur et les produits chimiques. En scellant la cuticule, nous obtenons une texture soyeuse, lisse, sans frisottis et réfléchissant la lumière.",
     "hp_s4_approach_desc": "Sans lisser artificiellement comme les traitements permanents, nous redonnons un aspect sain, volumineux et brillant tout en préservant le mouvement et l'ondulation naturels de vos cheveux.",
-    "hp_cta_sub": "l'histoire de vos cheveux commence ici",
-    "hp_cta_title": "CONSULTEZ-NOUS POUR VOS CHEVEUX DE RÊVE",
+    "hp_cta_sub": "L'HISTOIRE DE VOS CHEVEUX COMMENCE ICI",
+    "hp_cta_title": "Consultez-nous pour vos cheveux de rêve",
     "hp_cta_desc": "Pour déterminer la meilleure séance pour vous, vous pouvez rencontrer notre propriétaire Yunus Soner en personne ou par téléphone.",
     "hp_cta_book": "Réserver Maintenant",
     "hp_cta_consult": "Conseil via WhatsApp",
 
     // Hakkımızda Page
-    "ap_sub": "notre histoire et notre philosophie",
-    "ap_title": "YUNUS SONER & SALON LOCCA",
+    "ap_sub": "NOTRE HISTOIRE ET NOTRE PHILOSOPHIE",
+    "ap_title": "Yunus Soner & Salon LOCCA",
     "ap_location_label": "MANAVGAT AŞAĞI HİSAR",
     "ap_who_title": "Qui sommes-nous et depuis combien de temps ?",
     "ap_who_p1": "\"Forts de longues années d'expérience en coiffure à Manavgat Aşağı Hisar, nous travaillons avec une philosophie qui place la santé capillaire des femmes au centre. Le salon Locca est un studio dédié à ce que chaque cliente quitte le fauteuil heureuse et confiante.\"",
@@ -1196,8 +1196,8 @@ const translations = {
     "ap_trust_desc": "\"Nous n'appliquons jamais à nos clientes des produits chimiques ou des extensions de mauvaise qualité que nous n'utiliserions pas sur nos propres cheveux. Au lieu de donner des prix par cœur au téléphone, nous évaluons vos cheveux au salon et établissons le plan le plus honnête. Nos 370+ avis cinq étoiles Google en sont la preuve.\"",
     "ap_personal_session": "Plan de Séance Personnalisé",
     "ap_single_client": "Focus Client Unique",
-    "ap_cta_sub": "nous sommes là pour vous écouter",
-    "ap_cta_title": "PLANIFIONS VOS CHEVEUX ENSEMBLE",
+    "ap_cta_sub": "NOUS SOMMES LÀ POUR VOUS ÉCOUTER",
+    "ap_cta_title": "Planifions vos cheveux ensemble",
     "ap_cta_desc": "Contactez-nous maintenant pour évaluer l'état de vos cheveux, choisir la bonne séance et poser toutes vos questions.",
     "ap_cta_consult": "Consultation WhatsApp",
 
