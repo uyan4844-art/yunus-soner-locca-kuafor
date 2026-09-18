@@ -6,14 +6,14 @@
 
 /* Global overflow guard & hardware-accelerated smooth touch scrolling */
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
   -webkit-overflow-scrolling: touch;
 }
@@ -168,6 +168,11 @@ body {
    ========================================================================== */
 
 header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
   transition: background-color var(--motion-duration-fast) ease,
               box-shadow var(--motion-duration-fast) ease,
               border-color var(--motion-duration-fast) ease,
