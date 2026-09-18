@@ -127,10 +127,15 @@
   <link rel="stylesheet" href="css/motion.css" />
 
   <style>
+    html {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
     body {
       background-color: #faf7f2;
       color: #121212;
       font-family: 'Inter', sans-serif;
+      -webkit-overflow-scrolling: touch;
     }
     .font-editorial-italic {
       font-family: 'Playfair Display', serif;
@@ -147,19 +152,22 @@
       display: none;
     }
 
-    /* Swiper Cover Flow & Reels Slider Özelleştirmeleri */
+    /* Swiper Cover Flow & Reels Slider Özelleştirmeleri (GPU Donanım Hızlandırmalı) */
     .reels-swiper {
       width: 100%;
       padding-top: 24px;
       padding-bottom: 30px;
       overflow: visible !important;
+      transform: translate3d(0, 0, 0);
     }
     .reels-swiper .swiper-slide {
       width: 220px;
-      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-      opacity: 0.45;
-      transform: scale(0.88);
-      filter: blur(0.5px);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity: 0.5;
+      transform: scale(0.9) translate3d(0, 0, 0);
+      will-change: transform, opacity;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
       z-index: 10;
     }
     @media (min-width: 480px) {
@@ -174,24 +182,27 @@
     }
     .reels-swiper .swiper-slide-active {
       opacity: 1 !important;
-      transform: scale(1.04) !important;
-      filter: blur(0) !important;
+      transform: scale(1.03) translate3d(0, 0, 0) !important;
       z-index: 30 !important;
     }
     @media (min-width: 640px) {
       .reels-swiper .swiper-slide-active {
-        transform: scale(1.06) !important;
+        transform: scale(1.05) translate3d(0, 0, 0) !important;
       }
     }
     .reels-swiper .swiper-slide-active .reel-card-inner {
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(18, 18, 18, 0.08);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.18);
       border-color: rgba(18, 18, 18, 0.25);
+    }
+    @media (min-width: 768px) {
+      .reels-swiper .swiper-slide-active .reel-card-inner {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(18, 18, 18, 0.08);
+      }
     }
     .reels-swiper .swiper-slide-prev,
     .reels-swiper .swiper-slide-next {
       opacity: 0.65;
-      transform: scale(0.93);
-      filter: blur(0);
+      transform: scale(0.93) translate3d(0, 0, 0);
       z-index: 20;
     }
 
@@ -200,6 +211,7 @@
       width: 100%;
       padding-top: 8px;
       padding-bottom: 24px;
+      transform: translate3d(0, 0, 0);
     }
     .reviews-swiper .swiper-pagination-bullet {
       width: 8px;
@@ -222,12 +234,12 @@
   <!-- ================================================================= -->
   <!-- NAVBAR                                                            -->
   <!-- ================================================================= -->
-  <header class="sticky top-0 z-50 bg-creambg/95 backdrop-blur-md border-b border-neutral-200/80 transition-all animate-load-nav">
+  <header class="sticky top-0 z-50 bg-[#faf7f2] md:bg-[#faf7f2]/95 md:backdrop-blur-md border-b border-neutral-200/80 transition-all animate-load-nav">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Sol Logo & Alt Bilgi -->
       <a href="index.html" class="flex items-center group py-1">
-        <img src="logo.png" alt="LOCA Hair & Beauty Saloon" class="h-9 md:h-11 w-auto object-contain mix-blend-multiply group-hover:opacity-85 transition-all">
+        <img src="logo.png" alt="LOCA Hair & Beauty Saloon" class="h-9 md:h-11 w-auto object-contain mix-blend-multiply group-hover:opacity-85 transition-all" decoding="async">
       </a>
 
       <!-- Menü Linkleri -->
@@ -241,7 +253,7 @@
 
       <!-- Sağ Aksiyon Butonu & Mobil Menü Butonu -->
       <div class="flex items-center gap-3 sm:gap-4">
-        <a href="randevu.html" class="btn-motion inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full border border-luxedark text-[11px] font-semibold uppercase tracking-widestsubtle bg-luxedark text-creambg hover:bg-transparent hover:text-luxedark shadow-sm">
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full border border-luxedark text-[11px] font-semibold uppercase tracking-widestsubtle bg-luxedark text-creambg hover:bg-transparent hover:text-luxedark shadow-sm">
           Randevu Al
         </a>
         <!-- Mobil Hamburger Butonu -->
@@ -256,12 +268,12 @@
   </header>
 
   <!-- MOBİL MENÜ DRAWER -->
-  <div id="mobileMenuDrawer" class="mobile-drawer-overlay fixed inset-0 z-50 hidden bg-luxedark/50 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Mobil Menü">
+  <div id="mobileMenuDrawer" class="mobile-drawer-overlay fixed inset-0 z-50 hidden bg-luxedark/60 md:backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Mobil Menü">
     <div class="drawer-backdrop absolute inset-0"></div>
-    <div class="mobile-drawer-content absolute top-0 right-0 h-full w-full max-w-xs bg-creambg p-6 shadow-2xl flex flex-col justify-between z-10 border-l border-neutral-200">
+    <div class="mobile-drawer-content absolute top-0 right-0 h-full w-full max-w-xs bg-creambg p-6 shadow-lg md:shadow-2xl flex flex-col justify-between z-10 border-l border-neutral-200">
       <div>
         <div class="flex items-center justify-between pb-6 border-b border-neutral-200">
-          <img src="logo.png" alt="LOCCA Hair Studio" class="h-8 w-auto mix-blend-multiply">
+          <img src="logo.png" alt="LOCCA Hair Studio" class="h-8 w-auto mix-blend-multiply" loading="lazy" decoding="async">
           <button type="button" class="drawer-close-btn w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-luxedark hover:bg-luxedark hover:text-creambg transition-colors text-xs cursor-pointer" aria-label="Menüyü Kapat">
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -290,7 +302,7 @@
         </nav>
       </div>
       <div class="pt-6 border-t border-neutral-200 flex flex-col gap-3">
-        <a href="randevu.html" class="btn-motion w-full py-3.5 rounded-full bg-luxedark text-creambg text-center text-xs font-semibold uppercase tracking-widest shadow-md">
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion w-full py-3.5 rounded-full bg-luxedark text-creambg text-center text-xs font-semibold uppercase tracking-widest shadow-md">
           Randevu Al
         </a>
         <a href="https://wa.me/905071993424" target="_blank" class="btn-motion-outline w-full py-3 rounded-full border border-neutral-300 text-center text-xs font-semibold uppercase tracking-wider text-luxedark flex items-center justify-center gap-2">
@@ -325,7 +337,7 @@
 
       <!-- Mobilde Öne Çıkan Hızlı Aksiyon Barı (Desktop'ta Gizli) -->
       <div class="flex sm:hidden items-center justify-center gap-2.5 mt-5 px-1 w-full max-w-sm mx-auto">
-        <a href="randevu.html" class="btn-motion flex-1 py-3 px-4 bg-luxedark text-creambg rounded-full text-[11px] font-semibold uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-1.5">
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion flex-1 py-3 px-4 bg-luxedark text-creambg rounded-full text-[11px] font-semibold uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-1.5">
           <i class="fa-regular fa-calendar-check text-xs"></i>
           <span>Randevu Al</span>
         </a>
@@ -341,12 +353,14 @@
       
       <!-- Sol Asimetrik Kutu: Mikro Kaynak (Desktop) -->
       <div class="animate-load-hero-card-left hidden md:flex md:col-span-3 flex-col items-start -mt-20 z-20">
-        <div class="ambient-float-a card-motion bg-creambg p-3 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.06)] border border-neutral-200/80 max-w-[210px] group img-zoom-container cursor-pointer" onclick="openTransformationModal('mikro')">
+        <div class="ambient-float-a card-motion bg-creambg p-3 rounded-2xl shadow-sm md:shadow-[0_12px_32px_rgba(0,0,0,0.06)] border border-neutral-200/80 max-w-[210px] group img-zoom-container cursor-pointer" onclick="openTransformationModal('mikro')">
           <div class="w-full aspect-[4/5] bg-cardbg rounded-xl overflow-hidden relative">
             <img 
               src="images/mikro-kaynak.jpg" 
               alt="Mikro Kaynak Uygulaması" 
               class="img-zoom-target w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="pt-3 pb-1 px-1">
@@ -360,11 +374,13 @@
 
       <!-- Merkez Büyük Görsel -->
       <div class="animate-load-hero-visual col-span-1 md:col-span-6 flex flex-col items-center justify-center z-10">
-        <div class="card-motion w-full max-w-md aspect-[4/4.5] sm:aspect-[3/4] rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-neutral-200 img-zoom-container group">
+        <div class="card-motion w-full max-w-md aspect-[4/4.5] sm:aspect-[3/4] rounded-3xl overflow-hidden relative shadow-md md:shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-neutral-200 img-zoom-container group">
           <img 
             src="images/hero-kusursuz-donusum.jpg" 
             alt="LOCCA Kusursuz Dönüşüm - Yunus Soner" 
             class="img-zoom-target w-full h-full object-cover object-top"
+            fetchpriority="high"
+            decoding="async"
           />
           <div class="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-luxedark/40 to-transparent flex items-end justify-center pb-2">
             <div class="h-1.5 w-24 bg-creambg/60 rounded-full"></div>
@@ -374,14 +390,14 @@
         <!-- Mobil Hızlı Dönüşüm Çipleri (Desktop'ta yan kartlar açık, mobilde bu çipler aktif) -->
         <div class="flex md:hidden items-center justify-center gap-2 mt-4 px-1 w-full max-w-md">
           <button type="button" onclick="openTransformationModal('mikro')" class="flex-1 py-2.5 px-3 rounded-2xl bg-cardbg/90 border border-neutral-300/80 flex items-center gap-2 text-left active:scale-95 transition-transform shadow-2xs">
-            <img src="images/mikro-kaynak.jpg" alt="Mikro Kaynak" class="w-8 h-8 rounded-xl object-cover shrink-0">
+            <img src="images/mikro-kaynak.jpg" alt="Mikro Kaynak" class="w-8 h-8 rounded-xl object-cover shrink-0" loading="lazy" decoding="async">
             <div class="overflow-hidden">
               <span class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Mikro Kaynak</span>
               <span class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
             </div>
           </button>
           <button type="button" onclick="openTransformationModal('sombre')" class="flex-1 py-2.5 px-3 rounded-2xl bg-cardbg/90 border border-neutral-300/80 flex items-center gap-2 text-left active:scale-95 transition-transform shadow-2xs">
-            <img src="images/buz-sarisi-sombre.jpg" alt="Buz Sarısı" class="w-8 h-8 rounded-xl object-cover shrink-0">
+            <img src="images/buz-sarisi-sombre.jpg" alt="Buz Sarısı" class="w-8 h-8 rounded-xl object-cover shrink-0" loading="lazy" decoding="async">
             <div class="overflow-hidden">
               <span class="block text-[10px] font-semibold text-luxedark uppercase tracking-wider truncate">Buz Sarısı</span>
               <span class="block text-[9px] text-subtletext truncate">İncele & Bilgi Al →</span>
@@ -392,12 +408,14 @@
 
       <!-- Sağ Asimetrik Kutu: Ombre & Sombre (Desktop) -->
       <div class="animate-load-hero-card-right hidden md:flex md:col-span-3 flex-col items-end mt-24 z-20">
-        <div class="ambient-float-b card-motion bg-creambg p-3 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.06)] border border-neutral-200/80 max-w-[210px] group img-zoom-container cursor-pointer" onclick="openTransformationModal('sombre')">
+        <div class="ambient-float-b card-motion bg-creambg p-3 rounded-2xl shadow-sm md:shadow-[0_12px_32px_rgba(0,0,0,0.06)] border border-neutral-200/80 max-w-[210px] group img-zoom-container cursor-pointer" onclick="openTransformationModal('sombre')">
           <div class="w-full aspect-[4/5] bg-cardbg rounded-xl overflow-hidden relative">
             <img 
               src="images/ombre-sombre.png" 
               alt="Ombre & Sombre Saç Tasarımı" 
               class="img-zoom-target w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="pt-3 pb-1 px-1 text-left">
@@ -434,18 +452,20 @@
       <div class="md:col-span-4 flex">
         <div 
           onclick="openTransformationModal('mikro')" 
-          class="card-motion img-zoom-container w-full min-h-[260px] sm:min-h-[340px] md:min-h-[440px] aspect-[16/11] sm:aspect-auto rounded-3xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-200 group cursor-pointer"
+          class="card-motion img-zoom-container w-full min-h-[260px] sm:min-h-[340px] md:min-h-[440px] aspect-[16/11] sm:aspect-auto rounded-3xl overflow-hidden relative shadow-sm md:shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-200 group cursor-pointer"
         >
           <img 
             src="images/ultra-gorunmez-mikro-kaynak.png" 
             alt="Ultra Görünmez Mikro Kaynak" 
             class="img-zoom-target w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-luxedark/85 via-luxedark/20 to-transparent flex items-end justify-between p-5 sm:p-6">
             <span class="text-creambg text-xs font-medium tracking-widest uppercase">
               Ultra Görünmez Mikro Kaynak
             </span>
-            <span class="w-7 h-7 rounded-full bg-creambg/25 backdrop-blur-sm text-creambg flex items-center justify-center text-xs opacity-90 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-0 transition-all shrink-0 ml-2">
+            <span class="w-7 h-7 rounded-full bg-creambg/35 md:bg-creambg/25 md:backdrop-blur-sm text-creambg flex items-center justify-center text-xs opacity-90 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-0 transition-all shrink-0 ml-2">
               <i class="fa-solid fa-plus"></i>
             </span>
           </div>
@@ -456,18 +476,20 @@
       <div class="md:col-span-4 flex flex-col gap-4 sm:gap-5">
         <div 
           onclick="openTransformationModal('sombre')" 
-          class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-[4/3] rounded-3xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-200 group cursor-pointer"
+          class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-[4/3] rounded-3xl overflow-hidden relative shadow-sm md:shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-200 group cursor-pointer"
         >
           <img 
             src="images/buz-sarisi-sombre.jpg" 
             alt="Buz Sarısı & Sombre" 
             class="img-zoom-target w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-luxedark/80 via-transparent to-transparent flex items-end justify-between p-4 sm:p-5">
             <span class="text-creambg text-[11px] font-medium tracking-widest uppercase">
               Buz Sarısı & Sombre
             </span>
-            <span class="w-6 h-6 rounded-full bg-creambg/25 backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
+            <span class="w-6 h-6 rounded-full bg-creambg/35 md:bg-creambg/25 md:backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
               <i class="fa-solid fa-plus"></i>
             </span>
           </div>
@@ -475,18 +497,20 @@
 
         <div 
           onclick="openTransformationModal('babylights')" 
-          class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-[4/3] rounded-3xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-200 group cursor-pointer"
+          class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-[4/3] rounded-3xl overflow-hidden relative shadow-sm md:shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-200 group cursor-pointer"
         >
           <img 
             src="images/baby-highlights.png" 
             alt="Doğal Kahve & Işıltı (Babylights)" 
             class="img-zoom-target w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-luxedark/80 via-transparent to-transparent flex items-end justify-between p-4 sm:p-5">
             <span class="text-creambg text-[11px] font-medium tracking-widest uppercase">
               Doğal Kahve & Işıltı (Babylights)
             </span>
-            <span class="w-6 h-6 rounded-full bg-creambg/25 backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
+            <span class="w-6 h-6 rounded-full bg-creambg/35 md:bg-creambg/25 md:backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
               <i class="fa-solid fa-plus"></i>
             </span>
           </div>
@@ -497,18 +521,20 @@
       <div class="md:col-span-4 flex flex-col justify-between gap-4 sm:gap-5">
         <div 
           onclick="openTransformationModal('gelin')" 
-          class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-square rounded-3xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-200 group cursor-pointer"
+          class="card-motion img-zoom-container w-full aspect-[16/11] sm:aspect-square rounded-3xl overflow-hidden relative shadow-sm md:shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-200 group cursor-pointer"
         >
           <img 
             src="images/gelin-basi.png" 
             alt="Gelin Başı & Özel Tasarım" 
             class="img-zoom-target w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-luxedark/80 via-transparent to-transparent flex items-end justify-between p-4 sm:p-5">
             <span class="text-creambg text-[11px] font-medium tracking-widest uppercase">
               Gelin Başı & Özel Tasarım
             </span>
-            <span class="w-6 h-6 rounded-full bg-creambg/25 backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
+            <span class="w-6 h-6 rounded-full bg-creambg/35 md:bg-creambg/25 md:backdrop-blur-sm text-creambg flex items-center justify-center text-[10px] opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all shrink-0 ml-2">
               <i class="fa-solid fa-plus"></i>
             </span>
           </div>
@@ -536,11 +562,13 @@
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-14 items-center max-w-5xl mx-auto">
       
       <div class="md:col-span-6 flex justify-center" data-reveal="fade-up">
-        <div class="card-motion img-zoom-container w-full aspect-[4/3] sm:aspect-[3/4] max-w-md rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-neutral-200 group">
+        <div class="card-motion img-zoom-container w-full aspect-[4/3] sm:aspect-[3/4] max-w-md rounded-3xl overflow-hidden shadow-md md:shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-neutral-200 group">
           <img 
             src="images/locca-studio-dis.jpg" 
             alt="Saloon Locca Studio Dış Görünüm & Giriş" 
             class="img-zoom-target w-full h-full object-cover object-center"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
@@ -591,7 +619,7 @@
       <!-- 1. Mikro Saç Kaynak -->
       <a href="hizmetler.html#mikro-kaynak" class="card-motion flex flex-col items-center text-center group bg-cardbg/40 p-3 sm:p-5 rounded-2xl sm:rounded-3xl border border-neutral-200/80 hover:bg-cardbg transition-colors">
         <div class="img-zoom-container w-full aspect-square sm:aspect-[3/3.8] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70 bg-cardbg">
-          <img src="images/ultra-gorunmez-mikro-kaynak.png" alt="Mikro Saç Kaynak" class="img-zoom-target w-full h-full object-cover"/>
+          <img src="images/ultra-gorunmez-mikro-kaynak.png" alt="Mikro Saç Kaynak" class="img-zoom-target w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
         <span class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
           MİKRO KAYNAK
@@ -604,7 +632,7 @@
       <!-- 2. Buz Sarısı & Sombre -->
       <a href="hizmetler.html#buz-sarisi" class="card-motion flex flex-col items-center text-center group bg-cardbg/40 p-3 sm:p-5 rounded-2xl sm:rounded-3xl border border-neutral-200/80 hover:bg-cardbg transition-colors">
         <div class="img-zoom-container w-full aspect-square sm:aspect-[3/3.8] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70 bg-cardbg">
-          <img src="images/buz-sarisi-sombre.jpg" alt="Buz Sarısı & Sombre" class="img-zoom-target w-full h-full object-cover"/>
+          <img src="images/buz-sarisi-sombre.jpg" alt="Buz Sarısı & Sombre" class="img-zoom-target w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
         <span class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
           BUZ SARISI
@@ -617,7 +645,7 @@
       <!-- 3. Doğal Kahve & Işıltı (Babylights) -->
       <a href="hizmetler.html#babylights" class="card-motion flex flex-col items-center text-center group bg-cardbg/40 p-3 sm:p-5 rounded-2xl sm:rounded-3xl border border-neutral-200/80 hover:bg-cardbg transition-colors">
         <div class="img-zoom-container w-full aspect-square sm:aspect-[3/3.8] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70 bg-cardbg">
-          <img src="images/baby-highlights.png" alt="Doğal Kahve & Işıltı (Babylights)" class="img-zoom-target w-full h-full object-cover"/>
+          <img src="images/baby-highlights.png" alt="Doğal Kahve & Işıltı (Babylights)" class="img-zoom-target w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
         <span class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
           DOĞAL IŞILTI
@@ -630,7 +658,7 @@
       <!-- 4. Saç Terapisi & Botoks Bakım -->
       <a href="hizmetler.html#keratin-botoks" class="card-motion flex flex-col items-center text-center group bg-cardbg/40 p-3 sm:p-5 rounded-2xl sm:rounded-3xl border border-neutral-200/80 hover:bg-cardbg transition-colors">
         <div class="img-zoom-container w-full aspect-square sm:aspect-[3/3.8] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70 bg-cardbg">
-          <img src="images/locca-botoks-bakim-parlaklik.jpg" alt="Saç Terapisi & Botoks Bakım" class="img-zoom-target w-full h-full object-cover"/>
+          <img src="images/locca-botoks-bakim-parlaklik.jpg" alt="Saç Terapisi & Botoks Bakım" class="img-zoom-target w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
         <span class="mt-3 sm:mt-4 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-luxedark group-hover:tracking-normal transition-all">
           KERATİN TERAPİ
@@ -674,7 +702,7 @@
       <button 
         id="reviewsPrevBtn" 
         aria-label="Önceki Yorum" 
-        class="flex absolute left-0 sm:-left-5 md:-left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-luxedark text-luxedark hover:text-creambg backdrop-blur-md border border-neutral-200/90 shadow-[0_6px_20px_rgba(0,0,0,0.08)] items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
+        class="flex absolute left-0 sm:-left-5 md:-left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white hover:bg-luxedark text-luxedark hover:text-creambg md:bg-white/95 md:backdrop-blur-md border border-neutral-200/90 shadow-sm md:shadow-[0_6px_20px_rgba(0,0,0,0.08)] items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
       >
         <i class="fa-solid fa-chevron-left text-[10px] sm:text-xs group-hover:-translate-x-0.5 transition-transform"></i>
       </button>
@@ -1102,7 +1130,7 @@
     <button 
       id="reviewsNextBtn" 
       aria-label="Sonraki Yorum" 
-      class="flex absolute right-0 sm:-right-5 md:-right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-luxedark text-luxedark hover:text-creambg backdrop-blur-md border border-neutral-200/90 shadow-[0_6px_20px_rgba(0,0,0,0.08)] items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
+      class="flex absolute right-0 sm:-right-5 md:-right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white hover:bg-luxedark text-luxedark hover:text-creambg md:bg-white/95 md:backdrop-blur-md border border-neutral-200/90 shadow-sm md:shadow-[0_6px_20px_rgba(0,0,0,0.08)] items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
     >
       <i class="fa-solid fa-chevron-right text-[10px] sm:text-xs group-hover:translate-x-0.5 transition-transform"></i>
     </button>
@@ -1161,7 +1189,7 @@
   <!-- ================================================================= -->
   <!-- 8. INSTAGRAM REELS VİDEO AKIŞI (7 VİDEO CAROUSEL)              -->
   <!-- ================================================================= -->
-  <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 border-t border-neutral-200/80 overflow-hidden">
+  <section id="reelsSection" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 border-t border-neutral-200/80 overflow-hidden">
     <div class="text-center pb-8 sm:pb-12" data-reveal="fade-up">
       <div class="flex items-center justify-center gap-2 mb-2">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -1185,7 +1213,7 @@
       <button 
         id="reelsPrevBtn" 
         aria-label="Önceki Video" 
-        class="flex absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-white/95 hover:bg-luxedark text-luxedark hover:text-creambg backdrop-blur-md border border-neutral-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.15)] items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer"
+        class="flex absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-white hover:bg-luxedark text-luxedark hover:text-creambg md:bg-white/95 md:backdrop-blur-md border border-neutral-200/90 shadow-sm md:shadow-[0_10px_30px_rgba(0,0,0,0.15)] items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer"
       >
         <i class="fa-solid fa-chevron-left text-xs sm:text-sm md:text-base group-hover:-translate-x-0.5 transition-transform"></i>
       </button>
@@ -1194,29 +1222,29 @@
         <div class="swiper-wrapper items-center">
         
         <!-- Slide 1: Mikro Kaynak Montajı -->
-        <div class="swiper-slide">
+        <div class="swiper-slide transform-gpu">
           <div class="reel-card flex flex-col group">
-            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transition-all duration-500">
+            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transform-gpu transition-all duration-300">
               <video 
                 src="videos/locca-reels-6.mp4" 
-                class="reel-video w-full h-full object-cover" 
+                class="reel-video w-full h-full object-cover transform-gpu" 
                 muted 
                 loop 
                 playsinline 
-                preload="metadata"
+                preload="none"
               ></video>
               
               <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                <span class="bg-creambg/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+                <span class="bg-creambg md:bg-creambg/90 md:backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
                   Mikro Kaynak
                 </span>
-                <span class="w-7 h-7 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
+                <span class="w-7 h-7 rounded-full bg-black/60 md:bg-black/40 md:backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
                   <i class="fa-brands fa-instagram"></i>
                 </span>
               </div>
 
               <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
-                <span class="play-icon w-12 h-12 rounded-full bg-black/50 backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-lg group-hover:scale-110 transition-transform">
+                <span class="play-icon w-12 h-12 rounded-full bg-black/60 md:bg-black/50 md:backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform">
                   <i class="fa-solid fa-play ml-0.5"></i>
                 </span>
               </div>
@@ -1243,29 +1271,29 @@
         </div>
 
         <!-- Slide 2: Kristal Buz Sarısı -->
-        <div class="swiper-slide">
+        <div class="swiper-slide transform-gpu">
           <div class="reel-card flex flex-col group">
-            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transition-all duration-500">
+            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transform-gpu transition-all duration-300">
               <video 
                 src="videos/locca-reels-5.mp4" 
-                class="reel-video w-full h-full object-cover" 
+                class="reel-video w-full h-full object-cover transform-gpu" 
                 muted 
                 loop 
                 playsinline 
-                preload="metadata"
+                preload="none"
               ></video>
               
               <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                <span class="bg-creambg/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+                <span class="bg-creambg md:bg-creambg/90 md:backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
                   Kristal Sarı
                 </span>
-                <span class="w-7 h-7 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
+                <span class="w-7 h-7 rounded-full bg-black/60 md:bg-black/40 md:backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
                   <i class="fa-brands fa-instagram"></i>
                 </span>
               </div>
 
               <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
-                <span class="play-icon w-12 h-12 rounded-full bg-black/50 backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-lg group-hover:scale-110 transition-transform">
+                <span class="play-icon w-12 h-12 rounded-full bg-black/60 md:bg-black/50 md:backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform">
                   <i class="fa-solid fa-play ml-0.5"></i>
                 </span>
               </div>
@@ -1292,29 +1320,29 @@
         </div>
 
         <!-- Slide 3: Highlights & Işıltı -->
-        <div class="swiper-slide">
+        <div class="swiper-slide transform-gpu">
           <div class="reel-card flex flex-col group">
-            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transition-all duration-500">
+            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transform-gpu transition-all duration-300">
               <video 
                 src="videos/locca-reels-1.mp4" 
-                class="reel-video w-full h-full object-cover" 
+                class="reel-video w-full h-full object-cover transform-gpu" 
                 muted 
                 loop 
                 playsinline 
-                preload="metadata"
+                preload="none"
               ></video>
               
               <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                <span class="bg-creambg/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+                <span class="bg-creambg md:bg-creambg/90 md:backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
                   Highlight
                 </span>
-                <span class="w-7 h-7 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
+                <span class="w-7 h-7 rounded-full bg-black/60 md:bg-black/40 md:backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
                   <i class="fa-brands fa-instagram"></i>
                 </span>
               </div>
 
               <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
-                <span class="play-icon w-12 h-12 rounded-full bg-black/50 backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-lg group-hover:scale-110 transition-transform">
+                <span class="play-icon w-12 h-12 rounded-full bg-black/60 md:bg-black/50 md:backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform">
                   <i class="fa-solid fa-play ml-0.5"></i>
                 </span>
               </div>
@@ -1341,29 +1369,29 @@
         </div>
 
         <!-- Slide 4: Kişiye Özel Kesim & Renklendirme -->
-        <div class="swiper-slide">
+        <div class="swiper-slide transform-gpu">
           <div class="reel-card flex flex-col group">
-            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transition-all duration-500">
+            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transform-gpu transition-all duration-300">
               <video 
                 src="videos/locca-reels-2.mp4" 
-                class="reel-video w-full h-full object-cover" 
+                class="reel-video w-full h-full object-cover transform-gpu" 
                 muted 
                 loop 
                 playsinline 
-                preload="metadata"
+                preload="none"
               ></video>
               
               <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                <span class="bg-creambg/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+                <span class="bg-creambg md:bg-creambg/90 md:backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
                   Kesim & Renk
                 </span>
-                <span class="w-7 h-7 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
+                <span class="w-7 h-7 rounded-full bg-black/60 md:bg-black/40 md:backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
                   <i class="fa-brands fa-instagram"></i>
                 </span>
               </div>
 
               <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
-                <span class="play-icon w-12 h-12 rounded-full bg-black/50 backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-lg group-hover:scale-110 transition-transform">
+                <span class="play-icon w-12 h-12 rounded-full bg-black/60 md:bg-black/50 md:backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform">
                   <i class="fa-solid fa-play ml-0.5"></i>
                 </span>
               </div>
@@ -1390,29 +1418,29 @@
         </div>
 
         <!-- Slide 5: Parlak Blonde Highlights -->
-        <div class="swiper-slide">
+        <div class="swiper-slide transform-gpu">
           <div class="reel-card flex flex-col group">
-            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transition-all duration-500">
+            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transform-gpu transition-all duration-300">
               <video 
                 src="videos/locca-reels-4.mp4" 
-                class="reel-video w-full h-full object-cover" 
+                class="reel-video w-full h-full object-cover transform-gpu" 
                 muted 
                 loop 
                 playsinline 
-                preload="metadata"
+                preload="none"
               ></video>
               
               <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                <span class="bg-creambg/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+                <span class="bg-creambg md:bg-creambg/90 md:backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
                   Bright Blonde
                 </span>
-                <span class="w-7 h-7 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
+                <span class="w-7 h-7 rounded-full bg-black/60 md:bg-black/40 md:backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
                   <i class="fa-brands fa-instagram"></i>
                 </span>
               </div>
 
               <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
-                <span class="play-icon w-12 h-12 rounded-full bg-black/50 backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-lg group-hover:scale-110 transition-transform">
+                <span class="play-icon w-12 h-12 rounded-full bg-black/60 md:bg-black/50 md:backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform">
                   <i class="fa-solid fa-play ml-0.5"></i>
                 </span>
               </div>
@@ -1439,29 +1467,29 @@
         </div>
 
         <!-- Slide 6: L O C A Stüdyo Atmosferi -->
-        <div class="swiper-slide">
+        <div class="swiper-slide transform-gpu">
           <div class="reel-card flex flex-col group">
-            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transition-all duration-500">
+            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transform-gpu transition-all duration-300">
               <video 
                 src="videos/locca-reels-3.mp4" 
-                class="reel-video w-full h-full object-cover" 
+                class="reel-video w-full h-full object-cover transform-gpu" 
                 muted 
                 loop 
                 playsinline 
-                preload="metadata"
+                preload="none"
               ></video>
               
               <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                <span class="bg-creambg/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+                <span class="bg-creambg md:bg-creambg/90 md:backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
                   Stüdyo İmzası
                 </span>
-                <span class="w-7 h-7 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
+                <span class="w-7 h-7 rounded-full bg-black/60 md:bg-black/40 md:backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
                   <i class="fa-brands fa-instagram"></i>
                 </span>
               </div>
 
               <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
-                <span class="play-icon w-12 h-12 rounded-full bg-black/50 backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-lg group-hover:scale-110 transition-transform">
+                <span class="play-icon w-12 h-12 rounded-full bg-black/60 md:bg-black/50 md:backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform">
                   <i class="fa-solid fa-play ml-0.5"></i>
                 </span>
               </div>
@@ -1488,29 +1516,29 @@
         </div>
 
         <!-- Slide 7: Özel Dokunuş & Sonuç -->
-        <div class="swiper-slide">
+        <div class="swiper-slide transform-gpu">
           <div class="reel-card flex flex-col group">
-            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transition-all duration-500">
+            <div class="reel-card-inner w-full aspect-[9/16] rounded-3xl overflow-hidden relative border border-neutral-200 bg-neutral-900 cursor-pointer transform-gpu transition-all duration-300">
               <video 
                 src="videos/locca-reels-7.mp4" 
-                class="reel-video w-full h-full object-cover" 
+                class="reel-video w-full h-full object-cover transform-gpu" 
                 muted 
                 loop 
                 playsinline 
-                preload="metadata"
+                preload="none"
               ></video>
               
               <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                <span class="bg-creambg/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
+                <span class="bg-creambg md:bg-creambg/90 md:backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider text-luxedark shadow-sm">
                   Final Görünüm
                 </span>
-                <span class="w-7 h-7 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
+                <span class="w-7 h-7 rounded-full bg-black/60 md:bg-black/40 md:backdrop-blur-md text-white flex items-center justify-center text-xs shadow-sm">
                   <i class="fa-brands fa-instagram"></i>
                 </span>
               </div>
 
               <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
-                <span class="play-icon w-12 h-12 rounded-full bg-black/50 backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-lg group-hover:scale-110 transition-transform">
+                <span class="play-icon w-12 h-12 rounded-full bg-black/60 md:bg-black/50 md:backdrop-blur-md text-white/90 border border-white/20 flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform">
                   <i class="fa-solid fa-play ml-0.5"></i>
                 </span>
               </div>
@@ -1543,7 +1571,7 @@
     <button 
       id="reelsNextBtn" 
       aria-label="Sonraki Video" 
-      class="flex absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-white/95 hover:bg-luxedark text-luxedark hover:text-creambg backdrop-blur-md border border-neutral-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.15)] items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer"
+      class="flex absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-white hover:bg-luxedark text-luxedark hover:text-creambg md:bg-white/95 md:backdrop-blur-md border border-neutral-200/90 shadow-sm md:shadow-[0_10px_30px_rgba(0,0,0,0.15)] items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer"
     >
       <i class="fa-solid fa-chevron-right text-xs sm:text-sm md:text-base group-hover:translate-x-0.5 transition-transform"></i>
     </button>
@@ -1648,7 +1676,7 @@
   <footer class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 mt-auto">
     
     <!-- Hızlı Çağrı Kartı -->
-    <div class="card-motion w-full max-w-5xl mx-auto rounded-3xl border border-neutral-800 bg-[#ebe7e0] p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center justify-between gap-6" data-reveal="fade-up">
+    <div class="card-motion w-full max-w-5xl mx-auto rounded-3xl border border-neutral-800 bg-[#ebe7e0] p-6 sm:p-10 shadow-md md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center justify-between gap-6" data-reveal="fade-up">
       <div>
         <h4 class="text-base sm:text-lg font-medium tracking-wide text-luxedark">
           Değişimi ertelemeyin, koltuğunuzu ayırtın.
@@ -1659,8 +1687,9 @@
       </div>
 
       <div class="flex items-center gap-3 shrink-0 w-full sm:w-auto">
-        <a href="randevu.html" class="btn-motion w-full sm:w-auto px-7 py-3.5 bg-luxedark text-creambg rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-colors shadow-sm inline-flex items-center justify-center gap-2 group">
-          <span>Online Randevu Al</span>
+        <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-motion w-full sm:w-auto px-7 py-3.5 bg-luxedark text-creambg rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-colors shadow-sm inline-flex items-center justify-center gap-2 group">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+          <span>Randevu Al</span>
           <i class="btn-arrow fa-solid fa-arrow-right text-[10px]"></i>
         </a>
       </div>
@@ -1670,7 +1699,7 @@
     <div class="max-w-5xl mx-auto mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-neutral-300/80" data-reveal="fade-up">
       <div class="mb-8">
         <a href="index.html" class="inline-block group">
-          <img src="logo.png" alt="LOCA Hair & Beauty Saloon" class="h-10 sm:h-11 md:h-14 lg:h-16 w-auto object-contain mix-blend-multiply group-hover:opacity-85 transition-all">
+          <img src="logo.png" alt="LOCA Hair & Beauty Saloon" class="h-10 sm:h-11 md:h-14 lg:h-16 w-auto object-contain mix-blend-multiply group-hover:opacity-85 transition-all" loading="lazy" decoding="async">
         </a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-xs text-subtletext font-light mb-12">
@@ -1695,7 +1724,7 @@
           <span class="block text-[11px] font-semibold uppercase tracking-wider text-luxedark mb-2">Çalışma Saatleri</span>
           <p class="leading-relaxed">
             Salı - Pazar (Pazartesi Kapalı)<br>
-            Sabit seans başlangıç saatleri: 10:00 / 13:30 / 16:30
+            10:00 - 19:30 (Randevu İle)
           </p>
         </div>
 
@@ -1717,7 +1746,7 @@
           <a href="index.html" class="nav-link-animated hover:text-luxedark transition-colors">Ana Sayfa</a>
           <a href="hizmetler.html" class="nav-link-animated hover:text-luxedark transition-colors">Hizmetler</a>
           <a href="hakkimizda.html" class="nav-link-animated hover:text-luxedark transition-colors">Hakkımızda</a>
-          <a href="randevu.html" class="nav-link-animated hover:text-luxedark transition-colors">Randevu</a>
+          <a href="https://wa.me/905071993424?text=Merhaba,%20Locca%20Hair%20Studio%20i%C3%A7in%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="nav-link-animated hover:text-luxedark transition-colors">Randevu</a>
           <a href="https://www.instagram.com/yunus_soner_loca_hairdesing/" target="_blank" class="nav-link-animated hover:text-luxedark transition-colors">@yunus_soner_loca_hairdesing</a>
         </div>
       </div>
@@ -1731,7 +1760,7 @@
     target="_blank" 
     rel="noopener noreferrer" 
     aria-label="WhatsApp ile İletişime Geçin"
-    class="wa-floating-btn btn-motion fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 bg-[#1e2922] text-[#fbf9f5] rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.18)] border border-white/10 hover:bg-[#151e18] transition-all duration-300 group"
+    class="wa-floating-btn btn-motion fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 bg-[#1e2922] text-[#fbf9f5] rounded-full shadow-md md:shadow-[0_10px_30px_rgba(0,0,0,0.18)] border border-white/10 hover:bg-[#151e18] transition-all duration-300 group"
   >
     <div class="wa-pulse-dot w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm group-hover:rotate-12 transition-transform">
       <i class="fa-brands fa-whatsapp text-base"></i>
@@ -1744,14 +1773,14 @@
   <!-- ================================================================= -->
   <div 
     id="transformationModal" 
-    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/70 md:backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none"
     onclick="handleModalBackdropClick(event)"
     role="dialog"
     aria-modal="true"
   >
     <div 
       id="modalContainer" 
-      class="relative w-full max-w-xl bg-creambg rounded-3xl border border-neutral-300 shadow-[0_25px_60px_rgba(0,0,0,0.25)] overflow-hidden scale-95 transition-all duration-300 flex flex-col"
+      class="relative w-full max-w-xl bg-creambg rounded-3xl border border-neutral-300 shadow-xl md:shadow-[0_25px_60px_rgba(0,0,0,0.25)] overflow-hidden scale-95 transition-all duration-300 flex flex-col"
       onclick="event.stopPropagation()"
     >
       <!-- Üst Şerit & Kapat Butonu -->
@@ -1974,14 +2003,13 @@
         });
       }
 
-      // Tüm videoları sıfırlama (reset) ve durdurma yardımcısı
+      let isReelsInView = false;
+
+      // Tüm videoları sıfırlama ve durdurma yardımcısı
       function stopAndResetAllVideos(exceptVideo = null) {
         document.querySelectorAll('.reel-video').forEach(video => {
           if (video !== exceptVideo) {
             video.pause();
-            try {
-              video.currentTime = 0; // Başa sar / sıfırla
-            } catch (err) {}
             const slide = video.closest('.swiper-slide');
             const overlay = slide ? slide.querySelector('.play-overlay') : null;
             if (overlay) overlay.style.opacity = '1';
@@ -1991,6 +2019,9 @@
 
       // Ortadaki aktif videoyu otomatik başlatma yardımcısı
       function playActiveVideo() {
+        // Eğer Reels bölümü ekranda değilse video oynatma (mobil pil & CPU tasarrufu)
+        if (!isReelsInView) return;
+
         // Swiper aktif slaytını bul
         const activeSlide = document.querySelector('.reels-swiper .swiper-slide-active');
         if (!activeSlide) return;
@@ -1999,14 +2030,14 @@
         const activeOverlay = activeSlide.querySelector('.play-overlay');
         if (!activeVideo) return;
 
-        // Diğer tüm videoları durdur ve sıfırla
+        // Diğer tüm videoları durdur
         stopAndResetAllVideos(activeVideo);
 
         activeVideo.muted = isMuted;
         activeVideo.play().then(() => {
           if (activeOverlay) activeOverlay.style.opacity = '0';
         }).catch(() => {
-          // Tarayıcı autoplay policy kısıtlaması olursa sessize alıp tekrar dene
+          // Autoplay kısıtı durumunda sessiz dene
           activeVideo.muted = true;
           activeVideo.play().then(() => {
             if (activeOverlay) activeOverlay.style.opacity = '0';
@@ -2014,7 +2045,23 @@
         });
       }
 
-      // Swiper Başlatma
+      // Reels Bölümü Ekrana Girme Gözlemcisi (IntersectionObserver)
+      const reelsSecEl = document.getElementById('reelsSection') || document.querySelector('.reels-swiper');
+      if (reelsSecEl && 'IntersectionObserver' in window) {
+        const reelsObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            isReelsInView = entry.isIntersecting;
+            if (isReelsInView) {
+              playActiveVideo();
+            } else {
+              stopAndResetAllVideos();
+            }
+          });
+        }, { threshold: 0.15 });
+        reelsObserver.observe(reelsSecEl);
+      }
+
+      // Swiper Başlatma (Donanım Hızlandırmalı & Akıcı Dokunmatik)
       const swiper = new Swiper('.reels-swiper', {
         loop: true,
         centeredSlides: true,
@@ -2022,7 +2069,10 @@
         spaceBetween: 14,
         grabCursor: true,
         slideToClickedSlide: true,
-        speed: 550,
+        speed: 420,
+        watchSlidesProgress: true,
+        touchReleaseOnEdges: true,
+        passiveListeners: true,
         breakpoints: {
           480: { spaceBetween: 20 },
           640: { spaceBetween: 28 },
@@ -2035,21 +2085,21 @@
           init: function () {
             updateSlideCounter(this);
             updateMuteState(isMuted);
-            // Sayfa yüklendiğinde ortadaki video hemen otomatik başlasın
-            setTimeout(() => {
+            // Sadece bölüm ekrandaysa oynat
+            if (isReelsInView) {
               playActiveVideo();
-            }, 150);
+            }
           },
           // Slayt geçişi başladığı anda eski videoları durdur
           slideChangeTransitionStart: function () {
             stopAndResetAllVideos();
             updateSlideCounter(this);
           },
-          // Slayt geçişi tamamlanıp yeni video tam merkeze oturduğunda otomatik başlat
+          // Slayt geçişi tamamlanıp yeni video tam merkeze oturduğunda sadece onu başlat
           slideChangeTransitionEnd: function () {
             playActiveVideo();
           },
-          // Kullanıcı parmakla/fareyle çevirmeye başladığı an durdurup sıfırla
+          // Kullanıcı kaydırmaya başladığı an durdur
           touchMove: function () {
             stopAndResetAllVideos();
           }

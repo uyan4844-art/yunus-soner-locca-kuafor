@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kuaför Yönetici Paneli | LOCCA Hair Studio</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  
+  <!-- Google Fonts: Inter & Montserrat & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Inter"', '"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            creambg: '#faf7f2',
+            cardbg: '#f1ede6',
+            luxedark: '#121212',
+            subtletext: '#6d6860',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #faf7f2;
+      color: #121212;
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-luxedark selection:text-creambg bg-[#faf7f2]">
+
+  <!-- ================================================================= -->
+  <!-- 1. GÜVENLİK: PIN / ŞİFRE GİRİŞ EKRANI (Varsayılan: 1234)          -->
+  <!-- ================================================================= -->
+  <div id="loginScreen" class="fixed inset-0 z-50 bg-[#faf7f2] flex items-center justify-center p-4">
+    <div class="w-full max-w-sm bg-[#ebe7e0] p-8 rounded-3xl border border-neutral-300 shadow-xl text-center">
+      <img src="logo.png" alt="LOCCA Hair Studio" class="h-10 w-auto mx-auto mb-4 mix-blend-multiply">
+      <h1 class="text-base font-bold uppercase tracking-widest text-luxedark mb-1">Yönetici Girişi</h1>
+      <p class="text-xs text-subtletext mb-6">Randevu ve slot yönetimine erişmek için PIN kodunuzu girin.</p>
+      
+      <form onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <input 
+            type="password" 
+            id="pinInput" 
+            inputmode="numeric" 
+            maxlength="8" 
+            placeholder="PIN Kodunuz (Varsayılan: 1234)" 
+            class="w-full text-center tracking-[0.4em] text-lg font-bold py-3.5 px-4 rounded-2xl bg-[#faf7f2] border border-neutral-300 focus:outline-none focus:border-luxedark"
+            required
+            autofocus
+          />
+        </div>
+        <div id="loginError" class="hidden text-xs text-rose-600 font-medium">Hatalı PIN kodu, lütfen tekrar deneyin.</div>
+        <button 
+          type="submit" 
+          class="w-full py-3.5 px-4 rounded-full bg-luxedark text-creambg text-xs font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-all shadow-md cursor-pointer"
+        >
+          Panele Giriş Yap
+        </button>
+      </form>
+      <div class="mt-6 pt-4 border-t border-neutral-300/80">
+        <a href="index.html" class="text-[11px] text-subtletext hover:text-luxedark flex items-center justify-center gap-1">
+          <i class="fa-solid fa-arrow-left text-[10px]"></i>
+          <span>Ana Sayfaya Dön</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- 2. ANA YÖNETİM PANELİ (PIN Doğrulandığında Açılır)                -->
+  <!-- ================================================================= -->
+  <div id="adminApp" class="hidden flex-col flex-grow">
+    
+    <!-- Üst Bar / Header -->
+    <header class="sticky top-0 z-40 bg-[#faf7f2]/95 backdrop-blur-md border-b border-neutral-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+        
+        <!-- Logo & Başlık -->
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="LOCCA Hair Studio" class="h-8 w-auto mix-blend-multiply">
+          <span class="hidden sm:inline-block h-5 w-px bg-neutral-300"></span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-luxedark hidden sm:inline-block">Yönetici Paneli</span>
+        </div>
+
+        <!-- Sağ Aksiyonlar -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a 
+            href="index.html" 
+            target="_blank"
+            class="px-3 py-2 rounded-full border border-neutral-300 text-[11px] font-semibold uppercase tracking-wider text-luxedark hover:bg-white flex items-center gap-1.5 transition-all"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-neutral-500"></i>
+            <span class="hidden sm:inline">Siteyi Gör</span>
+          </a>
+          <button 
+            type="button" 
+            onclick="loadDailyData()" 
+            class="w-9 h-9 rounded-full border border-neutral-300 hover:border-luxedark flex items-center justify-center text-luxedark text-xs transition-all cursor-pointer"
+            title="Verileri Yenile"
+          >
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+          <button 
+            type="button" 
+            onclick="handleLogout()" 
+            class="px-3.5 py-2 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-[11px] font-semibold uppercase tracking-wider hover:bg-rose-100 flex items-center gap-1.5 transition-all cursor-pointer"
+          >
+            <i class="fa-solid fa-power-off text-xs"></i>
+            <span class="hidden sm:inline">Çıkış</span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Ana İçerik Alanı -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-grow w-full space-y-6">
+      
+      <!-- BİLDİRİM TOAST ALANI -->
+      <div id="toastNotice" class="hidden p-4 rounded-2xl bg-emerald-900 text-creambg text-xs flex items-center justify-between shadow-lg transition-all">
+        <div class="flex items-center gap-2.5">
+          <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+          <span id="toastMsg">İşlem başarıyla tamamlandı.</span>
+        </div>
+        <button onclick="document.getElementById('toastNotice').classList.add('hidden')" class="text-neutral-400 hover:text-white">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- ============================================================= -->
+      <!-- TARİH KONTROL VE GEZİNTİ KARTI                                -->
+      <!-- ============================================================= -->
+      <div class="bg-[#ebe7e0] p-4 sm:p-6 rounded-3xl border border-neutral-300/80 shadow-sm space-y-4">
+        
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <!-- Seçili Tarih Metni -->
+          <div>
+            <span class="text-[10px] uppercase font-bold tracking-widest text-subtletext block">Görüntülenen Randevu Günü</span>
+            <h2 id="currentDateTitle" class="text-lg sm:text-2xl font-bold uppercase tracking-wide text-luxedark mt-0.5">
+              Yükleniyor...
+            </h2>
+            <div id="dayBadge" class="mt-1"></div>
+          </div>
+
+          <!-- Hızlı Tarih Butonları & Input -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button 
+              type="button" 
+              onclick="changeDay(-1)" 
+              class="px-3.5 py-2.5 rounded-2xl bg-creambg border border-neutral-300 hover:border-luxedark text-xs font-semibold text-luxedark transition-all cursor-pointer flex items-center gap-1.5"
+            >
+              <i class="fa-solid fa-chevron-left text-[10px]"></i>
+              <span>Önceki Gün</span>
+            </button>
+            <button 
+              type="button" 
+              onclick="goToToday()" 
+              class="px-4 py-2.5 rounded-2xl bg-luxedark text-creambg text-xs font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-all cursor-pointer"
+            >
+              Bugün
+            </button>
+            <button 
+              type="button" 
+              onclick="changeDay(1)" 
+              class="px-3.5 py-2.5 rounded-2xl bg-creambg border border-neutral-300 hover:border-luxedark text-xs font-semibold text-luxedark transition-all cursor-pointer flex items-center gap-1.5"
+            >
+              <span>Sonraki Gün</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+            <input 
+              type="date" 
+              id="adminDatePicker" 
+              onchange="onDateSelected(this.value)" 
+              class="px-3 py-2 rounded-2xl bg-creambg border border-neutral-300 text-xs font-semibold text-luxedark focus:outline-none focus:border-luxedark uppercase cursor-pointer"
+            />
+          </div>
+        </div>
+
+        <!-- Günlük Durum İstatistikleri -->
+        <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-3 border-t border-neutral-300/60">
+          <div class="bg-creambg p-3 sm:p-4 rounded-2xl border border-neutral-200 text-center">
+            <span class="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-subtletext block">Toplam Seans</span>
+            <span id="statTotal" class="text-lg sm:text-2xl font-bold text-luxedark mt-0.5 block">-</span>
+          </div>
+          <div class="bg-rose-50/70 p-3 sm:p-4 rounded-2xl border border-rose-200/80 text-center">
+            <span class="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-rose-800 block">Dolu Seans</span>
+            <span id="statDolu" class="text-lg sm:text-2xl font-bold text-rose-700 mt-0.5 block">-</span>
+          </div>
+          <div class="bg-emerald-50/70 p-3 sm:p-4 rounded-2xl border border-emerald-200/80 text-center">
+            <span class="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-emerald-800 block">Boş Seans</span>
+            <span id="statBos" class="text-lg sm:text-2xl font-bold text-emerald-700 mt-0.5 block">-</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================================================= -->
+      <!-- BÖLÜM 1: HIZLI SAAT KAPATMA / SLOT DURUM TABLOSU              -->
+      <!-- ============================================================= -->
+      <div class="bg-[#ebe7e0] p-4 sm:p-6 rounded-3xl border border-neutral-300/80 shadow-sm space-y-4">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-300/70 pb-3">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold uppercase tracking-wider text-luxedark flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-amber-600"></i>
+              <span>Hızlı Saat Kapatma & Slot Durumları</span>
+            </h3>
+            <p class="text-xs text-subtletext mt-0.5">
+              Dükkandan veya telefonla randevu aldığınızda tek tıkla saati DOLU yapabilir veya tekrar açabilirsiniz.
+            </p>
+          </div>
+          <button 
+            type="button" 
+            onclick="openCustomBlockModal()" 
+            class="px-3.5 py-2 rounded-full bg-creambg border border-neutral-300 hover:border-luxedark text-xs font-semibold text-luxedark flex items-center justify-center gap-1.5 transition-all self-start cursor-pointer shadow-2xs"
+          >
+            <i class="fa-solid fa-plus text-[10px]"></i>
+            <span>Müşteri Adıyla Kapat</span>
+          </button>
+        </div>
+
+        <!-- Slot Kartları Izgarası -->
+        <div id="adminSlotsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+          <!-- JS dinamik oluşturur -->
+        </div>
+
+      </div>
+
+      <!-- ============================================================= -->
+      <!-- BÖLÜM 2: GÜNÜN RANDEVU LİSTESİ VE YÖNETİMİ                     -->
+      <!-- ============================================================= -->
+      <div class="bg-[#ebe7e0] p-4 sm:p-6 rounded-3xl border border-neutral-300/80 shadow-sm space-y-4">
+        
+        <div class="flex items-center justify-between border-b border-neutral-300/70 pb-3">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold uppercase tracking-wider text-luxedark flex items-center gap-2">
+              <i class="fa-regular fa-calendar-check text-luxedark"></i>
+              <span>Günün Randevuları Listesi</span>
+            </h3>
+            <p class="text-xs text-subtletext mt-0.5">Müşteri detayları, hızlı arama ve randevu iptal yönetimi.</p>
+          </div>
+          <span id="appointmentCountBadge" class="text-xs font-bold px-3 py-1 rounded-full bg-creambg border border-neutral-300 text-luxedark">
+            0 Kayıt
+          </span>
+        </div>
+
+        <!-- Randevu Kartları / Listesi -->
+        <div id="appointmentsList" class="space-y-3">
+          <!-- JS dinamik oluşturur -->
+        </div>
+
+        <!-- Boş Kayıt Durumu -->
+        <div id="noAppointmentsMsg" class="hidden py-10 text-center rounded-2xl bg-creambg/60 border border-neutral-200">
+          <i class="fa-regular fa-calendar-xmark text-neutral-400 text-3xl mb-2"></i>
+          <p class="text-xs font-medium text-subtletext">Bu tarihte henüz kayıtlı randevu bulunmuyor.</p>
+          <span class="text-[11px] text-neutral-400 block mt-1">Yukarıdaki hızlı saat kapatma kutucuklarından dükkan randevusu ekleyebilirsiniz.</span>
+        </div>
+
+      </div>
+
+      <!-- ============================================================= -->
+      <!-- BÖLÜM 3: TÜM GELECEK RANDEVULAR & ARAMA                        -->
+      <!-- ============================================================= -->
+      <div class="bg-[#ebe7e0] p-4 sm:p-6 rounded-3xl border border-neutral-300/80 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-neutral-300/70 pb-3">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold uppercase tracking-wider text-luxedark flex items-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-luxedark"></i>
+              <span>Tüm Randevular & Arama</span>
+            </h3>
+            <p class="text-xs text-subtletext mt-0.5">Müşteri adı veya telefonuna göre tüm kayıtlar arasında arama yapın.</p>
+          </div>
+          <div class="relative w-full sm:w-64">
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="İsim veya telefon ara..." 
+              oninput="handleSearch(this.value)"
+              class="w-full px-3.5 py-2 pl-9 rounded-2xl bg-creambg border border-neutral-300 text-xs text-luxedark focus:outline-none focus:border-luxedark"
+            />
+            <i class="fa-solid fa-search absolute left-3 top-2.5 text-neutral-400 text-xs"></i>
+          </div>
+        </div>
+
+        <div id="allAppointmentsList" class="space-y-2.5 max-h-96 overflow-y-auto pr-1">
+          <!-- Arama sonuçları veya tüm liste buraya dolar -->
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-4 sm:px-6 py-6 border-t border-neutral-200 text-center text-xs text-subtletext w-full">
+      LOCCA Hair Studio • Online Randevu ve Slot Yönetim Sistemi v1.0
+    </footer>
+
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- ÖZEL RANDEVU / SAAT KAPATMA MODALI                                -->
+  <!-- ================================================================= -->
+  <div id="customBlockModal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-[#ebe7e0] p-6 rounded-3xl border border-neutral-300 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-neutral-300 pb-3">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-luxedark">Özel Randevu / Saat Kapat</h3>
+        <button onclick="closeCustomBlockModal()" class="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center text-luxedark hover:bg-luxedark hover:text-white transition-all text-xs cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleCustomBlockSubmit(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-[10px] uppercase font-semibold text-subtletext mb-1">Tarih</label>
+          <input type="text" id="modalTarih" readonly class="w-full px-3 py-2.5 rounded-xl bg-neutral-200/80 border border-neutral-300 text-xs font-semibold text-luxedark" />
+        </div>
+        <div>
+          <label class="block text-[10px] uppercase font-semibold text-subtletext mb-1">Saat *</label>
+          <select id="modalSaatSelect" required class="w-full px-3 py-2.5 rounded-xl bg-creambg border border-neutral-300 text-xs font-semibold text-luxedark">
+            <!-- JS ile doldurulur -->
+          </select>
+        </div>
+        <div>
+          <label class="block text-[10px] uppercase font-semibold text-subtletext mb-1">Müşteri Adı / Sebep *</label>
+          <input type="text" id="modalAd" required placeholder="Örn: Ayşe Hanım veya Salon İçi Randevu" class="w-full px-3 py-2.5 rounded-xl bg-creambg border border-neutral-300 text-xs text-luxedark focus:outline-none focus:border-luxedark" />
+        </div>
+        <div>
+          <label class="block text-[10px] uppercase font-semibold text-subtletext mb-1">Telefon Numarası (İsteğe Bağlı)</label>
+          <input type="tel" id="modalTelefon" placeholder="05XX XXX XX XX" class="w-full px-3 py-2.5 rounded-xl bg-creambg border border-neutral-300 text-xs text-luxedark focus:outline-none focus:border-luxedark" />
+        </div>
+        <div>
+          <label class="block text-[10px] uppercase font-semibold text-subtletext mb-1">İşlem / Açıklama</label>
+          <input type="text" id="modalIslem" placeholder="Örn: Mikro Kaynak Bakımı" class="w-full px-3 py-2.5 rounded-xl bg-creambg border border-neutral-300 text-xs text-luxedark focus:outline-none focus:border-luxedark" />
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-2">
+          <button type="button" onclick="closeCustomBlockModal()" class="px-4 py-2.5 rounded-full border border-neutral-300 text-xs font-medium text-luxedark hover:bg-white cursor-pointer">
+            Vazgeç
+          </button>
+          <button type="submit" class="px-5 py-2.5 rounded-full bg-luxedark text-creambg text-xs font-semibold uppercase tracking-wider hover:bg-neutral-800 cursor-pointer shadow-sm">
+            Saati Kapat / Kaydet
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- YÖNETİCİ PANELİ JAVASCRIPT MOTORU                                 -->
+  <!-- ================================================================= -->
+  <script>
+    // =========================================================================
+    // ⚙️ PANEL KONFİGÜRASYONU
+    // =========================================================================
+    const ADMIN_PIN = "1234"; // Kuaför giriş PIN kodu
+    const KAPALI_GUNLER = [1]; // 1 = Pazartesi (0: Pazar, 1: Pazartesi ...)
+    const CALISMA_SAATLERI = [
+      "10:00", "10:30", "11:00", "11:30", 
+      "12:00", "12:30", "13:00", "13:30", 
+      "14:00", "14:30", "15:00", "15:30", 
+      "16:00", "16:30", "17:00", "17:30", 
+      "18:00", "18:30", "19:00", "19:30"
+    ];
+
+    // Durum Değişkenleri
+    let aktifTarih = "";
+    let tumRandevular = [];
+    let gunlukRandevular = [];
+
+    // Başlatma
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuth();
+    });
+
+    /**
+     * 1. GÜVENLİK VE OTURUM KONTROLÜ
+     */
+    function checkAuth() {
+      const isAuth = sessionStorage.getItem('locca_admin_auth');
+      if (isAuth === 'true') {
+        document.getElementById('loginScreen').classList.add('hidden');
+        document.getElementById('adminApp').classList.remove('hidden');
+        document.getElementById('adminApp').classList.add('flex');
+        initPanel();
+      } else {
+        document.getElementById('loginScreen').classList.remove('hidden');
+        document.getElementById('adminApp').classList.add('hidden');
+      }
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const enteredPin = document.getElementById('pinInput').value.trim();
+      const err = document.getElementById('loginError');
+
+      if (enteredPin === ADMIN_PIN) {
+        sessionStorage.setItem('locca_admin_auth', 'true');
+        err.classList.add('hidden');
+        checkAuth();
+      } else {
+        err.classList.remove('hidden');
+        document.getElementById('pinInput').value = '';
+        document.getElementById('pinInput').focus();
+      }
+    }
+
+    function handleLogout() {
+      if (confirm('Yönetici oturumunu kapatmak istediğinize emin misiniz?')) {
+        sessionStorage.removeItem('locca_admin_auth');
+        window.location.reload();
+      }
+    }
+
+    /**
+     * 2. PANELİ BAŞLATMA
+     */
+    function initPanel() {
+      const now = new Date();
+      aktifTarih = formatDate(now);
+      const datePicker = document.getElementById('adminDatePicker');
+      if (datePicker) datePicker.value = aktifTarih;
+      loadDailyData();
+    }
+
+    function formatDate(d) {
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    /**
+     * Gün değiştirme (Önceki / Sonraki / Bugün)
+     */
+    function changeDay(delta) {
+      const cur = new Date(aktifTarih + 'T00:00:00');
+      cur.setDate(cur.getDate() + delta);
+      aktifTarih = formatDate(cur);
+      const picker = document.getElementById('adminDatePicker');
+      if (picker) picker.value = aktifTarih;
+      loadDailyData();
+    }
+
+    function goToToday() {
+      aktifTarih = formatDate(new Date());
+      const picker = document.getElementById('adminDatePicker');
+      if (picker) picker.value = aktifTarih;
+      loadDailyData();
+    }
+
+    function onDateSelected(val) {
+      if (!val) return;
+      aktifTarih = val;
+      loadDailyData();
+    }
+
+    /**
+     * 3. VERİLERİ API.PHP'DEN ÇEKME
+     */
+    async function loadDailyData() {
+      updateDateHeader();
+
+      try {
+        // Tüm randevuları çek
+        const res = await fetch('api.php');
+        if (!res.ok) throw new Error('API bağlantısı kurulamadı.');
+        
+        const data = await res.json();
+        tumRandevular = Array.isArray(data) ? data : [];
+
+        // Seçilen güne ait olanları filtrele
+        gunlukRandevular = tumRandevular.filter(r => r.tarih === aktifTarih);
+
+        renderStats();
+        renderSlotGrid();
+        renderDailyAppointments();
+        renderAllAppointments(tumRandevular);
+
+      } catch (err) {
+        console.error('Veri yükleme hatası:', err);
+        showToast('Veriler yüklenirken bir hata oluştu veya dosya boş.', true);
+      }
+    }
+
+    /**
+     * Tarih Başlığını ve Kapalı Gün Rozetini Güncelle
+     */
+    function updateDateHeader() {
+      const curDate = new Date(aktifTarih + 'T00:00:00');
+      const aylar = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+      const gunler = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+      
+      const gunNo = curDate.getDay();
+      const str = `${curDate.getDate()} ${aylar[curDate.getMonth()]} ${curDate.getFullYear()}, ${gunler[gunNo]}`;
+      
+      document.getElementById('currentDateTitle').textContent = str;
+
+      const badgeDiv = document.getElementById('dayBadge');
+      if (KAPALI_GUNLER.includes(gunNo)) {
+        badgeDiv.innerHTML = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-amber-100 text-amber-900 border border-amber-300">
+          <i class="fa-solid fa-store-slash"></i> Salon Kapalı Günü
+        </span>`;
+      } else {
+        badgeDiv.innerHTML = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-100 text-emerald-900 border border-emerald-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Çalışma Günü
+        </span>`;
+      }
+    }
+
+    /**
+     * Günlük İstatistikleri Hesaplama
+     */
+    function renderStats() {
+      const total = CALISMA_SAATLERI.length;
+      const dolu = gunlukRandevular.length;
+      const bos = Math.max(0, total - dolu);
+
+      document.getElementById('statTotal').textContent = total;
+      document.getElementById('statDolu').textContent = dolu;
+      document.getElementById('statBos').textContent = bos;
+    }
+
+    /**
+     * 4. SLOT DURUM TABLOSU VE TEK TIKLA SAAT KAPATMA
+     */
+    function renderSlotGrid() {
+      const container = document.getElementById('adminSlotsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      CALISMA_SAATLERI.forEach(saat => {
+        const randevu = gunlukRandevular.find(r => r.saat === saat);
+        const card = document.createElement('div');
+
+        if (randevu) {
+          // DOLU KART
+          card.className = 'p-3.5 rounded-2xl bg-rose-50 border border-rose-200 flex flex-col justify-between gap-3 shadow-2xs';
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-bold text-rose-950 font-sans">${saat}</span>
+                <span class="px-2 py-0.5 rounded-full bg-rose-200 text-rose-800 text-[9px] font-bold uppercase">Dolu</span>
+              </div>
+              <p class="text-xs font-semibold text-rose-900 truncate">${randevu.ad_soyad}</p>
+              <p class="text-[10px] text-rose-700/90 truncate">${randevu.islem || '-'}</p>
+              ${randevu.telefon && randevu.telefon !== '-' ? `<p class="text-[10px] text-rose-600">${randevu.telefon}</p>` : ''}
+            </div>
+            <button 
+              type="button" 
+              onclick="iptalEt('${randevu.id}', '${saat}', '${randevu.ad_soyad}')"
+              class="w-full py-2 px-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-[11px] font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+            >
+              <i class="fa-solid fa-lock-open text-[10px]"></i>
+              <span>İptal Et / Saati Aç</span>
+            </button>
+          `;
+        } else {
+          // BOŞ KART (TEK TIKLA KAPATILABİLİR)
+          card.className = 'p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 flex flex-col justify-between gap-3 shadow-2xs';
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-bold text-emerald-950 font-sans">${saat}</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-200 text-emerald-800 text-[9px] font-bold uppercase">Boş</span>
+              </div>
+              <p class="text-xs text-emerald-800 font-medium">Bu saat randevuya açık.</p>
+              <span class="text-[10px] text-emerald-600/80">Sitede müsait görünüyor</span>
+            </div>
+            <button 
+              type="button" 
+              onclick="tekTiklaKapat('${saat}')"
+              class="w-full py-2 px-3 rounded-xl bg-luxedark hover:bg-neutral-800 text-creambg text-[11px] font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs"
+            >
+              <i class="fa-solid fa-lock text-[10px]"></i>
+              <span>Tek Tıkla Kapat</span>
+            </button>
+          `;
+        }
+
+        container.appendChild(card);
+      });
+    }
+
+    /**
+     * 5. GÜNÜN RANDEVULARI LİSTESİ
+     */
+    function renderDailyAppointments() {
+      const list = document.getElementById('appointmentsList');
+      const noMsg = document.getElementById('noAppointmentsMsg');
+      const badge = document.getElementById('appointmentCountBadge');
+
+      if (!list) return;
+      list.innerHTML = '';
+
+      badge.textContent = `${gunlukRandevular.length} Randevu`;
+
+      if (gunlukRandevular.length === 0) {
+        if (noMsg) noMsg.classList.remove('hidden');
+        return;
+      }
+
+      if (noMsg) noMsg.classList.add('hidden');
+
+      // Saate göre sırala
+      const sirali = [...gunlukRandevular].sort((a, b) => a.saat.localeCompare(b.saat));
+
+      sirali.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'p-4 rounded-2xl bg-creambg border border-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs hover:border-neutral-400 transition-all';
+        
+        // Telefon varsa temiz rakamları al
+        const cleanPhone = (item.telefon || '').replace(/\D/g, '');
+        const phoneFormatted = cleanPhone.startsWith('90') ? cleanPhone : (cleanPhone.startsWith('0') ? '9' + cleanPhone : '90' + cleanPhone);
+
+        row.innerHTML = `
+          <div class="flex items-start sm:items-center gap-3.5">
+            <div class="w-14 h-14 rounded-2xl bg-luxedark text-creambg flex flex-col items-center justify-center shrink-0">
+              <span class="text-[9px] uppercase tracking-wider text-neutral-400">Saat</span>
+              <span class="text-sm font-bold font-sans">${item.saat}</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-bold text-luxedark">${item.ad_soyad}</span>
+                <span class="px-2 py-0.5 rounded-md bg-neutral-200 text-luxedark text-[10px] font-semibold">${item.islem || 'Genel'}</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-3 mt-1 text-xs text-subtletext">
+                <span class="flex items-center gap-1">
+                  <i class="fa-solid fa-phone text-[10px]"></i>
+                  <span>${item.telefon || '-'}</span>
+                </span>
+                ${item.not ? `<span class="flex items-center gap-1 text-neutral-600"><i class="fa-regular fa-comment-dots text-[10px]"></i> Not: ${item.not}</span>` : ''}
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 self-end sm:self-center">
+            ${cleanPhone && cleanPhone !== '-' ? `
+              <a 
+                href="tel:${item.telefon}" 
+                class="w-9 h-9 rounded-full bg-neutral-100 border border-neutral-300 hover:bg-neutral-200 flex items-center justify-center text-luxedark text-xs transition-all"
+                title="Müşteriyi Ara"
+              >
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a 
+                href="https://wa.me/${phoneFormatted}?text=Merhaba%20${encodeURIComponent(item.ad_soyad)},%20Locca%20Hair%20Studio'dan%20randevunuzla%20ilgili%20yaz%C4%B1yoruz." 
+                target="_blank" 
+                class="w-9 h-9 rounded-full bg-emerald-500 text-white hover:bg-emerald-600 flex items-center justify-center text-sm transition-all"
+                title="WhatsApp Sohbeti Başlat"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            ` : ''}
+            <button 
+              type="button" 
+              onclick="iptalEt('${item.id}', '${item.saat}', '${item.ad_soyad}')"
+              class="px-3.5 py-2 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 hover:bg-rose-100 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
+            >
+              <i class="fa-regular fa-trash-can text-[11px]"></i>
+              <span>İptal Et / Saati Aç</span>
+            </button>
+          </div>
+        `;
+
+        list.appendChild(row);
+      });
+    }
+
+    /**
+     * 6. TEK TIKLA SAAT KAPATMA (Usta dükkandan veya telefonla aldığında)
+     */
+    async function tekTiklaKapat(saat) {
+      if (!confirm(`${aktifTarih} günü saat ${saat} seansını sitede 'DOLU' olarak kapatmak istiyor musunuz?`)) {
+        return;
+      }
+
+      const payload = {
+        action: 'ekle',
+        tarih: aktifTarih,
+        saat: saat,
+        islem: 'Salon / Telefon Randevusu',
+        ad_soyad: 'Salon Randevusu (Dükkan)',
+        telefon: '-',
+        not: 'Usta tarafından hızlıca kapatıldı'
+      };
+
+      try {
+        const res = await fetch('api.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          showToast(`${saat} saati başarıyla kapatıldı.`);
+          loadDailyData();
+        } else {
+          alert(data.mesaj || 'İşlem başarısız oldu.');
+        }
+      } catch (err) {
+        console.error('Kapatma hatası:', err);
+        showToast('Saat kapatılırken bağlantı hatası oluştu.', true);
+      }
+    }
+
+    /**
+     * 7. RANDEVU İPTALİ / SAATİ AÇMA (api.php POST action: 'sil')
+     */
+    async function iptalEt(id, saat, isim) {
+      const msg = `Dikkat: ${isim} adlı müşterinin ${saat} randevusunu silmek ve saati web sitesinde tekrar MÜSAİT yapmak istiyor musunuz?`;
+      if (!confirm(msg)) {
+        return;
+      }
+
+      try {
+        const res = await fetch('api.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'sil', id: id })
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          showToast(`${saat} saati iptal edildi ve tekrar boşa çıkarıldı.`);
+          loadDailyData();
+        } else {
+          alert(data.mesaj || 'Randevu silinemedi.');
+        }
+      } catch (err) {
+        console.error('Silme hatası:', err);
+        showToast('Randevu silinirken bir hata oluştu.', true);
+      }
+    }
+
+    /**
+     * 8. ÖZEL KAPATMA MODALI (Müşteri adıyla kapatma)
+     */
+    function openCustomBlockModal(selectedSaat = null) {
+      document.getElementById('modalTarih').value = aktifTarih;
+      const select = document.getElementById('modalSaatSelect');
+      select.innerHTML = '';
+
+      CALISMA_SAATLERI.forEach(saat => {
+        const opt = document.createElement('option');
+        opt.value = saat;
+        const isDolu = gunlukRandevular.some(r => r.saat === saat);
+        opt.textContent = `${saat} ${isDolu ? '(Şu an Dolu)' : '(Müsait)'}`;
+        if (isDolu) opt.disabled = true;
+        if (selectedSaat === saat) opt.selected = true;
+        select.appendChild(opt);
+      });
+
+      document.getElementById('modalAd').value = '';
+      document.getElementById('modalTelefon').value = '';
+      document.getElementById('modalIslem').value = '';
+
+      document.getElementById('customBlockModal').classList.remove('hidden');
+    }
+
+    function closeCustomBlockModal() {
+      document.getElementById('customBlockModal').classList.add('hidden');
+    }
+
+    async function handleCustomBlockSubmit(e) {
+      e.preventDefault();
+      const saat = document.getElementById('modalSaatSelect').value;
+      const ad = document.getElementById('modalAd').value.trim();
+      const tel = document.getElementById('modalTelefon').value.trim() || '-';
+      const islem = document.getElementById('modalIslem').value.trim() || 'Manuel Randevu';
+
+      if (!saat || !ad) {
+        alert('Lütfen saat ve ad soyad alanını doldurun.');
+        return;
+      }
+
+      const payload = {
+        action: 'ekle',
+        tarih: aktifTarih,
+        saat: saat,
+        islem: islem,
+        ad_soyad: ad,
+        telefon: tel,
+        not: 'Yönetici tarafından kaydedildi'
+      };
+
+      try {
+        const res = await fetch('api.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          closeCustomBlockModal();
+          showToast(`${ad} için ${saat} saati başarıyla kapatıldı.`);
+          loadDailyData();
+        } else {
+          alert(data.mesaj || 'Kayıt eklenemedi.');
+        }
+      } catch (err) {
+        console.error(err);
+        showToast('Kayıt eklenirken bir sorun oluştu.', true);
+      }
+    }
+
+    /**
+     * 9. TÜM RANDEVULAR LİSTESİ VE CANLI ARAMA
+     */
+    function renderAllAppointments(items) {
+      const container = document.getElementById('allAppointmentsList');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (items.length === 0) {
+        container.innerHTML = `<p class="text-xs text-subtletext py-3 text-center">Kayıtlı randevu bulunamadı.</p>`;
+        return;
+      }
+
+      // Tarih ve saate göre tersten sırala (en güncel en üstte)
+      const sirali = [...items].sort((a, b) => {
+        return (b.tarih + ' ' + b.saat).localeCompare(a.tarih + ' ' + a.saat);
+      });
+
+      sirali.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'p-3 rounded-xl bg-creambg border border-neutral-200 flex items-center justify-between gap-3 text-xs';
+        row.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="font-bold text-luxedark font-sans">${item.tarih}</span>
+            <span class="px-2 py-0.5 rounded-md bg-neutral-200 font-semibold">${item.saat}</span>
+            <span class="font-medium text-luxedark">${item.ad_soyad}</span>
+            <span class="text-neutral-500 hidden sm:inline">(${item.islem || '-'})</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-neutral-500 font-sans text-[11px]">${item.telefon || ''}</span>
+            <button 
+              type="button" 
+              onclick="iptalEt('${item.id}', '${item.saat}', '${item.ad_soyad}')"
+              class="text-rose-600 hover:text-rose-800 p-1 cursor-pointer"
+              title="Sil"
+            >
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function handleSearch(query) {
+      const q = query.toLowerCase().trim();
+      if (!q) {
+        renderAllAppointments(tumRandevular);
+        return;
+      }
+
+      const filtered = tumRandevular.filter(r => {
+        return (r.ad_soyad && r.ad_soyad.toLowerCase().includes(q)) ||
+               (r.telefon && r.telefon.toLowerCase().includes(q)) ||
+               (r.islem && r.islem.toLowerCase().includes(q)) ||
+               (r.tarih && r.tarih.includes(q));
+      });
+
+      renderAllAppointments(filtered);
+    }
+
+    /**
+     * Toast Bildirim Gösterici
+     */
+    function showToast(msg, isError = false) {
+      const toast = document.getElementById('toastNotice');
+      const text = document.getElementById('toastMsg');
+      if (toast && text) {
+        text.textContent = msg;
+        toast.className = isError 
+          ? 'p-4 rounded-2xl bg-rose-900 text-creambg text-xs flex items-center justify-between shadow-lg'
+          : 'p-4 rounded-2xl bg-emerald-900 text-creambg text-xs flex items-center justify-between shadow-lg';
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 3500);
+      }
+    }
+  </script>
+
+</body>
+</html>
